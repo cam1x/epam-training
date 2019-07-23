@@ -3,7 +3,6 @@ package by.epam.course.oopbasic.flower;
 public class BouquetTest {
 
     public static void main(String[] args) {
-
        Bouquet bouquet=new Bouquet();
 
        bouquet.addRandomFlower(3);//Добавляем 3 цветка случайного типа

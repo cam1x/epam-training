@@ -22,7 +22,6 @@ public class MyFile {
     private File file;
 
     public MyFile(){
-
         this.directory =new Directory();
         fileName="file";
         expansion="exe";
@@ -30,7 +29,6 @@ public class MyFile {
     }
 
     public MyFile(String path,String fileName){
-
         setDirectory(path);
         setFileName(fileName);
         expansion="exe";
@@ -38,7 +36,6 @@ public class MyFile {
     }
 
     public MyFile(String path,String fileName,String expansion){
-
         setDirectory(path);
         setFileName(fileName);
         setExpansion(expansion);
@@ -46,7 +43,6 @@ public class MyFile {
     }
 
     public void setExpansion(String expansion){
-
         if(expansion!=null && !expansion.isEmpty()) {
             this.expansion = expansion;
             file = new File(directory.getDirectory(), fileName + "." + expansion);
@@ -54,7 +50,6 @@ public class MyFile {
     }
 
     public void setFileName(String fileName){
-
         if(fileName!=null && !fileName.isEmpty()) {
             this.fileName = fileName;
             file = new File(directory.getDirectory(), fileName + "." + expansion);
@@ -62,7 +57,6 @@ public class MyFile {
     }
 
     public void setDirectory(String path){
-
         if(path!=null && !path.isEmpty()) {
             directory.setDirectory(path);
             file = new File(directory.getDirectory(), fileName + "." + expansion);
@@ -70,32 +64,26 @@ public class MyFile {
     }
 
     public File getFile(){
-
         return file;
     }
 
     public String getFileName(){
-
         return fileName;
     }
 
     public String getExpansion(){
-
         return expansion;
     }
 
     public String getDirectory(){
-
         return directory.toString();
     }
 
     public boolean isExists(){
-
         return file.isFile();
     }
 
     public boolean create(){
-
         if(!isExists()){
             if(!directory.isExists()){
                 directory.create();
@@ -112,7 +100,6 @@ public class MyFile {
     }
 
     public boolean delete(){
-
         if(isExists()){
             return file.delete();
         }else{
@@ -121,7 +108,6 @@ public class MyFile {
     }
 
     public boolean rename(String name){
-
         File newFile=new File(directory.getDirectory(),name+"."+expansion);
 
         boolean isRenamed=false;
@@ -138,19 +124,16 @@ public class MyFile {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return directory.toString()+"//"+fileName+"."+expansion;
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -167,7 +150,6 @@ public class MyFile {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

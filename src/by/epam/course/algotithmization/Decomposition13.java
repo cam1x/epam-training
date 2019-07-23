@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition13 {
 
     public static boolean isPrime(final int NUM) {
-
         boolean prime;
         if(NUM<=1) prime=false;
         else {
@@ -29,12 +28,10 @@ public class Decomposition13 {
     }
 
     public static boolean isTwinNumbers(int num1,int num2){
-
         return isPrime(num1)&&isPrime(num2)&&Math.abs(num1-num2)==2;
     }
 
     public static void printTwinNumbers(int startNumber,int endNumber){
-
         if(startNumber<endNumber) {
             for (int i = startNumber; i <= endNumber - 2; i++) {
                 if (isTwinNumbers(i, i + 2)) {
@@ -45,7 +42,6 @@ public class Decomposition13 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

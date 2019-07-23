@@ -11,7 +11,6 @@ import java.util.*;
 public class Sort7 {
 
     public static int[] insertIntoArrAnotherArr(int[]arrReceiver, int[] arrSource) {
-
         int[] arrOfIndexesToInsert= new int[arrSource.length];
 
         for(int i=0;i<arrSource.length;i++){
@@ -23,7 +22,6 @@ public class Sort7 {
     }
 
     public static int binarySearchOfIndexToInsert(int[]array,final int NUM){
-
         int firstIndex=0;
         int lastIndex=array.length-1;
         int middleIndex=0;
@@ -55,7 +53,6 @@ public class Sort7 {
     }
 
     public static int[] generateIntArray(final int SIZE) {
-
         if(SIZE>0) {
             int[] arr = new int[SIZE];
             for (int i = 0; i < SIZE; i++) {
@@ -71,7 +68,6 @@ public class Sort7 {
     }
 
     public static void exchangeSort(int[] array){
-
         for(int i=0;i<array.length-1;i++){
             for(int j=0;j<array.length-1-i;j++){
                 if(array[j]>array[j+1]){
@@ -82,14 +78,12 @@ public class Sort7 {
     }
 
     public static void swapTwoArrayElements(int[]array,final int INDEX1,final int INDEX2){
-
         int time=array[INDEX1];
         array[INDEX1]=array[INDEX2];
         array[INDEX2]=time;
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -97,7 +91,6 @@ public class Sort7 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

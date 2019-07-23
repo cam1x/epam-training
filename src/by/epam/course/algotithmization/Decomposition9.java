@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition9 {
 
     public static double calcSquareOfRightTriangle(double cathetus1,double cathetus2){
-
         double square;
 
         if(cathetus1>0 && cathetus2>0) {
@@ -22,7 +21,6 @@ public class Decomposition9 {
     }
 
     public static double calcSquareOfTriangle(double side1, double side2, double side3){
-
         double square;
 
         boolean triangleExist=isTriangleExist(side1,side2,side3);
@@ -37,13 +35,11 @@ public class Decomposition9 {
     }
 
     public static boolean isTriangleExist(double side1,double side2,double side3){
-
         boolean triangleExist=(side1<side2+side3) && (side2<side1+side3) && (side3<side1+side2);
         return triangleExist || side1==side2&&side2==side3;
     }
 
     public static double calcSquareOfQuadWithRightAngle(double side1,double side2,double side3,double side4){
-
         double square;
         double squareOfPart1=calcSquareOfRightTriangle(side1,side2);
         double squareOfPart2=calcSquareOfTriangle(Math.sqrt(side1*side1+side2*side2),side3,side4);
@@ -60,7 +56,6 @@ public class Decomposition9 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

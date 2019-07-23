@@ -9,7 +9,6 @@ import java.util.*;
 public class Linear6 {
 
     public static boolean isInShape(double x,double y){
-
         boolean inSpace=false;
 
         if(x>=-2&&x<=2&&y>=0&&y<=4 || x>=-4&&x<=4&&y>=-3&&y<=0) {
@@ -24,7 +23,6 @@ public class Linear6 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

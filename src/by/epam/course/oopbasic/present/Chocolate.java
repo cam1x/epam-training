@@ -7,13 +7,11 @@ package by.epam.course.oopbasic.present;
 public class Chocolate extends MySweet implements Sweet {
 
     public Chocolate(){
-
         super();
         super.setName("шоколад");
     }
 
     public Chocolate(double weight,double price){
-
         super("шоколад",weight,price);
     }
 }

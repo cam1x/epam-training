@@ -5,7 +5,6 @@ import java.util.*;
 public class StateTest {
 
     public static void main(String[] args) {
-
         try {
             State state = new State("Беларусь", "Минск");
             Scanner scanner = new Scanner(System.in);

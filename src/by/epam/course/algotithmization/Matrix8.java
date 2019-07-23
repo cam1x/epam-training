@@ -9,7 +9,6 @@ import java.util.*;
 public class Matrix8 {
 
     public static void printMatrix(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 System.out.print(matrix[i][j]+" ");
@@ -19,7 +18,6 @@ public class Matrix8 {
     }
 
     public static void fillMatrixRandom(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for (int j=0;j<matrix[i].length;j++){
                 matrix[i][j]=(int)(Math.random()*101-51);
@@ -28,7 +26,6 @@ public class Matrix8 {
     }
 
     public static void swapColumns(int[][] matrix,int col1,int col2){
-
         if(col1>matrix[0].length || col2>matrix[0].length || col1<=0 ||col2<=0) {
             throw new IllegalArgumentException("Введены неверные номера столбцов!");
         }
@@ -43,7 +40,6 @@ public class Matrix8 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

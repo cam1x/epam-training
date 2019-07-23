@@ -15,27 +15,23 @@ public class Train {
     private String timeOfAppointment;
 
     public Train(){
-
         destination="not defined";
         timeOfAppointment="00:00:00";
     }
 
     public Train(String destination,int trainNumber,String timeOfAppointment){
-
         setDestination(destination);
         setTrainNumber(trainNumber);
         setTimeOfAppointment(timeOfAppointment);
     }
 
     public void setDestination(String destination){
-
         if(destination!=null && !destination.isEmpty()) {
             this.destination = destination;
         }
     }
 
     public void setTrainNumber(int trainNumber){
-
         if(trainNumber>0) {
             this.trainNumber = trainNumber;
         }
@@ -43,7 +39,6 @@ public class Train {
 
     //Время установится только, если в переданной строке верен формат и значение времени
     public void setTimeOfAppointment(String timeOfAppointment){
-
         if(timeOfAppointment!=null && !timeOfAppointment.isEmpty()) {
             if (isCorrectTime(timeOfAppointment)) {
                 this.timeOfAppointment = timeOfAppointment;
@@ -54,34 +49,28 @@ public class Train {
     }
 
     public String getDestination(){
-
         return destination;
     }
 
     public int getTrainNumber(){
-
         return trainNumber;
     }
 
     public String getTimeOfAppointment(){
-
         return timeOfAppointment;
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %5s %8s",destination,Integer.toString(trainNumber),timeOfAppointment);
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -98,7 +87,6 @@ public class Train {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -110,7 +98,6 @@ public class Train {
     }
 
     private boolean isCorrectTime(String time) {
-
         Pattern timePat = Pattern.compile("[0-9]{2}[.:-][0-9]{2}");
         Matcher timeMat = timePat.matcher(time);
 

@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition11 {
 
     public static int getNumOfDigits(int num){
-
         int size=0;
 
         while(num>0){
@@ -22,7 +21,6 @@ public class Decomposition11 {
     //Возвращает число, в котором больше цифр.
     //Если в числах одинаковое число цифр, то возвращает первое число.
     public static int hasMoreDigits(int num1,int num2){
-
         int hasMoreDigits;
         if(getNumOfDigits(num1)>=getNumOfDigits(num2)){
             hasMoreDigits = num1;
@@ -34,7 +32,6 @@ public class Decomposition11 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

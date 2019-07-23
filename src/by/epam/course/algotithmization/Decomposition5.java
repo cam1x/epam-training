@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition5 {
 
     public static int findSecondLargest(int[] arr){
-
         if(arr.length<2){
             throw new IllegalArgumentException("Массив должен состоять, как минимум, из двух элементов!");
         }
@@ -32,14 +31,12 @@ public class Decomposition5 {
     }
 
     public static void fillArray(int []array){
-
         for(int i=0;i<array.length;i++){
             array[i]=(int)(Math.random()*41-20);
         }
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -47,7 +44,6 @@ public class Decomposition5 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Введите размер массива:");

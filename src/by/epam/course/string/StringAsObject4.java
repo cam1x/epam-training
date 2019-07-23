@@ -8,7 +8,6 @@ package by.epam.course.string;
 public class StringAsObject4 {
 
     public static void main(String[] args){
-
         String word1="информатика";
         String word2=new String();
         StringBuilder buff=new StringBuilder();

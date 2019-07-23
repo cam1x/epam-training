@@ -10,7 +10,6 @@ public class Decomposition14 {
 
     //Вычисляет a^b
     public static int power(int a, int b){
-
         int result = 1;
         for (int i=1; i<=b; i++){
             result*=a;
@@ -20,12 +19,10 @@ public class Decomposition14 {
     }
 
     public static int getNthDigit(int number, int n) {
-
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
     public static int getNumOfDigits(int num){
-
         int size=0;
 
         while(num>0){
@@ -37,7 +34,6 @@ public class Decomposition14 {
     }
 
     public static boolean isArmstrongNumber(int num){
-
         int sum=0;
         int numOfDigits=getNumOfDigits(num);
         for(int i=1;i<=numOfDigits;i++){
@@ -48,7 +44,6 @@ public class Decomposition14 {
     }
 
     public static void printArmstrongNumbers(final int END_OF_GAP){
-
         for(int i=1;i<=END_OF_GAP;i++){
             if(isArmstrongNumber(i)){
                 System.out.print(i+" ");
@@ -57,7 +52,6 @@ public class Decomposition14 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

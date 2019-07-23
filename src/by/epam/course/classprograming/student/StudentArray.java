@@ -13,7 +13,6 @@ public class StudentArray {
     private Student[] arrayOfStudents;
 
     public StudentArray(int size){
-
         if(size>0) {
             arrayOfStudents = new Student[size];
             for (int i = 0; i < size; i++) {
@@ -23,12 +22,10 @@ public class StudentArray {
     }
 
     public StudentArray(Student[] arr){
-
         setArrayOfStudents(arr);
     }
 
     public void setArrayOfStudents(Student[] arr){
-
         if(arr!=null) {
             arrayOfStudents = new Student[arr.length];
             for (int i = 0; i < arr.length; i++) {
@@ -38,7 +35,6 @@ public class StudentArray {
     }
 
     public Student getStudent(int index){
-
         if(index>=0 && index<getSize()){
             return arrayOfStudents[index];
         }else{
@@ -47,12 +43,10 @@ public class StudentArray {
     }
 
     public Student[] getArrayOfStudents(){
-
         return arrayOfStudents;
     }
 
     public int getSize(){
-
         if(arrayOfStudents!=null) {
             return arrayOfStudents.length;
         }else{
@@ -62,7 +56,6 @@ public class StudentArray {
 
     //Возвращает число отличников в массиве студентов
     public int getNumOfHonorPupils(){
-
         if(arrayOfStudents==null){
             throw new IllegalArgumentException("Студенты отсутствуют! (null)");
         }
@@ -83,7 +76,6 @@ public class StudentArray {
     Если таковые отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public StudentArray getHonorPupil(){
-
         int numOfHonor=getNumOfHonorPupils();
 
         if(numOfHonor>0){
@@ -106,7 +98,6 @@ public class StudentArray {
     }
 
     public void addStudent(Student student){
-
         if(student!=null) {
             Student[] newStudents = new Student[getSize() + 1];
 
@@ -120,7 +111,6 @@ public class StudentArray {
     }
 
     public void deleteStudent(Student student){
-
         if(student==null){
             throw new IllegalArgumentException("Неверный аргумента (null)!");
         }
@@ -146,7 +136,6 @@ public class StudentArray {
     }
 
     public void deleteStudent(int index){
-
         if(index>=0 && index<getSize()){
             Student[] newStudents=new Student[getSize()-1];
             for(int i=0,j=0;i<getSize();i++){
@@ -160,13 +149,11 @@ public class StudentArray {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         if(arrayOfStudents!=null) {
             String string = new String();
             for (Student student : arrayOfStudents) {
@@ -181,7 +168,6 @@ public class StudentArray {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -205,7 +191,6 @@ public class StudentArray {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

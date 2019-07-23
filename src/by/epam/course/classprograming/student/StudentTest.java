@@ -5,7 +5,6 @@ import java.util.*;
 public class StudentTest {
 
     public static void input(StudentArray studentArray){
-
         try {
             Student student;
             Scanner scanner = new Scanner(System.in);
@@ -29,7 +28,6 @@ public class StudentTest {
     }
 
     public static void main(String[] args){
-
         try {
             Scanner scanner = new Scanner(System.in);
 

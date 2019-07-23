@@ -9,7 +9,6 @@ import java.util.*;
 public class Cycle8 {
 
     public static void printTheSameDigits(int num1,int num2){
-
         int digits[];
         digits=new int[10];/*Массив цифр.
             Если в ячейке с индексом idx установлен 0,
@@ -55,7 +54,6 @@ public class Cycle8 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

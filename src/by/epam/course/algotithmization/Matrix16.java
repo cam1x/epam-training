@@ -9,7 +9,6 @@ import java.util.*;
 public class Matrix16 {
 
     public static void swapTwoArrayElements(int[]array,final int INDEX1,final int INDEX2){
-
         int time=array[INDEX1];
         array[INDEX1]=array[INDEX2];
         array[INDEX2]=time;
@@ -38,7 +37,6 @@ public class Matrix16 {
     }
 
     public static boolean isMagic(int[] array) {
-
         boolean isMagic=true;
         final int SIZE=(int)(Math.sqrt(array.length));
 
@@ -88,7 +86,6 @@ public class Matrix16 {
     }
 
     public static void outputArrayAsMatrix(int[]array){
-
         final int SIZE=(int)Math.sqrt(array.length);
         for(int i=0;i<array.length;i++){
             if(i%SIZE==0) {
@@ -100,7 +97,6 @@ public class Matrix16 {
     }
 
     public static void generateMagic(final int SIZE){
-
         if(SIZE<=0){
             throw new IllegalArgumentException("Порядок должен быть положительным!");
         }
@@ -124,7 +120,6 @@ public class Matrix16 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Введите порядок магического квадрата: ");

@@ -16,7 +16,6 @@ public class BookArray {
     private Book[] arrayOfBooks;
 
     public BookArray(int size){
-
         if(size>0) {
             arrayOfBooks = new Book[size];
 
@@ -27,12 +26,10 @@ public class BookArray {
     }
 
     public BookArray(Book[] array){
-
         setArrayOfBooks(array);
     }
 
     public void setArrayOfBooks(Book[] array){
-
         if(array!=null) {
             arrayOfBooks = new Book[array.length];
 
@@ -43,12 +40,10 @@ public class BookArray {
     }
 
     public Book[] getArrayOfBooks(){
-
         return arrayOfBooks;
     }
 
     public Book getBook(int index){
-
         if(index>=0 && index<getSize()){
             return arrayOfBooks[index];
         }else{
@@ -57,7 +52,6 @@ public class BookArray {
     }
 
     public int getSize(){
-
         if(arrayOfBooks!=null) {
             return arrayOfBooks.length;
         } else{
@@ -66,12 +60,10 @@ public class BookArray {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     public void addBook(Book book){
-
         if(book!=null) {
             Book[] newBooks = new Book[getSize() + 1];
 
@@ -85,7 +77,6 @@ public class BookArray {
     }
 
     public void deleteBook(Book book){
-
         if(book==null){
             throw new IllegalArgumentException("Неверный аргумент (null)!");
         }
@@ -113,7 +104,6 @@ public class BookArray {
     }
 
     public void deleteBook(int index){
-
         if(index>=0 && index<getSize()){
             Book[] newBooks=new Book[getSize()-1];
 
@@ -133,7 +123,6 @@ public class BookArray {
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public BookArray getBooksOfAuthor(String author){
-
         if(arrayOfBooks==null){
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
@@ -170,7 +159,6 @@ public class BookArray {
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public BookArray getBooksOfPublishing(String publishingHouse){
-
         if(arrayOfBooks==null){
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
@@ -207,7 +195,6 @@ public class BookArray {
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public BookArray getBooksFromYear(int year){
-
         if(arrayOfBooks==null){
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
@@ -242,7 +229,6 @@ public class BookArray {
 
     @Override
     public String toString(){
-
         if(arrayOfBooks!=null) {
             String string = new String();
 
@@ -258,7 +244,6 @@ public class BookArray {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -282,7 +267,6 @@ public class BookArray {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

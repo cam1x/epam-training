@@ -7,7 +7,6 @@ package by.epam.course.algotithmization;
 public class Sort2 {
 
     public static int[] combineTwoSequences(int[] arr1,int[] arr2){
-
         int[] combinedArray=new int[arr1.length+arr2.length];
 
         int indexOfArray1=0;
@@ -58,7 +57,6 @@ public class Sort2 {
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -66,7 +64,6 @@ public class Sort2 {
     }
 
     public static void main(String[] args) {
-
         int arr1[]={1,3,5,7,8,10,15,21};
         int arr2[]={2,3,4,5,11,14,15,22,29};
 

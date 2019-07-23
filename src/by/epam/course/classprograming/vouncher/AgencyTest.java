@@ -5,7 +5,6 @@ import java.util.*;
 public class AgencyTest {
 
     public static void input(TravelAgency offers){
-
         try {
             Scanner scanner = new Scanner(System.in);
             TravelVouncher vouncher;
@@ -27,7 +26,6 @@ public class AgencyTest {
     }
 
     public static void main(String[] args) {
-
         TravelVouncher.info();
 
         try {

@@ -11,7 +11,6 @@ import java.util.*;
 public class Cycle5 {
 
     public static double calculate(double eps){
-
         double sum=0.83;//Первый член ряда (1/2+1/3)
 
         if(sum<eps) {
@@ -37,7 +36,6 @@ public class Cycle5 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Input e (e>0):");

@@ -19,14 +19,12 @@ public class Airline {
     private int[] days=new int[7];//бинарный массив, где 1 в i-ой позиции означает, что рейс запланирован (i+1) день
 
     public Airline(){
-
         destination="not defined";
         planeType=Plane.PASSENGER;
         timeOfAppointment="00:00";
     }
 
     public Airline(String destination,int flightNumber,Plane planeType,String timeOfAppointment,String days){
-
         setDestination(destination);
         setFlightNumber(flightNumber);
         setPlaneType(planeType);
@@ -36,7 +34,6 @@ public class Airline {
 
     //Время установится только, если в переданной строке верен формат и значение времени
     public void setTimeOfAppointment(String timeOfAppointment){
-
        if(isCorrectTime(timeOfAppointment) && timeOfAppointment!=null){
            this.timeOfAppointment=timeOfAppointment;
        }else{
@@ -46,7 +43,6 @@ public class Airline {
 
     //Установить 1 в бинарный массив, если найден соотв. день недели
     public void setDays(String days){
-
         if(days!=null && !days.isEmpty()) {
             days = days.toLowerCase();
 
@@ -75,41 +71,34 @@ public class Airline {
     }
 
     public void setDestination(String destination){
-
         if(destination!=null && !destination.isEmpty()) {
             this.destination = destination;
         }
     }
 
     public void setFlightNumber(int flightNumber){
-
         if(flightNumber>0) {
             this.flightNumber = flightNumber;
         }
     }
 
     public void setPlaneType(Plane planeType){
-
         this.planeType=planeType;
     }
 
     public int getFlightNumber(){
-
         return flightNumber;
     }
 
     public String getDestination(){
-
         return destination;
     }
 
     public String getTimeOfAppointment(){
-
         return timeOfAppointment;
     }
 
     public String getDays(){
-
         String string=new String();
 
         if(days[0]==1){
@@ -144,25 +133,21 @@ public class Airline {
     }
 
     public Plane getPlaneType(){
-
         return planeType;
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %10s %10s %15s %35s",destination, Integer.toString(flightNumber),
                 planeType.toString(), timeOfAppointment, getDays());
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -179,7 +164,6 @@ public class Airline {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -194,7 +178,6 @@ public class Airline {
 
     //Проверка на корректность хранящегося в строке времени: формат и допустимость значений.
     private boolean isCorrectTime(String time){
-
         Pattern timePat= Pattern.compile("[0-9]{2}[.:-][0-9]{2}");
         Matcher timeMat=timePat.matcher(time);
 

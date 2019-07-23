@@ -19,14 +19,12 @@ public class TravelVouncher {
     private boolean isSelected;
 
     public TravelVouncher(){
-
         transport="без транспорта";
         type="смешанный тип";
         food="без питания";
     }
 
     public TravelVouncher(int typeChoise,int foodChoice,int transportChoice,int numOfDays,double cost){
-
         setNumOfDays(numOfDays);
         setCost(cost);
         setFood(foodChoice);
@@ -35,21 +33,18 @@ public class TravelVouncher {
     }
 
     public void setNumOfDays(int days){
-
         if(days>0){
             this.numOfDays=days;
         }
     }
 
     public void setCost(double cost){
-
         if(cost>0){
             this.cost=cost;
         }
     }
 
     public void setFood(int choice){
-
         switch (choice){
             case 1:{
                 food="все включено";
@@ -78,7 +73,6 @@ public class TravelVouncher {
     }
 
     public void setTransport(int choice){
-
         switch (choice){
             case 1:{
                 transport="самолет";
@@ -107,7 +101,6 @@ public class TravelVouncher {
     }
 
     public void setType(int choice){
-
         switch (choice){
             case 1:{
                 type="отдых";
@@ -141,59 +134,48 @@ public class TravelVouncher {
     }
 
     public int getNumOfDays(){
-
         return numOfDays;
     }
 
     public double getCost(){
-
         return cost;
     }
 
     public String getFood(){
-
         return food;
     }
 
     public String getTransport(){
-
         return transport;
     }
 
     public String getType(){
-
         return type;
     }
 
     public boolean isSelected(){
-
         return isSelected;
     }
 
     public void select(){
-
         isSelected=true;
     }
 
     public void deselect(){
-
         isSelected=false;
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %20s %20s %5s %7s %10s",type,food,transport,Integer.toString(numOfDays),Double.toString(cost),isSelected? "выбрана":"");
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -210,7 +192,6 @@ public class TravelVouncher {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -224,7 +205,6 @@ public class TravelVouncher {
     }
 
     public static void info(){
-
         System.out.println("*******************************ИНФОРМАЦИЯ********************************");
         System.out.println("\n\t\tПитание");
         System.out.println("1 - все включено");

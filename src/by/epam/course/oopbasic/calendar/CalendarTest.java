@@ -5,7 +5,6 @@ import java.util.*;
 public class CalendarTest {
 
     public static void main(String[] args){
-
         try {
             Calendar calendar = new Calendar();
             Scanner scanner = new Scanner(System.in);

@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class StringAsArray5 {
 
     public static String removeExtraSpaces(String string){
-
         String buff=new String();
         boolean prevSpace=true;
 
@@ -35,7 +34,6 @@ public class StringAsArray5 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

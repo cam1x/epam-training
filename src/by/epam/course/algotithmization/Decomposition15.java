@@ -10,12 +10,10 @@ import java.util.*;
 public class Decomposition15 {
 
     public static int getNthDigit(int number, int n) {
-
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
     public static int getNumOfDigits(int num){
-
         int size=0;
 
         while(num>0){
@@ -28,7 +26,6 @@ public class Decomposition15 {
 
     //Проверяет образуют ли цифры числа возр. последовательность
     public static boolean isIncSequenceOfDigits(int num){
-
         boolean isIncSequence=true;
         int numOfDigits=getNumOfDigits(num);
 
@@ -44,7 +41,6 @@ public class Decomposition15 {
     }
 
     public static void printNumbersWithIncSequence(int n){
-
         int startNum=(int)Math.pow(10,n-1);
         int endNum=(int)Math.pow(10,n)-1;
         int numOfPrintedInLine=0;
@@ -63,7 +59,6 @@ public class Decomposition15 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

@@ -17,7 +17,6 @@ public class RegEx2 {
 
     //Запись текста из файла в одну строку
     public static String readInString(String path)throws FileNotFoundException {
-
         File file=new File(path);
         Scanner scanner=new Scanner(file);
 
@@ -32,7 +31,6 @@ public class RegEx2 {
     }
 
     public static void readInFile(String string,String path) throws IOException {
-
         File file = new File(path);
 
         if(!file.exists() || file.isDirectory()) {
@@ -51,14 +49,12 @@ public class RegEx2 {
 
     //Очистка данных в файле по заданному пути
     public static void cleanFile(String path)throws IOException{
-
         FileWriter cleaner=new FileWriter(path);
         cleaner.close();
     }
 
     //Получить закрывающий тег по "названию" тега
     public static String getClosingTag(String tag){
-
         if (tag == null || tag.isEmpty()) {
             return "";
         }
@@ -75,7 +71,6 @@ public class RegEx2 {
 
     //Число открывающих тегов в строке
     public static int getNumOfOpeningTags(String string){
-
         int num=0;
         Pattern openingTagPat= Pattern.compile("<[^/!].+?>");
         Matcher openingTagMathcer=openingTagPat.matcher(string);
@@ -89,7 +84,6 @@ public class RegEx2 {
 
     //Число закрывающих тегов в строке
     public static int getNumOfClosingTags(String string){
-
         int num=0;
         Pattern closingTagPat= Pattern.compile("</.+?>");
         Matcher closingTagMathcer=closingTagPat.matcher(string);
@@ -103,7 +97,6 @@ public class RegEx2 {
 
     //Проверяет равно ли число откр тегов числу закр тегов
     public static boolean isRightNumberOfTags(String document){
-
         return getNumOfOpeningTags(document)==getNumOfClosingTags(document);
     }
 
@@ -117,7 +110,6 @@ public class RegEx2 {
     6) если рассмотренный открывающи тег не был последним, то выполнить 2)-5), в противном случае анализ окончен.
      */
     public static void analyzeXML(String document,String outputPath)throws IOException {
-
         Pattern openingTagPat = Pattern.compile("<[^/!].+?>");
         Matcher openingTagMatсher = openingTagPat.matcher(document);
 
@@ -195,7 +187,6 @@ public class RegEx2 {
     }
 
     public static void main(String[] args){
-
         String line=new String();
         Scanner scanner=new Scanner(System.in);
 

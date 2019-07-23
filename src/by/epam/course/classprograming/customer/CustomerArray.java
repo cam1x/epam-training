@@ -14,7 +14,6 @@ public class CustomerArray {
     private Customer[] arrOfCustomers;
 
     public CustomerArray(int size){
-
         if(size>0) {
             arrOfCustomers = new Customer[size];
             for (int i = 0; i < size; i++) {
@@ -24,12 +23,10 @@ public class CustomerArray {
     }
 
     public CustomerArray(Customer[] array){
-
         setArrOfCustomers(array);
     }
 
     public void setArrOfCustomers(Customer[] array){
-
         if(array!=null) {
             arrOfCustomers = new Customer[array.length];
             for (int i = 0; i < array.length; i++) {
@@ -39,12 +36,10 @@ public class CustomerArray {
     }
 
     public Customer[] getArrOfCustomers(){
-
         return arrOfCustomers;
     }
 
     public Customer getCustomer(int index){
-
         if(index>=0 && index<getSize()){
             return arrOfCustomers[index];
         }else{
@@ -53,7 +48,6 @@ public class CustomerArray {
     }
 
     public int getSize(){
-
         if(arrOfCustomers!=null) {
             return arrOfCustomers.length;
         } else{
@@ -62,12 +56,10 @@ public class CustomerArray {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     public void addCustomer(Customer customer){
-
         if(customer!=null) {
             Customer[] newCustomers = new Customer[getSize() + 1];
             for (int i = 0; i < getSize(); i++) {
@@ -80,7 +72,6 @@ public class CustomerArray {
     }
 
     public void deleteCustomer(Customer customer){
-
         if(customer==null){
             throw new IllegalArgumentException("Неверный аргумент (null)!");
         }
@@ -108,7 +99,6 @@ public class CustomerArray {
     }
 
     public void deleteCustomer(int index){
-
         if(index>=0 && index<getSize()){
             Customer[] newCustomers=new Customer[getSize()-1];
             for(int i=0,j=0;i<getSize();i++){
@@ -126,7 +116,6 @@ public class CustomerArray {
     Отсортировать покупателей в алфавитном порядке.
      */
     public void sortAlphabet(){
-
         if(arrOfCustomers==null){
             throw new IllegalArgumentException("Покупатели отсутствуют! (null)");
         }
@@ -151,7 +140,6 @@ public class CustomerArray {
     Если таковые отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public CustomerArray getCustombersByCredit(int startOfMerge,int endOfMerge) {
-
         if(arrOfCustomers==null){
             throw new IllegalArgumentException("Покупатели отсутствуют! (null)");
         }
@@ -188,7 +176,6 @@ public class CustomerArray {
 
     @Override
     public String toString(){
-
         if(arrOfCustomers!=null) {
             String res = new String();
             for (Customer customer : arrOfCustomers) {
@@ -204,7 +191,6 @@ public class CustomerArray {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -228,7 +214,6 @@ public class CustomerArray {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -241,7 +226,6 @@ public class CustomerArray {
 
     //Меняет местами два элемента массива покупателей
     private void swap(int index1,int index2){
-
         if(index1>=0 && index1<arrOfCustomers.length && index2>=0 && index2< arrOfCustomers.length) {
             Customer time = arrOfCustomers[index1];
             arrOfCustomers[index1] = arrOfCustomers[index2];

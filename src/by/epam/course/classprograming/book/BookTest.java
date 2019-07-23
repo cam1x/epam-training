@@ -5,7 +5,6 @@ import java.util.*;
 public class BookTest {
 
     public static void input(BookArray bookArray){
-
         try{
             Scanner scanner=new Scanner(System.in);
 
@@ -33,9 +32,7 @@ public class BookTest {
     }
 
     public static void main(String[] args){
-
         try{
-
             Scanner scanner=new Scanner(System.in);
 
             scanner.useDelimiter(";");

@@ -10,7 +10,6 @@ import java.util.*;
 public class Array7 {
 
     public static void fillArrayRandom(double [] arr){
-
         for(int i=0;i<arr.length;i++){
             arr[i]=Math.random()*101-51;
             arr[i]=(double)Math.round(arr[i]*100d)/100d;
@@ -18,7 +17,6 @@ public class Array7 {
     }
 
     public static double[] createArray(int size){
-
         if(size>0){
             return new double[size];
         }else{
@@ -27,14 +25,12 @@ public class Array7 {
     }
 
     public static void printArray(double[] arr){
-
         for(double el:arr){
             System.out.print(el+" ");
         }
     }
 
     public static double getSpecialMax(double[] arr){
-
         double max=arr[0]+arr[arr.length-1];
         double temp;
 
@@ -49,7 +45,6 @@ public class Array7 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

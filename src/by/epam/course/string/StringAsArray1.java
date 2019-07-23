@@ -7,12 +7,10 @@ package by.epam.course.string;
 public class StringAsArray1 {
 
     public static boolean isLowerCase(char ch){
-
         return ch>='a'&&ch<='z';
     }
 
     public static char toLowerCase(char ch){
-
         if(ch>='A'&&ch<='Z'){
             ch-='A'-'a';
         }
@@ -20,12 +18,10 @@ public class StringAsArray1 {
     }
 
     public static boolean isDigit(char ch){
-
         return ch>='1'&&ch<='9';
     }
 
     public static String[] fromCamelToSnakeCase(String[] strings){
-
         String buff=new String();
         for(int i=0;i<strings.length;i++){
             for(int j=0;j<strings[i].length();j++){
@@ -44,7 +40,6 @@ public class StringAsArray1 {
     }
 
     public static void main(String[] args) {
-
         String name1="myName";
         String name2="oneDay";
         String name3="testOfWorkOfMyApp";

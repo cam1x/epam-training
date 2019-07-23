@@ -3,7 +3,6 @@ package by.epam.course.oopbasic.file;
 public class FileTest {
 
     public static void main(String[] args){
-
         TextFile file=new TextFile();
 
         file.setDirectory("F:\\Проекты");

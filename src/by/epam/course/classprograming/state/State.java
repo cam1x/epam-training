@@ -25,18 +25,15 @@ public class State {
     private double area=1000;
 
     public State(){
-
         state="state";
         capital=new City("capital");
     }
 
     public State(String state,String city){
-
         setState(state, city);
     }
 
     public void setState(String state,String city){
-
         if(state!=null && !state.isEmpty()) {
             this.state = state;
         }
@@ -44,27 +41,23 @@ public class State {
     }
 
     public void setState(String state,String city,double area){
-
         setState(state, city);
         setArea(area);
     }
 
     public void setArea(double area){
-
         if(area>0){
             this.area=area;
         }
     }
 
     public void setCenter(String center,int index){
-
         if(index>=0 && index<getNumOfRegions()){
             regions[index].setCenter(center);
         }
     }
 
     public String getCenteres(){
-
         String string=new String();
 
         if(regions!=null){
@@ -79,13 +72,11 @@ public class State {
     }
 
     public double getArea(){
-
         return area;
     }
 
     //Добавить район к области с индексом index в данном государстве
     public void addDistrict(String region,int index){
-
         if(index>=0 && index<getNumOfRegions()){
             getNthRegion(index).addDistrict(region);
         }
@@ -93,7 +84,6 @@ public class State {
 
     //Добавить город к последнему району в области с индексом indexOfRegion в гос-ве
     public void addCity(String city,int indexOfRegion){
-
         if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
             Region region=getNthRegion(indexOfRegion);
             if(region.getNumOfDistricts()>=1) {
@@ -104,7 +94,6 @@ public class State {
 
     //Удалить город из последнего района в области с индексом indexOfRegion в гос-ве
     public void deleteCity(String city,int indexOfRegion){
-
         if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
             Region region=getNthRegion(indexOfRegion);
             if(region.getNumOfDistricts()>=1) {
@@ -115,7 +104,6 @@ public class State {
 
     //Добавить город к району c индексом indexOfDistrict  в области с индексом indexOfRegion в гос-ве
     public void addCity(String city,int indexOfRegion,int indexOfDistrict){
-
         if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
             Region region=getNthRegion(indexOfRegion);
             if(indexOfDistrict>=0 && indexOfDistrict<region.getNumOfDistricts()) {
@@ -126,7 +114,6 @@ public class State {
 
     //Удалить город из района c индексом indexOfDistrict  в области с индексом indexOfRegion в гос-ве
     public void deleteCity(String city,int indexOfRegion,int indexOfDistrict){
-
         if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
             Region region=getNthRegion(indexOfRegion);
             if(indexOfDistrict>=0 && indexOfDistrict<region.getNumOfDistricts()) {
@@ -137,7 +124,6 @@ public class State {
 
     //Удалить район из области с индексом index
     public void deleteDistrict(String region,int index){
-
         if(index>=0 && index<getNumOfRegions()){
             getNthRegion(index).deleteDistrict(region);
         }
@@ -145,7 +131,6 @@ public class State {
 
     //Добавить область
     public void addRegion(String region){
-
         if (region != null && !region.isEmpty()) {
             Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
             Matcher wordMatch = wordPat.matcher(region);
@@ -157,7 +142,6 @@ public class State {
 
     //Удалить область
     public void deleteRegion(String region){
-
         if (region != null && !region.isEmpty()) {
             Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
             Matcher wordMatch = wordPat.matcher(region);
@@ -169,7 +153,6 @@ public class State {
     }
 
     public int getNumOfRegions(){
-
         if(regions!=null){
             return regions.length;
         }else{
@@ -178,13 +161,11 @@ public class State {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string=new String();
         string+=state+" (столица "+capital+")\n";
 
@@ -200,7 +181,6 @@ public class State {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -225,7 +205,6 @@ public class State {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -237,7 +216,6 @@ public class State {
     }
 
     private void addOneRegion(String region){
-
         if(regions!=null){
             Region[] newRegion=new Region[getNumOfRegions()+1];
             for(int i=0;i<getNumOfRegions();i++){
@@ -256,7 +234,6 @@ public class State {
     }
 
     private void deleteOneRegion(String region){
-
         region=region.trim();
         if(region.contains(" ")){
             region=region.substring(0,region.indexOf(" ")).trim();
@@ -285,7 +262,6 @@ public class State {
     }
 
     private Region getNthRegion(int index){
-
         if(index>=0 && index<getNumOfRegions()){
             return regions[index];
         }else{

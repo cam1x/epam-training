@@ -20,38 +20,32 @@ public class Payment {
     }
 
     public Payment(int num){
-
         for(int i=0;i<num;i++){
             products.add(new Product());
         }
     }
 
     public void addProduct(String name,double weight,double price){
-
         products.add(new Product(name,weight,price));
     }
 
     public void setProduct(int index,String name,double weight,double price){
-
         if(index>=0 && price <products.size()) {
             products.set(index, new Product(name, weight, price));
         }
     }
 
     public void deleteProduct(int index){
-
         if(index>=0 && index<products.size()){
             products.remove(index);
         }
     }
 
     public void deleteProduct(String name,double weight,double price){
-
         products.remove(new Product(name,weight,price));
     }
 
     public void sortByPrice(){
-
         Comparator<Product> comparator=Comparator.comparing(Product::getPrice);
         comparator=comparator.thenComparing(Product::getName);
         comparator=comparator.thenComparing(Product::getWeight);
@@ -59,7 +53,6 @@ public class Payment {
     }
 
     public void sortByWeight(){
-
         Comparator<Product> comparator=Comparator.comparing(Product::getWeight);
         comparator=comparator.thenComparing(Product::getPrice);
         comparator=comparator.thenComparing(Product::getName);
@@ -67,7 +60,6 @@ public class Payment {
     }
 
     public void sortByName(){
-
         products.sort(new Comparator<Product>(){
 
             @Override
@@ -79,7 +71,6 @@ public class Payment {
     }
 
     public double getTotalPrice(){
-
         double price=0;
 
         for(Product product:products){
@@ -90,7 +81,6 @@ public class Payment {
     }
 
     public double getTotalWeight(){
-
         double weight=0;
 
         for(Product product:products){
@@ -101,7 +91,6 @@ public class Payment {
     }
 
     public void print(){
-
         System.out.println("\n Общая сумма = "+getTotalPrice());
         System.out.println(" Общий вес = "+getTotalWeight()+"\n");
         System.out.println(toString());
@@ -109,7 +98,6 @@ public class Payment {
 
     @Override
     public String toString(){
-
         String string=new String();
 
         for(int i=0;i<products.size();i++){
@@ -121,7 +109,6 @@ public class Payment {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -146,7 +133,6 @@ public class Payment {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

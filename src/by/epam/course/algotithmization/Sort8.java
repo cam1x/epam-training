@@ -9,7 +9,6 @@ import java.util.*;
 public class Sort8 {
 
     public static void generateFractions(int[] arrayOfNumeretor, int[] arrayOfDenominator){
-
         for(int i=0;i<arrayOfDenominator.length;i++){
             arrayOfNumeretor[i]=(int)(Math.random()*11);
             arrayOfDenominator[i]=(int)(1+Math.random()*25);
@@ -17,14 +16,12 @@ public class Sort8 {
     }
 
     public static void printFractions(int[] arrayOfNumeretor, int[] arrayOfDenominator){
-
         for(int i=0;i<arrayOfDenominator.length;i++){
             System.out.print(arrayOfNumeretor[i]+"/"+arrayOfDenominator[i]+" ");
         }
     }
 
     public static void toCommonDenominator(int[] arrayOfNumeretor, int[] arrayOfDenominator){
-
         int commonDenominator=leastCommonMultiply(arrayOfDenominator);
         for(int i=0;i<arrayOfNumeretor.length;i++){
             arrayOfNumeretor[i]*=commonDenominator/arrayOfDenominator[i];
@@ -34,7 +31,6 @@ public class Sort8 {
     }
 
     public static void exchangeSort(int[] array){
-
         for(int i=0;i<array.length-1;i++){
             for(int j=0;j<array.length-1-i;j++){
                 if(array[j]>array[j+1]){
@@ -45,14 +41,12 @@ public class Sort8 {
     }
 
     public static void swapTwoArrayElements(int[]array,final int INDEX1,final int INDEX2){
-
         int time=array[INDEX1];
         array[INDEX1]=array[INDEX2];
         array[INDEX2]=time;
     }
 
     public static int leastCommonMultiply(int[]array){
-
         int nok=array[0];
         for(int i=1;i<array.length;i++){
             nok=(nok*array[i])/greatesrCommonDevision(nok,array[i]);
@@ -61,7 +55,6 @@ public class Sort8 {
     }
 
     public static int greatesrCommonDevision(int firstNum, int secondNum) {
-
         if(secondNum==0) {
             return Math.abs(firstNum);
         }
@@ -71,7 +64,6 @@ public class Sort8 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

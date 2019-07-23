@@ -9,7 +9,6 @@ import java.util.*;
 public class Matrix1 {
 
     public static void printMatrix(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 System.out.print(matrix[i][j]+" ");
@@ -19,7 +18,6 @@ public class Matrix1 {
     }
 
     public static void printColumns(int[][] matrix){
-
         boolean arrColumnControl[]=new boolean[matrix[0].length];
 
         for(int i=0;i<matrix[0].length;i+=2){
@@ -39,7 +37,6 @@ public class Matrix1 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

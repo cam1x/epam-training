@@ -21,36 +21,30 @@ public class Calendar {
     }
 
     public void addDate(int day,int month,int year){
-
         dates.add(new MyDate(day,month,year));
     }
 
     public void addHoliday(String name,int day,int month,int year){
-
         dates.add(new Holiday(name, day, month, year));
     }
 
     public void addDayOff(int day,int month,int year){
-
         dates.add(new DayOff(day,month,year));
     }
 
     public void deleteDate(int index){
-
         if(index>=0 && index<dates.size()){
             dates.remove(index);
         }
     }
 
     public void getDate(int index){
-
         if(index>=0 && index<dates.size()){
             dates.get(index);
         }
     }
 
     public void sort(){
-
         dates.sort(new Comparator<MyDate>(){
 
             @Override
@@ -61,13 +55,11 @@ public class Calendar {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string=new String();
 
         for(int i=0;i<dates.size();i++){
@@ -79,7 +71,6 @@ public class Calendar {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -103,7 +94,6 @@ public class Calendar {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

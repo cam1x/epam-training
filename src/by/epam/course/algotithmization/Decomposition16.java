@@ -11,12 +11,10 @@ import java.util.*;
 public class Decomposition16 {
 
     public static int getNthDigit(long number, int n) {
-
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
     public static int getNumOfDigits(long num){
-
         int size=0;
 
         while(num>0){
@@ -28,7 +26,6 @@ public class Decomposition16 {
     }
 
     public static boolean hasOnlyOddDigits(int num){
-
         int numOfDigits=getNumOfDigits(num);
         boolean onlyOdd=true;
 
@@ -44,7 +41,6 @@ public class Decomposition16 {
     }
 
     public static long sumOfNumWithOddDigits(int n){
-
         int startNum=(int)Math.pow(10,n-1);
         int endNum=(int)Math.pow(10,n)-1;
         long sum=0;
@@ -59,7 +55,6 @@ public class Decomposition16 {
     }
 
     public static int calcNumOfEven(long num){
-
         int numOfDigits=getNumOfDigits(num);
         int numOfEven=0;
 
@@ -74,7 +69,6 @@ public class Decomposition16 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

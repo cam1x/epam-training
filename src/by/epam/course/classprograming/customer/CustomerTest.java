@@ -5,7 +5,6 @@ import java.util.*;
 public class CustomerTest {
 
     public static void input(CustomerArray customerArray){
-
         try {
             Scanner scanner = new Scanner(System.in);
 
@@ -31,11 +30,9 @@ public class CustomerTest {
         }catch (Exception ex){
             System.out.println("\nОшибка ввода! "+ex.getMessage());
         }
-
     }
 
     public static void main(String[] args){
-
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Количество покупателей:");

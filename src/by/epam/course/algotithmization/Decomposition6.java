@@ -9,12 +9,10 @@ import java.util.*;
 public class Decomposition6 {
 
     public static boolean isMutuallySimple(int num1,int num2,int num3){
-
         return greatestCommonDevision(num1,num2,num3)==1;
     }
 
     public static int greatestCommonDevision(int firstNum, int secondNum) {
-
         if(secondNum==0) {
             return Math.abs(firstNum);
         }
@@ -24,14 +22,12 @@ public class Decomposition6 {
     }
 
     public static int greatestCommonDevision(int firstNum, int secondNum,int thirdNum) {
-
         int gcd=greatestCommonDevision(firstNum, secondNum);
         gcd=greatestCommonDevision(gcd,thirdNum);
         return gcd;
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Введите три числа:");

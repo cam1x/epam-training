@@ -11,7 +11,6 @@ import java.util.*;
 public class Branch5 {
 
     public static double calculate(double x){
-
         double res;
 
         if(x<=3){
@@ -24,7 +23,6 @@ public class Branch5 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

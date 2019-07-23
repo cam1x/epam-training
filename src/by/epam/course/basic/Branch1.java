@@ -10,7 +10,6 @@ import java.util.*;
 public class Branch1 {
 
     public static String analizeTriangle(double ang1, double ang2){
-
         String string;
 
         if (ang1 + ang2 < 180) {
@@ -29,7 +28,6 @@ public class Branch1 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

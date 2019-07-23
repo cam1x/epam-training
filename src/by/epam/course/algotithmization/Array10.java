@@ -10,14 +10,12 @@ import java.util.*;
 public class Array10 {
 
     public static void fillArrayRandom(int [] arr){
-
         for(int i=0;i<arr.length;i++){
             arr[i]=(int)(Math.random()*101-51);
         }
     }
 
     public static int[] createArray(int size){
-
         if(size>0){
             return new int[size];
         }else{
@@ -26,14 +24,12 @@ public class Array10 {
     }
 
     public static void printArray(int[] arr){
-
         for(int el:arr){
             System.out.print(el+" ");
         }
     }
 
     public static void compressArray(int[] arr){
-
         int size=arr.length;
 
         for(int i=1;i<=size/2;i++){
@@ -46,7 +42,6 @@ public class Array10 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

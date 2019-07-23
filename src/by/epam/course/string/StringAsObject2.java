@@ -10,7 +10,6 @@ public class StringAsObject2 {
 
     //Добавляет после каждого символа inputAfter cимвол symbolToInput
     public static String addSymbol(String string,char inputAfter, char symbolToInput){
-
         String newCharSeq=new String();
         newCharSeq+=inputAfter;
         newCharSeq+=symbolToInput;
@@ -22,7 +21,6 @@ public class StringAsObject2 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class StringAsObject3 {
 
     public static boolean isPalindrom(String string){
-
         StringBuilder copyOfString=new StringBuilder(string);
 
         StringBuilder reversedString=new StringBuilder(copyOfString);
@@ -19,7 +18,6 @@ public class StringAsObject3 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
 

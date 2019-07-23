@@ -9,7 +9,6 @@ import java.util.*;
 public class Matrix13 {
 
     public static void printMatrix(double[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 System.out.print(matrix[i][j]+" ");
@@ -19,7 +18,6 @@ public class Matrix13 {
     }
 
     public static void fillMatrixRandom(double[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for (int j=0;j<matrix[i].length;j++){
                 matrix[i][j]=Math.random()*101-51;
@@ -29,7 +27,6 @@ public class Matrix13 {
     }
 
     public static void sortAscending(double[][] matrix){
-
         double temp;
 
         for(int i=0;i<matrix[0].length;i++){
@@ -46,7 +43,6 @@ public class Matrix13 {
     }
 
     public static void sortDescending(double[][] matrix){
-
         double temp;
 
         for(int i=0;i<matrix[0].length;i++){
@@ -63,7 +59,6 @@ public class Matrix13 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

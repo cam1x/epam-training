@@ -20,91 +20,76 @@ public class MyFile {
     private boolean isExists=false;
 
     public MyFile(){
-
         this.directory =new Directory();
         fileName="file";
         expansion="exe";
     }
 
     public MyFile(String path,String fileName){
-
         setDirectory(path);
         rename(fileName);
         expansion="exe";
     }
 
     public MyFile(String path,String fileName,String expansion){
-
         setDirectory(path);
         rename(fileName);
         setExpansion(expansion);
     }
 
     public void setExpansion(String expansion){
-
         if(expansion!=null && !expansion.isEmpty()) {
             this.expansion = expansion;
         }
     }
 
     public void setDirectory(String path){
-
         if(path!=null && !path.isEmpty()) {
             directory.setDirectory(path);
         }
     }
 
     public void rename(String fileName){
-
         if(fileName!=null && !fileName.isEmpty()) {
             this.fileName = fileName;
         }
     }
 
     public String getFileName(){
-
         return fileName;
     }
 
     public String getExpansion(){
-
         return expansion;
     }
 
     public String getDirectory(){
-
         return directory.toString();
     }
 
     public boolean isExists(){
-
         return isExists;
     }
 
     public void delete(){
-
         isExists=false;
     }
 
     public void create(){
-
         isExists=true;
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return directory.toString()+"//"+fileName+"."+expansion+"\t"+((isExists)?"существует":"не существует");
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -121,7 +106,6 @@ public class MyFile {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

@@ -15,39 +15,32 @@ public class Test2 {
     private double secondVar;
 
     public Test2(){
-
         firstVar=0;
         secondVar=0;
     }
 
     public Test2(double value1, double value2){
-
         firstVar=value1;
         secondVar=value2;
     }
 
     public void printVars(){
-
         System.out.println(toString());
     }
 
     public void setVar1(double value){
-
         firstVar=value;
     }
 
     public void setVar2(double value){
-
         secondVar=value;
     }
 
     public double getVar1(){
-
         return firstVar;
     }
 
     public double getVar2(){
-
         return secondVar;
     }
 

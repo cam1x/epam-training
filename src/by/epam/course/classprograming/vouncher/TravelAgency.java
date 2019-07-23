@@ -15,7 +15,6 @@ public class TravelAgency {
     private TravelVouncher[] offers;
 
     public TravelAgency(int number){
-
         if(number>0) {
             offers = new TravelVouncher[number];
             for (int i = 0; i < number; i++) {
@@ -25,12 +24,10 @@ public class TravelAgency {
     }
 
     public TravelAgency(TravelVouncher[] array){
-
         setOffers(array);
     }
 
     public void setOffers(TravelVouncher[] array){
-
         if(array!=null) {
             offers = new TravelVouncher[array.length];
             for (int i = 0; i < array.length; i++) {
@@ -40,17 +37,14 @@ public class TravelAgency {
     }
 
     public int getNumOfVounchers(){
-
         return offers.length;
     }
 
     public TravelVouncher[] getOffers(){
-
         return offers;
     }
 
     public TravelVouncher getVouncher(int index){
-
         if(index>=0 && index<getNumOfVounchers()){
             return offers[index];
         }else{
@@ -60,7 +54,6 @@ public class TravelAgency {
 
 
     public void addVouncher(int typeChoise,int foodChoice,int transportChoice,int numOfDays,double cost){
-
         TravelVouncher[] newVounchers=new TravelVouncher[getNumOfVounchers()+1];
         for(int i=0;i<getNumOfVounchers();i++){
             newVounchers[i]=offers[i];
@@ -71,7 +64,6 @@ public class TravelAgency {
     }
 
     public void deleteVouncher(double cost){
-
         int numOfVounchers=getNumOfVounchers();
 
         for(TravelVouncher vouncher: offers){
@@ -94,7 +86,6 @@ public class TravelAgency {
     }
 
     public void deleteVouncher(int index){
-
         if(index>=0 && index<getNumOfVounchers()){
             int numOfVounchers=getNumOfVounchers()-1;
                 TravelVouncher[] vounchers = new TravelVouncher[numOfVounchers];
@@ -110,14 +101,12 @@ public class TravelAgency {
     }
 
     public void selectVouncher(int index){
-
         if(index>=0 && index<getNumOfVounchers()){
             offers[index].select();
         }
     }
 
     public void deselectVouncher(int index){
-
         if(index>=0 && index<getNumOfVounchers()){
             offers[index].deselect();
         }
@@ -125,7 +114,6 @@ public class TravelAgency {
 
     //Сортирует путевки по цене. Если цены одинаковы, то сортирует по кол-ву дней
     public void sortByPrice(){
-
         for(int i=0;i<getNumOfVounchers()-1;i++){
             for(int j=0;j<getNumOfVounchers()-i-1;j++){
                 if(offers[j].getCost()>offers[j+1].getCost()){
@@ -143,7 +131,6 @@ public class TravelAgency {
 
     //Сортирует по типу путевки. Если тип одинаковый, то сортирует по цене
     public void sortByType(){
-
         int time;
 
         for(int i=0;i<getNumOfVounchers()-1;i++){
@@ -163,7 +150,6 @@ public class TravelAgency {
     }
 
     public void printSelected(){
-
         int num=0;
 
         for(int i=0;i<getNumOfVounchers();i++){
@@ -181,13 +167,11 @@ public class TravelAgency {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string= new String();
 
         for(int i=0;i<getNumOfVounchers();i++){
@@ -199,7 +183,6 @@ public class TravelAgency {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -223,7 +206,6 @@ public class TravelAgency {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

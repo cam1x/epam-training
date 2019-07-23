@@ -10,7 +10,6 @@ import java.util.*;
 public class Linear2 {
 
     public static double calculate(double a,double b,double c){
-
         double time=b*b+4*a*c;
 
         if(time>=0 && a!=0 && b!=0){
@@ -26,7 +25,6 @@ public class Linear2 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

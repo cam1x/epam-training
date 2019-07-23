@@ -10,7 +10,6 @@ import java.util.*;
 public class Linear5 {
 
     public static String normalizeTime(int seconds){
-
         int hours=seconds/3600;
         int minutes=(seconds-hours*3600)/60;
         int sec=seconds-hours*3600-minutes*60;
@@ -19,7 +18,6 @@ public class Linear5 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

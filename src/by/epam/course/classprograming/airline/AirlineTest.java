@@ -5,9 +5,7 @@ import java.util.*;
 public class AirlineTest {
 
     public static void input(AirlineArray airlineArray){
-
         try{
-
             Scanner scanner=new Scanner(System.in);
             scanner.useDelimiter(";");
 
@@ -33,9 +31,7 @@ public class AirlineTest {
     }
 
     public static void main(String[] args){
-
         try{
-
             int[] arr=new int[0];
             Scanner scanner=new Scanner(System.in);
 

@@ -10,7 +10,6 @@ import java.util.*;
 public class Branch4 {
 
     public static boolean isFit(double a,double b,double x,double y,double z){
-
         if(a<=0 || b<=0 || x<=0 || y<=0 || z<=0){
             throw new IllegalArgumentException("Рамзеры не могут отрицательными!");
         }
@@ -19,7 +18,6 @@ public class Branch4 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

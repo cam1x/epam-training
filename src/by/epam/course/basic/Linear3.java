@@ -10,8 +10,7 @@ import java.util.*;
 public class Linear3 {
 
     public static double calculate(double x,double y){
-
-        if( (x*y) != Math.PI){
+        if((x*y) != Math.PI){
             double result=(Math.sin(x) + Math.cos(y)) / (Math.cos(x) - Math.sin(y));
             result*= Math.tan(x * y);
             return result;

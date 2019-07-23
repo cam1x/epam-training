@@ -5,7 +5,6 @@ import java.util.*;
 public class PaymentTest {
 
     public static void main(String[] args){
-
         try {
             Payment payment = new Payment();
 

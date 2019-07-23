@@ -9,7 +9,6 @@ import java.util.*;
 public class Matrix3 {
 
     public static void printMatrix(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 System.out.print(matrix[i][j]+" ");
@@ -19,7 +18,6 @@ public class Matrix3 {
     }
 
     public static void fillMatrixRandom(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for (int j=0;j<matrix[i].length;j++){
                 matrix[i][j]=(int)(Math.random()*101-51);
@@ -28,7 +26,6 @@ public class Matrix3 {
     }
 
     public static void printLineAndColumn(int[][] matrix,int outLine,int outColumn){
-
         if(outColumn>matrix[0].length || outLine>matrix.length || outColumn<=0 || outLine<=0) {
             throw new IllegalArgumentException("Неверный номер столбца/строки!");
         }
@@ -47,7 +44,6 @@ public class Matrix3 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

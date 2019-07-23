@@ -22,47 +22,39 @@ public class Triangle {
     }
 
     public Triangle(Point p1,Point p2,Point p3){
-
         pointA.setPoint(p1);
         pointB.setPoint(p2);
         pointC.setPoint(p3);
     }
 
     public void setPointA(double x, double y){
-
         pointA.setX(x);
         pointA.setY(y);
     }
 
     public void setPointB(double x, double y){
-
         pointB.setX(x);
         pointB.setY(y);
     }
 
     public void setPointC(double x, double y){
-
         pointC.setX(x);
         pointC.setY(y);
     }
 
     public Point getPointA(){
-
         return pointA;
     }
 
     public Point getPointB(){
-
         return pointB;
     }
 
     public Point getPointC(){
-
         return pointC;
     }
 
     public double getSquare(){
-
         double square=((pointA.getX()-pointC.getX())*(pointB.getY()-pointC.getY())-(pointA.getY()-pointC.getY())*(pointB.getX()-pointC.getX()))/2;
 
         return Math.abs(square);
@@ -70,7 +62,6 @@ public class Triangle {
 
     //Возвращает центр треугольника (точка пересечения медиан)
     public Point getCenter(){
-
         Point center=new Point();
         center.setX((pointA.getX()+pointB.getX()+pointC.getX())/3);
         center.setY((pointA.getY()+pointB.getY()+pointC.getY())/3);
@@ -79,7 +70,6 @@ public class Triangle {
     }
 
     public double getPerimeter(){
-
         double side1=Math.sqrt(Math.pow(pointA.getX()-pointB.getX(),2) + Math.pow((pointA.getX()-pointB.getY()),2));
         double side2=Math.sqrt(Math.pow(pointB.getX()-pointC.getX(),2) + Math.pow((pointB.getY()-pointC.getY()),2));
         double side3=Math.sqrt(Math.pow(pointC.getX()-pointA.getX(),2) + Math.pow((pointC.getY()-pointA.getY()),2));
@@ -88,19 +78,16 @@ public class Triangle {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return "Triangle ( "+pointA.toString()+", "+pointB.toString()+", "+pointC.toString()+" );";
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -116,7 +103,6 @@ public class Triangle {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
         result=prime*result+pointA.hashCode();

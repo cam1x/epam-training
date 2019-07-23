@@ -19,18 +19,15 @@ public class Sentence {
     private Word[] sentence;
 
     public Sentence(){
-
         sentence=new Word[1];
         sentence[0]=new Word();
     }
 
     public Sentence(String string){
-
         setSentence(string);
     }
 
     public void setSentence(String string){
-
         if(string!=null && !string.isEmpty()) {
             string = getFirstSentence(string);
             sentence = new Word[getNumOfWords(string)];
@@ -48,12 +45,10 @@ public class Sentence {
     }
 
     public String getSentences(){
-
         return toString();
     }
 
     public String getNthWord(int num){
-
         if(num>=0 && num<sentence.length){
             return sentence[num].toString();
         }else{
@@ -62,18 +57,15 @@ public class Sentence {
     }
 
     public int getNumOfWords(){
-
         return sentence.length;
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string=new String();
 
         for(Word word:sentence){
@@ -85,7 +77,6 @@ public class Sentence {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -110,7 +101,6 @@ public class Sentence {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -122,7 +112,6 @@ public class Sentence {
     }
 
     private static String getFirstSentence(String string){
-
         int indexOfStart=0;
         int indexOfEnd=0;
 
@@ -139,7 +128,6 @@ public class Sentence {
     }
 
     private static int getNumOfWords(String string){
-
         if (string == null || string.isEmpty()) {
             return 0;
         }
@@ -156,7 +144,6 @@ public class Sentence {
     }
 
     private Word[] getWordsArray(){
-
         return sentence;
     }
 }

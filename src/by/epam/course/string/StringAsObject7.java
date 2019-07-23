@@ -11,7 +11,6 @@ public class StringAsObject7 {
 
     //Удаляет все повторяющиеся символы и пробелы
     public static String removeDuplicates(String string){
-
         StringBuilder noDupeplicates = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
             String si = string.substring(i, i + 1);
@@ -24,7 +23,6 @@ public class StringAsObject7 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

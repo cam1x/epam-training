@@ -7,7 +7,6 @@ package by.epam.course.algotithmization;
 public class Sort4 {
 
     public static int exchangeSort(int[] array){
-
         int numberOfExchanges=0;
 
         for(int i=0;i<array.length-1;i++){
@@ -23,14 +22,12 @@ public class Sort4 {
     }
 
     public static void swapTwoArrayElements(int[]array,final int INDEX1,final int INDEX2){
-
         int time=array[INDEX1];
         array[INDEX1]=array[INDEX2];
         array[INDEX2]=time;
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -38,7 +35,6 @@ public class Sort4 {
     }
 
     public static void main(String[] args) {
-
         int arr1[]={114,110,15,7,5,1};
         System.out.println("Число перестановок: "+ exchangeSort(arr1));
         printArray(arr1);

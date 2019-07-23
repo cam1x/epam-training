@@ -9,12 +9,10 @@ import java.util.*;
 public class Branch3 {
 
     public static boolean isOnOneLine(double xA,double yA, double xB,double yB,double xC,double yC) {
-
         return (xC - xA) * (yB - yA) == (yC - yA) * (xB - xA);
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

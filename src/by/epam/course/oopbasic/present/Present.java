@@ -25,17 +25,14 @@ public class Present {
     }
 
     public Present(String packagingColor){
-
         packaging.setColor(packagingColor);
     }
 
     public void changePackaging(String color){
-
         packaging.setColor(color);
     }
 
     public void addRandomSweet(int num){
-
        while(num-->0) {
            Random random = new Random();
            SweetTypes type = SweetTypes.values()[random.nextInt(SweetTypes.values().length)];
@@ -44,28 +41,24 @@ public class Present {
    }
 
     public void addCandy(int num,double weight,double price){
-
         while(num-->0){
             sweets.add(factory.getSweet(SweetTypes.CANDY,weight,price));
         }
     }
 
     public void addChocholate(int num,double weight,double price){
-
         while(num-->0){
             sweets.add(factory.getSweet(SweetTypes.CHOCOLATE,weight,price));
         }
     }
 
     public void addMarmalade(int num,double weight,double price){
-
         while(num-->0){
             sweets.add(factory.getSweet(SweetTypes.MARMALADE,weight,price));
         }
     }
 
     public void removeAllCandy(){
-
         for(Sweet sweet:sweets){
             if(sweet.getName().equals("конфета")){
                 sweets.remove(sweet);
@@ -74,7 +67,6 @@ public class Present {
     }
 
     public void removeCandy(int num){
-
         if(num>0 && num <=getNumOfCandy()){
             for(int i=0;num>0 && i<sweets.size();i++){
                 if(sweets.get(i).getName().equals("конфета")){
@@ -86,7 +78,6 @@ public class Present {
     }
 
     public void removeAllChocolade(){
-
         for(Sweet sweet:sweets){
             if(sweet.getName().equals("шоколад")){
                 sweets.remove(sweet);
@@ -95,7 +86,6 @@ public class Present {
     }
 
     public void removeChocolade(int num){
-
         if(num>0 && num <=getNumOfChocolade()){
             for(int i=0;num>0 && i<sweets.size();i++){
                 if(sweets.get(i).getName().equals("шоколад")){
@@ -107,7 +97,6 @@ public class Present {
     }
 
     public void removeAllMarmalade(){
-
         for(Sweet sweet:sweets){
             if(sweet.getName().equals("мармелад")){
                 sweets.remove(sweet);
@@ -116,7 +105,6 @@ public class Present {
     }
 
     public void removeMarmalade(int num){
-
         if(num>0 && num <=getNumOfMarmalade()){
             for(int i=0;num>0 && i<sweets.size();i++){
                 if(sweets.get(i).getName().equals("мармелад")){
@@ -128,7 +116,6 @@ public class Present {
     }
 
     public int getNumOfCandy(){
-
         int num=0;
         for(Sweet sweet:sweets){
             if(sweet.getName().equals("конфета")){
@@ -140,7 +127,6 @@ public class Present {
     }
 
     public int getNumOfChocolade(){
-
         int num=0;
 
         for(Sweet sweet:sweets){
@@ -153,7 +139,6 @@ public class Present {
     }
 
     public int getNumOfMarmalade(){
-
         int num=0;
 
         for(Sweet sweet:sweets){
@@ -166,7 +151,6 @@ public class Present {
     }
 
     public double getTotalPrice(){
-
         double price=0;
 
         for(Sweet sweet:sweets){
@@ -177,7 +161,6 @@ public class Present {
     }
 
     public double getTotalWeight(){
-
         double weight=0;
 
         for(Sweet sweet:sweets){
@@ -188,12 +171,10 @@ public class Present {
     }
 
     public int getNumOfSweets(){
-
         return sweets.size();
     }
 
     public void sort(){
-
         Comparator<Sweet> comparator=Comparator.comparing(Sweet::getPrice);
         comparator.thenComparing(Sweet::getWeight);
         comparator.thenComparing(Sweet::getName);
@@ -201,7 +182,6 @@ public class Present {
     }
 
     public void show(){
-
         System.out.println("Вес содержимого: "+getTotalWeight());
         System.out.println("Стоимость подарка без наценки: "+getTotalPrice());
         System.out.println(String.format("%15s %11s %10s","Тип","Вес","Цена"));
@@ -210,7 +190,6 @@ public class Present {
 
     @Override
     public String toString(){
-
         String string=new String();
 
         for(int i=0;i<sweets.size();i++){
@@ -224,7 +203,6 @@ public class Present {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -248,7 +226,6 @@ public class Present {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

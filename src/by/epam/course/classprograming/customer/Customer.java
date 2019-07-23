@@ -22,13 +22,11 @@ public class Customer {
     private int bankAccount;
 
     public Customer(){
-
         surname=name=patronymic=adress="not defined";
         id=++idCounter;
     }
 
     public Customer(int id,String surname,String name,String patronymic,String adress,int creditCard,int bankAccount){
-
         setId(id);
         setSurname(surname);
         setName(name);
@@ -39,7 +37,6 @@ public class Customer {
     }
 
     public Customer(String surname,String name,String patronymic,String adress,int creditCard,int bankAccount){
-
         setSurname(surname);
         setName(name);
         setPatronymic(patronymic);
@@ -49,7 +46,6 @@ public class Customer {
     }
 
     public void copyCustomer(Customer customer){
-
         setSurname(customer.surname);
         setName(customer.name);
         setPatronymic(customer.patronymic);
@@ -59,84 +55,70 @@ public class Customer {
     }
 
     public int getId(){
-
         return id;
     }
 
     public String getSurname(){
-
         return surname;
     }
 
     public String getName(){
-
         return name;
     }
 
     public String getPatronymic(){
-
         return patronymic;
     }
 
     public String getAdress(){
-
         return adress;
     }
 
     public int getCreditCard(){
-
         return creditCard;
     }
 
     public int getBankAccount(){
-
         return bankAccount;
     }
 
     public void setId(int id){
-
         if(id>0) {
             this.id = id;
         }
     }
 
     public void setSurname(String surname){
-
         if(surname!=null && !surname.isEmpty()) {
             this.surname = surname;
         }
     }
 
     public void setName(String name){
-
         if(name!=null && !name.isEmpty()) {
             this.name = name;
         }
     }
 
     public void setPatronymic(String patronymic){
-
         if(patronymic!=null && !patronymic.isEmpty()) {
             this.patronymic = patronymic;
         }
     }
 
     public void setAdress(String adress){
-
         if(adress!=null && !adress.isEmpty()) {
             this.adress = adress;
         }
     }
 
     public void setCreditCard(int creditCard){
-
         if(creditCard>0) {
             this.creditCard = creditCard;
         }
     }
 
     public void setBankAccount(int bankAccount){
-
         if(bankAccount>0) {
             this.bankAccount = bankAccount;
         }
@@ -144,7 +126,6 @@ public class Customer {
 
     @Override
     public String toString(){
-
         String string = String.format("%5s %15s %15s %15s %15s %10s %10s", Integer.toString(id), surname, name, patronymic, adress,
                 Integer.toString(creditCard), Integer.toString(bankAccount));
         return string;
@@ -152,7 +133,6 @@ public class Customer {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -169,7 +149,6 @@ public class Customer {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

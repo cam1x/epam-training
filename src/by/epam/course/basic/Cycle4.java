@@ -9,7 +9,6 @@ import java.math.BigInteger;
 public class Cycle4 {
 
     public static void main(String[] args) {
-
         BigInteger mul=BigInteger.valueOf(1);
         for(int i=1;i<=200;i++) {
             mul=mul.multiply(BigInteger.valueOf(i*i));

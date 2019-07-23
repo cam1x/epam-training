@@ -5,7 +5,6 @@ import java.util.*;
 public class Test1Main {
 
     public static void main(String[] args){
-
         try {
             Test1 object = new Test1();
             Scanner scanner = new Scanner(System.in);

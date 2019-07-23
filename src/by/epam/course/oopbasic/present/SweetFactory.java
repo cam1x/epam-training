@@ -7,7 +7,6 @@ package by.epam.course.oopbasic.present;
 public class SweetFactory {
 
     public Sweet getSweet(SweetTypes type){
-
         Sweet toReturn=null;
         switch (type){
             case CANDY:{
@@ -29,7 +28,6 @@ public class SweetFactory {
     }
 
     public Sweet getSweet(SweetTypes type,double weight, double price){
-
         Sweet toReturn=getSweet(type);
 
         if(toReturn!=null){

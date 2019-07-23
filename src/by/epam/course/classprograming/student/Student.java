@@ -17,13 +17,11 @@ public class Student {
     private int[] marks=new int[5];
 
     public Student(){
-
         surname="not defined";
         initials="not defined";
     }
 
     public Student(String surname,String initials,int group){
-
         setSurname(surname);
         setInitials(initials);
         setGroupNumber(group);
@@ -31,7 +29,6 @@ public class Student {
 
     //Позволяет изменить отметки по всем предметам
     public void setMarks(int mark1,int mark2,int mark3,int mark4,int mark5){
-
         if(mark1>0 && mark2>0 && mark3>0 && mark4>0 && mark5>0) {
             marks[0] = mark1;
             marks[1] = mark2;
@@ -43,57 +40,48 @@ public class Student {
 
     //Позволяет изменить отметку по отдельному предмету, зная номер предмета в табиле успеваемости
     public void setMarks(int mark, int subjectNumber){
-
         if(subjectNumber>=0 && subjectNumber<marks.length && mark>0){
             marks[subjectNumber]=mark;
         }
     }
 
     public void setSurname(String surname){
-
         if(surname!=null && !surname.isEmpty()) {
             this.surname = surname;
         }
     }
 
     public void setInitials(String initials){
-
         if(initials!=null && !initials.isEmpty()) {
             this.initials = initials;
         }
     }
 
     public void setGroupNumber(int group){
-
         if(group>0) {
             groupNumber = group;
         }
     }
 
     public String getSurname(){
-
         return surname;
     }
 
     public String getInitials(){
-
         return initials;
     }
 
     public int getGroupNumber(){
-
         return groupNumber;
     }
 
     //Получить все отметки
     public int[] getMarks(){
-
         return marks;
     }
 
     //Получить отметка по отдельному предмету
     public int getMark(int index){
-
         if(index>=0 && index<marks.length){
             return marks[index];
         }else{
@@ -103,7 +91,6 @@ public class Student {
 
     //Проверяет является ли ученик отличником
     public boolean isHonorPupil(){
-
         int numOfPupils=0;
         boolean isHonorPupil=true;
 
@@ -118,13 +105,11 @@ public class Student {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %7s %7s %5s %5s %5s %5s %5s",surname,initials,Integer.toString(groupNumber),
                 Integer.toString(marks[0]),Integer.toString(marks[1]),Integer.toString(marks[2]),
                 Integer.toString(marks[3]),Integer.toString(marks[4]));
@@ -132,7 +117,6 @@ public class Student {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -152,7 +136,6 @@ public class Student {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

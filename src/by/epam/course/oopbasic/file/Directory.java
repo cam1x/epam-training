@@ -22,17 +22,14 @@ public class Directory {
     private File directory;
 
     public Directory(){
-
         folders.add("Program files");
     }
 
     public Directory(String path){
-
         setDirectory(path);
     }
 
     public void setDirectory(String path){
-
         if(path!=null && !path.isEmpty()) {
             int index = path.indexOf(":\\");
 
@@ -52,14 +49,12 @@ public class Directory {
     }
 
     public void setDiskName(String disk){
-
         if(disk!=null && !disk.isEmpty()) {
             this.diskName = disk;
         }
     }
 
     public void addFolder(String folder){
-
         if(folder!=null && !folder.isEmpty()) {
             folders.add(folder);
         }
@@ -69,7 +64,6 @@ public class Directory {
     Заменить в пути папку oldFolder на newFolder
      */
     public void changeFolder(String oldFolder, String newFolder){
-
         if(oldFolder!=null && newFolder!=null && !oldFolder.isEmpty() && !newFolder.isEmpty()) {
             int index = folders.indexOf(oldFolder);
             if (index != -1) {
@@ -82,7 +76,6 @@ public class Directory {
     Очистить путь
      */
     public void deleteAllFolders(){
-
         folders.clear();
     }
 
@@ -90,7 +83,6 @@ public class Directory {
     Удалить из пути папку name
      */
     public void deleteFolder(String name){
-
         folders.remove(name);
     }
 
@@ -115,7 +107,6 @@ public class Directory {
     Возвращает true, если была создана директория
      */
     public boolean create(){
-
         if(!isExists()){
            return directory.mkdirs();
         }else{
@@ -132,7 +123,6 @@ public class Directory {
 
     @Override
     public String toString(){
-
         String string=new String();
 
         string+=diskName+":";
@@ -146,7 +136,6 @@ public class Directory {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -162,7 +151,6 @@ public class Directory {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

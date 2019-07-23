@@ -10,7 +10,6 @@ import java.util.*;
 public class Decomposition10 {
 
     public static int getNumOfDigits(int num){
-
         int size=0;
 
         while(num>0){
@@ -22,12 +21,10 @@ public class Decomposition10 {
     }
 
     public static int getNthDigit(int number, int n) {
-
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
     public static void fillArray(int []array,int num){
-
         int numOfDigits=getNumOfDigits(num);
 
         int indexOfDigit;
@@ -39,7 +36,6 @@ public class Decomposition10 {
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -47,7 +43,6 @@ public class Decomposition10 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

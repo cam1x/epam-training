@@ -5,9 +5,7 @@ import java.util.*;
 public class BankAccountTest {
 
     public static void input(BankAccountArray array){
-
         try{
-
             Scanner scanner=new Scanner(System.in);
             BankAccount account;
 
@@ -26,7 +24,6 @@ public class BankAccountTest {
     }
 
     public static void main(String[] args) {
-
         try {
             BankAccountArray accounts = new BankAccountArray(2);
             System.out.println("Введите информация для 2-ух счетов");

@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition2 {
 
     public static int greatestCommonDevision(int firstNum, int secondNum) {
-
         if(secondNum==0) {
             return Math.abs(firstNum);
         }
@@ -19,7 +18,6 @@ public class Decomposition2 {
     }
 
     public static int greatestCommonDevision(int firstNum, int secondNum,int thirdNum,int fourthNum) {
-
         int gcd=greatestCommonDevision(firstNum, secondNum);
         gcd=greatestCommonDevision(gcd,thirdNum);
         gcd=greatestCommonDevision(gcd,fourthNum);
@@ -27,7 +25,6 @@ public class Decomposition2 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

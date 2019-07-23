@@ -9,7 +9,6 @@ import java.util.*;
 public class Decomposition3 {
 
     private static double calculateSquareOfRegularTriangle(double sideLength){
-
         if (sideLength>0) {
             return (sideLength * sideLength * Math.sqrt(3)) / 4;
         }else{
@@ -18,7 +17,6 @@ public class Decomposition3 {
     }
 
     private static double calculateSquareOfRightHexagon(double sideLength){
-
         if(sideLength>0) {
             return 6 * calculateSquareOfRegularTriangle(sideLength);
         }else{
@@ -27,7 +25,6 @@ public class Decomposition3 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

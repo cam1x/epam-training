@@ -12,7 +12,6 @@ public class Decomposition8 {
       При передаче недопустимого индекс возвращает -1
     */
     public static int sumOfThreeElements(int[] array,final int START){
-
         int sum=-1;
 
         try{
@@ -30,7 +29,6 @@ public class Decomposition8 {
         В случае передаче таковых индексов, что тройки не существую, возвращает 0.
      */
     public static int sumElements(int[] array,final int START, final int END){
-
         if(START>END){
             throw new IllegalArgumentException("Начальный индекс не может быть больше конечного!");
         }
@@ -50,14 +48,12 @@ public class Decomposition8 {
     }
 
     public static void fillArray(int []array){
-
         for(int i=0;i<array.length;i++){
             array[i]=(int)(Math.random()*41-20);
         }
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -65,7 +61,6 @@ public class Decomposition8 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             System.out.println("Введите размер массива:");

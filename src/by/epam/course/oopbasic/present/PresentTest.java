@@ -3,7 +3,6 @@ package by.epam.course.oopbasic.present;
 public class PresentTest {
 
     public static void main(String[] args) {
-
         Present present=new Present("желтый");//Создаем пустой подарок в желтой упаковке
 
         present.addRandomSweet(3);//Добавляем 3 упаковки случайных сладостей

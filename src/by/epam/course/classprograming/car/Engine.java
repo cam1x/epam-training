@@ -14,34 +14,28 @@ class Engine {
     public boolean isWorking;
 
     Engine(){
-
         power=50;
     }
 
     Engine(double power){
-
         setPower(power);
     }
 
     void setPower(double power){
-
         if(power>0){
             this.power=power;
         }
     }
 
     double getPower(){
-
         return power;
     }
 
     void turnOn(){
-
         isWorking=true;
     }
 
     void turnOff(){
-
         isWorking=false;
     }
 }

@@ -9,14 +9,12 @@ import java.util.*;
 public class Array8 {
 
     public static void fillArrayRandom(int [] arr){
-
         for(int i=0;i<arr.length;i++){
             arr[i]=(int)(Math.random()*101-51);
         }
     }
 
     public static int[] createArray(int size){
-
         if(size>0){
             return new int[size];
         }else{
@@ -25,14 +23,12 @@ public class Array8 {
     }
 
     public static void printArray(int[] arr){
-
         for(int el:arr){
             System.out.print(el+" ");
         }
     }
 
     public static int minOfArray(int[] arr) {
-
         int min=arr[0];
 
         for(int i=0;i<arr.length;i++){
@@ -45,7 +41,6 @@ public class Array8 {
     }
 
     public static int[] deleteElementFromArr(int[] arr,final int NUM) {
-
         int size=arr.length;
         for(int i=0;i<arr.length;i++){
             if(arr[i]==NUM) {
@@ -68,7 +63,6 @@ public class Array8 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

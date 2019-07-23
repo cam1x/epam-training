@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class StringAsObject1 {
 
     public static int calcLargestNumOfSpaces(String string){
-
         int numOfSpaces=0;
         int currNum=0;
         int index=0;
@@ -37,7 +36,6 @@ public class StringAsObject1 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

@@ -10,7 +10,6 @@ import java.util.*;
 public class Matrix15 {
 
     public static void printMatrix(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 System.out.print(matrix[i][j]+" ");
@@ -20,7 +19,6 @@ public class Matrix15 {
     }
 
     public static void fillMatrixRandom(int[][] matrix){
-
         for(int i=0;i<matrix.length;i++){
             for (int j=0;j<matrix[i].length;j++){
                 matrix[i][j]=(int)(Math.random()*101-51);
@@ -29,7 +27,6 @@ public class Matrix15 {
     }
 
     public static int getMax(int[][] matrix){
-
         int max=matrix[0][0];
 
         for(int i=0;i<matrix.length;i++) {
@@ -44,7 +41,6 @@ public class Matrix15 {
     }
 
     public static void changeAllOdd(int[][] matrix, int number){
-
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[i].length;j++){
                 if(matrix[i][j]%2==1 || matrix[i][j]%2==-1){
@@ -55,7 +51,6 @@ public class Matrix15 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

@@ -7,7 +7,6 @@ package by.epam.course.algotithmization;
 public class Sort5 {
 
     public static int binarySearchOfIndexToInsert(int[]array,final int END_OF_GAP,final int NUM){
-
         int firstIndex=0;
         int lastIndex=END_OF_GAP;
         int middleIndex=0;
@@ -39,7 +38,6 @@ public class Sort5 {
     }
 
     public static void insertSort(int[] array) {
-
         int lastIndexOfSorted=0;
 
         while(lastIndexOfSorted<array.length && array[lastIndexOfSorted]<array[lastIndexOfSorted+1]){
@@ -58,7 +56,6 @@ public class Sort5 {
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -66,7 +63,6 @@ public class Sort5 {
     }
 
     public static void main(String[] args) {
-
         int arr1[]={1,2,3,41,18,112,18,19,3,2,1,189,-1,-19};
 
         insertSort(arr1);

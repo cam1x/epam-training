@@ -9,7 +9,6 @@ import java.util.*;
 public class Cycle1 {
 
     public static int calculate(int num){
-
         if(num>=1){
 
             int sum=0;
@@ -24,7 +23,6 @@ public class Cycle1 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

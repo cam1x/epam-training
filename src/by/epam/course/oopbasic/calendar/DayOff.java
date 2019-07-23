@@ -7,13 +7,11 @@ package by.epam.course.oopbasic.calendar;
 public class DayOff extends MyDate {
 
     public DayOff(){
-
         super();
         super.setDayOff();
     }
 
     public DayOff(int day, int month, int year){
-
         super(day, month, year);
         super.setDayOff();
     }

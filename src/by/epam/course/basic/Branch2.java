@@ -9,7 +9,6 @@ import java.util.*;
 public class Branch2 {
 
     public static double getMaxOfMins(double a,double b,double c,double d){
-
         double minAB=(a<b)?a:b;
 
         double minCD=(c<d)?c:d;
@@ -18,7 +17,6 @@ public class Branch2 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

@@ -6,7 +6,6 @@ import java.util.*;
 public class TimeTest {
 
     public static void main(String[] args){
-
         try {
             Scanner scanner = new Scanner(System.in);
             Time time = new Time();

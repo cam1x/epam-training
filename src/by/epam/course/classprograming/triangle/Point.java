@@ -18,46 +18,38 @@ public class Point {
     }
 
     public Point(double x,double y){
-
         this.x=x;
         this.y=y;
     }
 
     public void setPoint(Point p){
-
         x=p.x;
         y=p.y;
     }
 
     public void setX(double x){
-
         this.x=x;
     }
 
     public void setY(double y){
-
         this.y=y;
     }
 
     public double getX(){
-
         return x;
     }
 
     public double getY(){
-
         return y;
     }
 
     @Override
     public String toString(){
-
         return "{"+Math.round(x*100)/100.0d+","+(Math.round(y*100)/100.0d)+"}";
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -73,7 +65,6 @@ public class Point {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
         result=prime*result+Double.hashCode(x);

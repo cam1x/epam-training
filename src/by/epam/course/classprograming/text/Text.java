@@ -20,19 +20,16 @@ public class Text {
     private Sentence[] text;
 
     public Text(){
-
         header="Header";
         text=new Sentence[1];
         text[0]=new Sentence();
     }
 
     public Text(String header,String text){
-
         setText(header, text);
     }
 
     public void setText(String text){
-
         if(text!=null && !text.isEmpty()) {
             int numOfSentences = getNumOfSentences(text);
             this.text = new Sentence[numOfSentences];
@@ -44,30 +41,25 @@ public class Text {
     }
 
     public void setText(String header,String text){
-
         setHeader(header);
         setText(text);
     }
 
     public void setHeader(String header){
-
         if(header!=null && !header.isEmpty()) {
             this.header = header;
         }
     }
 
     public int getNumOfSentences(){
-
         return text.length;
     }
 
     public String getHeader(){
-
         return header;
     }
 
     public String getText(){
-
         String string=new String();
 
         for(Sentence sentence:text){
@@ -79,7 +71,6 @@ public class Text {
 
     //Добавляет подстроку после предложения с номером position (по индексу position в исходный текст, нумерация с 0)
     public void addText(String text,int position){
-
         if(position>=0 && position<getNumOfSentences()) {
             int numOfExtraSentences = getNumOfSentences(text);
             Sentence[] extraSentences = new Sentence[numOfExtraSentences];
@@ -109,12 +100,10 @@ public class Text {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     public String readInString(String string){
-
         Scanner scanner=new Scanner(System.in);
 
         scanner.useDelimiter("\\n");
@@ -126,7 +115,6 @@ public class Text {
 
     @Override
     public String toString(){
-
         String string=new String();
         string+="\t\t\t"+header+"\n";
 
@@ -139,7 +127,6 @@ public class Text {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -164,7 +151,6 @@ public class Text {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -176,7 +162,6 @@ public class Text {
     }
 
     private static int getNumOfSentences(String string){
-
         int numOfSentences=0;
 
         string=string.trim();
@@ -194,7 +179,6 @@ public class Text {
 
     //Получить н-ое предложение по индексу в тексте
     private static String getNthSentence(String string,final int NUM){
-
         int indexOfStart=0;
         int indexOfEnd=0;
 

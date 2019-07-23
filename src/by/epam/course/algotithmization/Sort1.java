@@ -9,7 +9,6 @@ import java.util.*;
 public class Sort1 {
 
     public static int[] combineTwoArrays(int[] arr1,int[]arr2,final int BORDER){
-
         if(BORDER<0 || BORDER>arr2.length) {
             throw new IllegalArgumentException("Введенное число больше размера первого массива!");
         }
@@ -33,7 +32,6 @@ public class Sort1 {
     }
 
     public static int[] generateIntArray(final int SIZE) {
-
         if(SIZE>0) {
             int[] arr = new int[SIZE];
             for (int i = 0; i < SIZE; i++) {
@@ -47,7 +45,6 @@ public class Sort1 {
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -55,7 +52,6 @@ public class Sort1 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
             try {

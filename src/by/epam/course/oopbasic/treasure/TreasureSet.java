@@ -23,12 +23,10 @@ public class TreasureSet {
     }
 
     public int getSize(){
-
         return treasures.size();
     }
 
     public double getTotalPrice(){
-
         double total=0;
 
         for(Treasure treasure:treasures){
@@ -39,7 +37,6 @@ public class TreasureSet {
     }
 
     public double getTotalWeight(){
-
         double total=0;
 
         for(Treasure treasure:treasures){
@@ -51,7 +48,6 @@ public class TreasureSet {
 
     //Получить самое дорогое сокровище
     public Treasure getTheMostExpensive(){
-
         if(!treasures.isEmpty()) {
             Treasure theMostExp = treasures.get(0);
             for (Treasure treasure : treasures) {
@@ -68,7 +64,6 @@ public class TreasureSet {
 
     //Получить список выбранных сокровищ
     public TreasureSet getSelected(){
-
         TreasureSet selected=new TreasureSet();
 
         for(Treasure treasure:treasures){
@@ -82,7 +77,6 @@ public class TreasureSet {
 
     //Получить список сокровищ на указанную сумму, отмечая их как выбранным и в исходной коллекции сокровищ
     public TreasureSet getTreasures(double sum){
-
         TreasureSet selected=new TreasureSet();
         TreasureSet sortedCopy=this;
         sortedCopy.sortTreasures();
@@ -105,7 +99,6 @@ public class TreasureSet {
 
     //Сортирует сокровища по цене, если цена одинаковая, то по весу, если вес одинаков, то по названию
     public void sortTreasures(){
-
         Comparator<Treasure> comparator=Comparator.comparing(Treasure::getPrice);
         comparator=comparator.thenComparing(Treasure::getWeight);
         comparator=comparator.thenComparing(Treasure::getName);
@@ -114,7 +107,6 @@ public class TreasureSet {
 
     //Добавляет сокровища с текстового файла с путем path.
     public void addTreasure(String path){
-
         try {
             File file = new File(path);
             Scanner fileScan = new Scanner(file);
@@ -136,56 +128,46 @@ public class TreasureSet {
     }
 
     public void addTreasure(String name,double weight,double price){
-
         treasures.add(new Treasure(name,weight,price));
     }
 
     public void addTreasure(Treasure treasure){
-
         treasures.add(treasure);
     }
 
     public void deleteTreasure(int index){
-
         if(index>=0 && index<treasures.size()){
             treasures.remove(index);
         }
     }
 
     public void deleteTreasure(String name,double weight,double price){
-
         treasures.remove(new Treasure(name,weight,price));
     }
 
     public boolean isEmpty(){
-
         return treasures.isEmpty();
     }
 
     // Выбрать сокровище по индексу
     public void selectTreasure(int index){
-
         if(index>=0 && index<treasures.size()){
             treasures.get(index).select();
         }
     }
 
-
     //Выбрать самое дорогое сокровище
     public void selectTheMostExpensive(){
-
         getTheMostExpensive().select();
     }
 
     public void print(){
-
         System.out.println(toString());
         System.out.println("\nИтого: стоимость "+getTotalPrice()+", вес "+getTotalWeight()+"\n");
     }
 
     @Override
     public String toString(){
-
         String string=new String();
 
         for(int i=0;i<treasures.size();i++){
@@ -197,7 +179,6 @@ public class TreasureSet {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -221,7 +202,6 @@ public class TreasureSet {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 

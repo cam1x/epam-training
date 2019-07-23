@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class StringAsObject6 {
 
     public static String doubleAllSymbols(String string){
-
         StringBuilder repeat=new StringBuilder();
 
         for(int i=0;i<string.length();i++){
@@ -23,7 +22,6 @@ public class StringAsObject6 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

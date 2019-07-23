@@ -24,12 +24,10 @@ public class MyFlower implements Flower {
     private String color="красный";
 
     public MyFlower(){
-
         priceForOne=7;
     }
 
     public MyFlower(String name, String color, double price){
-
         if(price>0 && isValidString(name) && isValidString(color)){
             this.name=name;
             this.color=color;
@@ -38,48 +36,40 @@ public class MyFlower implements Flower {
     }
 
     public void setColor(String color){
-
         if(isValidString(color)) {
             this.color = color;
         }
     }
 
     public void setPrice(double price){
-
         if(price>0){
             priceForOne=price;
         }
     }
 
     public String getName(){
-
         return name;
     }
 
     public String getColor(){
-
         return color;
     }
 
     public double getPrice() {
-
         return priceForOne;
     }
 
     public void show(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %15s %10s",name,color,Double.toString(priceForOne));
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -95,7 +85,6 @@ public class MyFlower implements Flower {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -107,12 +96,10 @@ public class MyFlower implements Flower {
     }
 
     protected boolean isValidString(String string){
-
         return string!=null && !string.isEmpty();
     }
 
     protected void setName(String name){
-
         if(isValidString(name)) {
             this.name = name;
         }

@@ -10,7 +10,6 @@ import java.util.*;
 public class Array9 {
 
     public static int[] createArray(int size){
-
         if(size>0){
             return new int[size];
         }else{
@@ -19,14 +18,12 @@ public class Array9 {
     }
 
     public static void printArray(int[] arr){
-
         for(int el:arr){
             System.out.print(el+" ");
         }
     }
 
     public static void sort(int[] arr){
-
         int temp;
 
         for(int i=0;i<arr.length-1;i++){
@@ -50,7 +47,6 @@ public class Array9 {
         входящее в эту платформу. (т.к. массив отсортирован это число будет min среди наиболее часто встречаемых)
      */
     public static int getMostCommon(int[] arr){
-
         sort(arr);
 
         int lenOfPlatform=1;
@@ -73,7 +69,6 @@ public class Array9 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

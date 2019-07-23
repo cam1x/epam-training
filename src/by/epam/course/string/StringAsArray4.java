@@ -9,12 +9,10 @@ import java.util.Scanner;
 public class StringAsArray4 {
 
     public static boolean isDigit(char ch){
-
         return ch>='1'&&ch<='9';
     }
 
     public static int calcNumOfNumbers(String string){
-
         int numOfDigits=0;
         boolean prevNumber=false;
 
@@ -35,7 +33,6 @@ public class StringAsArray4 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

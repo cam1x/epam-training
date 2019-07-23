@@ -20,42 +20,35 @@ public class District {
     private double area=200;
 
     public District(){
-
         district="district";
     }
 
     public District(String district){
-
         setDistrict(district);
     }
 
     public void setDistrict(String district){
-
         if(district!=null && !district.isEmpty()) {
             this.district = district;
         }
     }
 
     public void setArea(double area){
-
         if(area>0){
             this.area=area;
         }
     }
 
     public double getArea(){
-
         return area;
     }
 
     public String getDistrict(){
-
         return district;
     }
 
     //Добавляет город к данному району
     public void addCity(String city){
-
         if (city != null && !city.isEmpty()) {
             Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
             Matcher wordMatch = wordPat.matcher(city);
@@ -76,12 +69,10 @@ public class District {
 
                 deleteOneCity(wordMatch.group());
             }
-
         }
     }
 
     public int getNumOfCities(){
-
         if(citiesOfDistrict!=null){
             return citiesOfDistrict.length;
         }else{
@@ -91,7 +82,6 @@ public class District {
 
     //Возвращает список городов данного района
     public String getCities(){
-
         String string=new String();
 
         if(citiesOfDistrict!=null){
@@ -106,13 +96,11 @@ public class District {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string=new String();
 
         string+=district+"(-ий) район.";
@@ -129,7 +117,6 @@ public class District {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -154,7 +141,6 @@ public class District {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -166,7 +152,6 @@ public class District {
     }
 
     private void addOneCity(String city){
-
         if(citiesOfDistrict!=null){
             City[] newCities=new City[getNumOfCities()+1];
             for(int i=0;i<getNumOfCities();i++){
@@ -185,7 +170,6 @@ public class District {
     }
 
     private void deleteOneCity(String city){
-
         city=city.trim();
         if(city.contains(" ")){
             city=city.substring(0,city.indexOf(" ")).trim();

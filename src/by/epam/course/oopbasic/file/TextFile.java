@@ -12,13 +12,11 @@ import java.io.*;
 public class TextFile extends MyFile {
 
     public TextFile(){
-
         super();
         super.setExpansion("txt");
     }
 
     public TextFile(String path,String fileName){
-
         super(path, fileName,"txt");
         //super.setExpansion("txt");
     }
@@ -32,7 +30,6 @@ public class TextFile extends MyFile {
     Добавляет line к файлу, не переписовая его
      */
     public void addToFile(String line){
-
         try {
             FileWriter writer = new FileWriter(getFile(), true);
             writer.write("\n"+line);
@@ -48,8 +45,8 @@ public class TextFile extends MyFile {
     Возвращает содержимое файла
      */
     public String getContent() {
-
       StringBuilder sb=new StringBuilder();
+
       try(BufferedReader br =new BufferedReader(new InputStreamReader(new FileInputStream(toString()),"UTF-8"))) {
 
           String currentLine;
@@ -60,14 +57,13 @@ public class TextFile extends MyFile {
               sb.append("\n");
           }
       }catch (IOException ex){
-
+          System.out.println(ex.getMessage());
       }
 
       return sb.toString();
     }
 
     public void printContent(){
-
         System.out.println(getContent());
     }
 }

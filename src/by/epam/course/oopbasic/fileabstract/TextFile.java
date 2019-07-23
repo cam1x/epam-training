@@ -13,13 +13,11 @@ public class TextFile extends MyFile {
     private String content=new String();
 
     public TextFile(){
-
         super();
         super.setExpansion("txt");
     }
 
     public TextFile(String path,String fileName){
-
         super(path, fileName,"txt");
         //super.setExpansion("txt");
     }
@@ -33,7 +31,6 @@ public class TextFile extends MyFile {
     Добавляет line к файлу, не переписовая его
      */
     public void addToFile(String line){
-
         if(isExists()) {
             content += line + "\n";
         }
@@ -43,12 +40,10 @@ public class TextFile extends MyFile {
     Возвращает содержимое файла
      */
     public String getContent() {
-
         return content;
     }
 
     public void printContent(){
-
         System.out.println(getContent());
     }
 }

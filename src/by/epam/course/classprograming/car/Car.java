@@ -19,7 +19,6 @@ public class Car {
     private double fuel;
 
     public Car(){
-
         engine=new Engine();
 
         for(int i=0;i<wheels.length;i++){
@@ -31,7 +30,6 @@ public class Car {
     }
 
     public Car(String mark,double startFuel){
-
         engine=new Engine();
 
         for(int i=0;i<wheels.length;i++){
@@ -43,7 +41,6 @@ public class Car {
     }
 
     public Car(String mark,double startFuel, double enginePower, double wheelDiam, String wheelMark){
-
         setMark(mark);
         setFuel(startFuel);
         setEngine(enginePower);
@@ -51,12 +48,10 @@ public class Car {
     }
 
     public void setEngine(double power){
-
         engine.setPower(power);
     }
 
     public void setWheels(double diam,String mark){
-
         for(Wheel wheel:wheels){
             wheel.setDiameter(diam);
             wheel.setMark(mark);
@@ -64,36 +59,30 @@ public class Car {
     }
 
     public void setMark(String mark){
-
         if(mark!=null && !mark.isEmpty()) {
             this.mark = mark;
         }
     }
 
     public void setFuel(double fuel){
-
         if(fuel>=0){
             this.fuel=fuel;
         }
     }
 
     public double getFuel(){
-
         return fuel;
     }
 
     public String getMark(){
-
         return mark;
     }
 
     public double getEnginePower(){
-
         return engine.getPower();
     }
 
     public String getWheels(){
-
         String string=new String("Характеристика колес авто:\n");
 
         for(int i=0;i<wheels.length;i++){
@@ -105,7 +94,6 @@ public class Car {
 
     //Заменить все колеса
     public void changeWheel(String mark,double diam){
-
         for(int i=0;i<wheels.length;i++){
             wheels[i].setDiameter(diam);
             wheels[i].setMark(mark);
@@ -114,7 +102,6 @@ public class Car {
 
     //Заменить колесо под номером position
     public void changeWheel(String mark,double diam, int position){
-
         if(position>=1 && position<=wheels.length){
             wheels[position-1].setMark(mark);
             wheels[position-1].setDiameter(diam);
@@ -122,7 +109,6 @@ public class Car {
     }
 
     public void refuel(double fuel){
-
         if(fuel>0){
             this.fuel+=fuel;
             System.out.println("Машина заправлена на "+this.fuel+" л!");
@@ -130,20 +116,17 @@ public class Car {
     }
 
     public void turnOn(){
-
         engine.turnOn();
         System.out.println("Двигатель заведен!");
     }
 
     public void turnOff(){
-
         engine.turnOff();
         System.out.println("Двигатель заглушен!");
     }
 
     //Возвращает проеханный путь
     public int drive(){
-
         int path=0;
 
         if(engine.isWorking){
@@ -159,13 +142,11 @@ public class Car {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         String string=new String();
 
         string+="\t\t"+getMark()+"\n";

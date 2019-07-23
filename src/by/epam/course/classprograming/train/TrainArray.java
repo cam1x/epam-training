@@ -14,7 +14,6 @@ public class TrainArray {
     private Train[] arrOfTrains;
 
     public TrainArray(int size){
-
         if(size>0) {
             arrOfTrains = new Train[size];
             for (int i = 0; i < size; i++) {
@@ -28,12 +27,10 @@ public class TrainArray {
     }
 
     public TrainArray(Train[] array){
-
         setArrOfTrains(array);
     }
 
     public void setArrOfTrains(Train[] array){
-
         if(array!=null) {
             arrOfTrains = new Train[array.length];
             for (int i = 0; i < array.length; i++) {
@@ -43,7 +40,6 @@ public class TrainArray {
     }
 
     public int getSize(){
-
         if(arrOfTrains!=null) {
             return arrOfTrains.length;
         } else{
@@ -52,12 +48,10 @@ public class TrainArray {
     }
 
     public Train[] getArrOfTrains(){
-
         return arrOfTrains;
     }
 
     public Train getTrain(int index){
-
         if(index>=0 && index<getSize()){
             return arrOfTrains[index];
         }else{
@@ -67,7 +61,6 @@ public class TrainArray {
 
     //Сортировка поиздов по номеру поезда
     public void sortByNumber(){
-
         for(int i=0;i<arrOfTrains.length-1;i++){
             for(int j=0;j<arrOfTrains.length-i-1;j++){
                 if(arrOfTrains[j].getTrainNumber()>arrOfTrains[j+1].getTrainNumber()){
@@ -79,7 +72,6 @@ public class TrainArray {
 
     //Сортировка поездов по пункту назначения
     public void sortByDestination(){
-
         int stringCompare;
 
         for(int i=0;i<arrOfTrains.length-1;i++){
@@ -100,13 +92,11 @@ public class TrainArray {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     //Получить информацию по номеру поезда
     public void printInfoByNumber(int number){
-
         for(int i=0;i<arrOfTrains.length;i++){
             if(arrOfTrains[i].getTrainNumber()==number){
                 arrOfTrains[i].print();
@@ -115,7 +105,6 @@ public class TrainArray {
     }
 
     public void addTrain(Train train){
-
         if(train!=null) {
             Train[] newTrains = new Train[getSize() + 1];
 
@@ -129,7 +118,6 @@ public class TrainArray {
     }
 
     public void deleteTrain(Train train){
-
         if(train==null){
             throw new IllegalArgumentException("Неверный аргумента (null)!");
         }
@@ -156,7 +144,6 @@ public class TrainArray {
     }
 
     public void deleteTrain(int index){
-
         if(index>=0 && index<getSize()){
             Train[] newTrains=new Train[getSize()-1];
 
@@ -173,7 +160,6 @@ public class TrainArray {
 
     @Override
     public String toString(){
-
         if(arrOfTrains!=null) {
             String string = new String();
             for (Train train : arrOfTrains) {
@@ -188,7 +174,6 @@ public class TrainArray {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -212,7 +197,6 @@ public class TrainArray {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -225,7 +209,6 @@ public class TrainArray {
 
     //Перестановка двух поездов в массиве поездов
     private void swap(int index1,int index2){
-
         if(index1>=0 && index1<arrOfTrains.length && index2>=0 && index2<arrOfTrains.length) {
             Train temp;
             temp = arrOfTrains[index1];
@@ -236,7 +219,6 @@ public class TrainArray {
 
     //Проверка раньше ли отправляется поезда с index1, чем поезд с index2
     private boolean isEarlier(int index1,int index2){
-
         if(index1>0 && index1<arrOfTrains.length && index2>0 && index2<arrOfTrains.length) {
             return arrOfTrains[index1].getTimeOfAppointment().compareTo(arrOfTrains[index2].getTimeOfAppointment()) > 0;
         }else{

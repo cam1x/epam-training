@@ -17,7 +17,6 @@ public class AirlineArray {
     private Airline[] arrayOfAirlines;
 
     public AirlineArray(int size){
-
         if(size>0) {
             arrayOfAirlines = new Airline[size];
             for (int i = 0; i < size; i++) {
@@ -27,12 +26,10 @@ public class AirlineArray {
     }
 
     public AirlineArray(Airline[] array){
-
         setArrayOfAirlines(array);
     }
 
     public void setArrayOfAirlines(Airline[] array){
-
         if(array!=null) {
             arrayOfAirlines = new Airline[array.length];
             for (int i = 0; i < getSize(); i++) {
@@ -42,7 +39,6 @@ public class AirlineArray {
     }
 
     public int getSize(){
-
         if(arrayOfAirlines!=null) {
             return arrayOfAirlines.length;
         }else{
@@ -51,12 +47,10 @@ public class AirlineArray {
     }
 
     public Airline[] getArrayOfAirlines(){
-
         return arrayOfAirlines;
     }
 
     public Airline getAirline(int index){
-
         if(index>=0 && index<getSize()){
             return arrayOfAirlines[index];
         }else{
@@ -65,7 +59,6 @@ public class AirlineArray {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
@@ -74,7 +67,6 @@ public class AirlineArray {
     Если такие рейсы отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
     public AirlineArray getFlightsToDestination(String destination){
-
         if(arrayOfAirlines==null){
             throw new IllegalArgumentException("Рейсы отсутствуют! (null)");
         }
@@ -107,7 +99,6 @@ public class AirlineArray {
         Если такие рейсы отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
     */
     public AirlineArray getFlightsOnDay(String day){
-
         if(arrayOfAirlines==null){
             throw new IllegalArgumentException("Рейсы отсутствуют! (null)");
         }
@@ -143,7 +134,6 @@ public class AirlineArray {
         то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
     */
     public AirlineArray getFlightsOnDay(String day,String time){
-
         if(arrayOfAirlines==null){
             throw new IllegalArgumentException("Рейсы отсутствуют! (null)");
         }
@@ -183,7 +173,6 @@ public class AirlineArray {
     }
 
     public void addAirline(Airline airline){
-
         if(airline!=null) {
             Airline[] newAirlines = new Airline[getSize() + 1];
 
@@ -197,7 +186,6 @@ public class AirlineArray {
     }
 
     public void deleteAirline(Airline airline){
-
         if(airline==null){
             throw new IllegalArgumentException("Неверный аргумент (null)!");
         }
@@ -225,7 +213,6 @@ public class AirlineArray {
     }
 
     public void deleteAirline(int index){
-
         if(index>=0 && index<getSize()){
             Airline[] newAirlines=new Airline[getSize()-1];
             for(int i=0,j=0;i<getSize();i++){
@@ -240,7 +227,6 @@ public class AirlineArray {
 
     @Override
     public String toString(){
-
         if(arrayOfAirlines!=null) {
             String string = new String();
 
@@ -257,7 +243,6 @@ public class AirlineArray {
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -281,7 +266,6 @@ public class AirlineArray {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -294,7 +278,6 @@ public class AirlineArray {
 
     //Проверка на корректность хранящегося в строке времени: формат и допустимость значений.
     private boolean isCorrectTime(String time){
-
         Pattern timePat= Pattern.compile("[0-9]{2}[.:-][0-9]{2}");
         Matcher timeMat=timePat.matcher(time);
 
@@ -309,7 +292,6 @@ public class AirlineArray {
 
     //Возвращает массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
     private AirlineArray noMathes(){
-
         Airline[] zeroAirlines=new Airline[1];
         zeroAirlines[0]=new Airline();
 

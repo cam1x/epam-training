@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class StringAsObject8 {
 
     public static String findTheLargestWord(String string){
-
         //Удаление лищних пробелов из строки и формирование массива слов
         String [] word = removeExtraSpaces(string).split(" ");
         String maxlethWord = "";
@@ -23,7 +22,6 @@ public class StringAsObject8 {
     }
 
     public static String removeExtraSpaces(String string){
-
         String buff=new String();
         boolean prevSpace=true;
 
@@ -49,7 +47,6 @@ public class StringAsObject8 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

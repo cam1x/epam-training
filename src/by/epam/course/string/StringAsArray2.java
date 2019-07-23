@@ -11,7 +11,6 @@ public class StringAsArray2 {
     //Проверяет совпадают ли слово в массиве, начинающееся с индекса START_INDEX, c word
     //Если указан слишком маленький стартовый индекс-вовзрашает false. Без учета регистра
     public static boolean isTheSameWord(String string,final int START_INDEX, String word){
-
         boolean isTheSame;
         if(START_INDEX+word.length()>string.length()){
             isTheSame =false;
@@ -28,7 +27,6 @@ public class StringAsArray2 {
     }
 
     public static char toLowerCase(char ch){
-
         if(ch>='A'&&ch<='Z'){
             ch-='A'-'a';
         }
@@ -36,7 +34,6 @@ public class StringAsArray2 {
     }
 
     public static String changeWord(String string,String wordOld, String wordNew) {
-
         String resString=new String();
 
         for(int i=0;i<string.length();i++){
@@ -51,7 +48,6 @@ public class StringAsArray2 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
         String line=in.nextLine();

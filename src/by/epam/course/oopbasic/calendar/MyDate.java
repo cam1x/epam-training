@@ -19,7 +19,6 @@ public class MyDate {
    private boolean isDayOff;//является ли данный день выходным
 
    public MyDate(){
-
        day=18;
        month=7;
        year=2019;
@@ -27,12 +26,10 @@ public class MyDate {
    }
 
    public MyDate(int day, int month, int year){
-
       setDate(day, month, year);
    }
 
    public void setDate(int day,int month,int year){
-
        setDay(day);
        setMonth(month);
        setYear(year);
@@ -40,7 +37,6 @@ public class MyDate {
    }
 
    public void setYear(int year){
-
        if(year>=1900 && year<=2100){
            this.year=year;
            setDayOfWeek();
@@ -48,7 +44,6 @@ public class MyDate {
    }
 
    public void setMonth(int month){
-
        if(month>=1 && month<=12){
            this.month=month;
            setDayOfWeek();
@@ -56,7 +51,6 @@ public class MyDate {
    }
 
    public void setDay(int day) {
-
        if(day>=1 && day<=31) {
            this.day = day;
            setDayOfWeek();
@@ -64,49 +58,40 @@ public class MyDate {
     }
 
     public int getDay() {
-
         return day;
     }
 
     public int getYear(){
-
        return year;
     }
 
     public int getMonth(){
-
        return month;
     }
 
     public String getDayOfWeek(){
-
        return getDayOfWeek();
     }
 
     public boolean isDayOff(){
-
        return isDayOff;
     }
 
     public boolean isWorkingDay(){
-
        return !isDayOff;
     }
 
     public boolean after(MyDate myDate){
-
        return year> myDate.year || (year== myDate.year && month> myDate.month)
                || (year== myDate.year && month== myDate.month && day> myDate.day);
     }
 
     public boolean before(MyDate myDate){
-
         return year< myDate.year || (year== myDate.year && month< myDate.month)
                 || (year== myDate.year && month== myDate.month && day< myDate.day);
     }
 
     public int compareTo(MyDate myDate){
-
        if(this.after(myDate)){
            return 1;
        }
@@ -119,19 +104,16 @@ public class MyDate {
     }
 
     public void print(){
-
        System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return (day<10?"0":"")+day+"."+(month<10?"0":"")+month+"."+year+ "   "+dayOfWeek+ "   "+ (isDayOff?"вых.":"раб.");
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -147,7 +129,6 @@ public class MyDate {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
@@ -162,7 +143,6 @@ public class MyDate {
     Сделать данный день выходным(используется классом выходного дня, иной класс не может сделать день рабочим/нерабочим)
      */
     protected void setDayOff(){
-
        isDayOff=true;
     }
 
@@ -171,7 +151,6 @@ public class MyDate {
     Реализовано без использоания посторонних классов
      */
     private void setDayOfWeek(){
-
         int a=(14-month)/12;
         int y=year-a;
         int m =month+12*a-2;

@@ -7,7 +7,6 @@ package by.epam.course.algotithmization;
 public class Sort3 {
 
     public static void sortByChoise(int[] array){
-
         /*Если массив отсортирован по возрастанию
         for(int i=0;i<array.length/2;i++){
 
@@ -26,14 +25,12 @@ public class Sort3 {
     }
 
     public static void swapTwoArrayElements(int[]array,final int INDEX1,final int INDEX2){
-
         int time=array[INDEX1];
         array[INDEX1]=array[INDEX2];
         array[INDEX2]=time;
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -41,7 +38,6 @@ public class Sort3 {
     }
 
     public static void main(String[] args) {
-
         int arr1[]={1,2,10,15,20,21,28,100,110,114};
 
         sortByChoise(arr1);

@@ -11,7 +11,6 @@ public class StringAsObject5 {
 
     //Регистр не учитывается
     public static int calcNumOfCharacter(String string,char symbolToCalc){
-
         int num=0;//сколько раз встретился символ
         int index=0;//номер проверяемого символа
         string=string.toLowerCase();
@@ -30,7 +29,6 @@ public class StringAsObject5 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
         System.out.println("Введите строку: ");
 

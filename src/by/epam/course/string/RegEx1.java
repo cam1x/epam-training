@@ -19,7 +19,6 @@ P.S.S Путь к входному и выходному файлам можно
 public class RegEx1 {
     //Запись текста из файла в одну строку
     public static String readInString(String path)throws FileNotFoundException{
-
         File file=new File(path);
         Scanner scanner=new Scanner(file);
 
@@ -34,7 +33,6 @@ public class RegEx1 {
     }
 
     public static void readInFile(String string,String path) throws IOException {
-
         File file = new File(path);
 
         // Создание файла
@@ -51,7 +49,6 @@ public class RegEx1 {
 
     //Возвращает число абазей
     public static int getNumOfBasics(String string){
-
         int numOfBasics=0;
 
         Pattern basic=Pattern.compile("\\r\\n$",Pattern.MULTILINE);
@@ -66,7 +63,6 @@ public class RegEx1 {
 
     //Получить н-ый абзац по индексу
     public static String getNthBasic(String string,final int NUM){
-
         int indexOfStart=0;
         int indexOfEnd=0;
 
@@ -102,7 +98,6 @@ public class RegEx1 {
 
     //Сортирует абзацы по числу предложений
     public static String sortBasics(String string){
-
         int numOfBasics=getNumOfBasics(string);
 
         StringBuilder buffString=new StringBuilder(string);
@@ -132,7 +127,6 @@ public class RegEx1 {
 
     //Считает кол-во предложений в тексте
     public static int getNumOfSentences(String string){
-
         int numOfSentences=0;
 
         string=string.trim();
@@ -149,7 +143,6 @@ public class RegEx1 {
 
     //Получить н-ое предложение по индексу в тексте
     public static String getNthSentence(String string,final int NUM){
-
         int indexOfStart=0;
         int indexOfEnd=0;
 
@@ -188,7 +181,6 @@ public class RegEx1 {
     }
 
     public static int getNumOfWords(String string){
-
       if (string == null || string.isEmpty()) {
           return 0;
       }
@@ -207,7 +199,6 @@ public class RegEx1 {
 
     //Получить н-ое слово по индексу в предложении
     public static String getNthWord(String string,final int NUM){
-
         if (string == null || string.isEmpty()) {
             return "";
         }
@@ -226,7 +217,6 @@ public class RegEx1 {
 
     //Сортировка слов в каждом предложении по длине
     public static String sortSentences(String string){
-
         int numOfSentences=getNumOfSentences(string);
         int numOfWords;
         String sentence;
@@ -259,7 +249,6 @@ public class RegEx1 {
 
     //Сортировка слов в каждом предложении по длине
     public static String sortSentences(String string,char symbol){
-
         int numOfSentences=getNumOfSentences(string);
         int numOfWords;
         String sentence;
@@ -349,7 +338,6 @@ public class RegEx1 {
 
     //Считает сколько раз символ встречается в слове
     public static int countNumOfSymbols(String string,char symbol){
-
         int num=0;
         for(int i=0;i<string.length();i++){
             if(string.charAt(i)==symbol){
@@ -361,7 +349,6 @@ public class RegEx1 {
     }
 
     public static void main(String[] args){
-
         String line=new String();
         Scanner scanner=new Scanner(System.in);
 

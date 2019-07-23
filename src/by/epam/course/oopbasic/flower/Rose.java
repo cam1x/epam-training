@@ -7,13 +7,11 @@ package by.epam.course.oopbasic.flower;
 public class Rose extends MyFlower implements Flower {
 
     public Rose(){
-
         super();
         super.setName("роза");
     }
 
     public Rose(String color,double price){
-
         super("роза",color,price);
     }
 

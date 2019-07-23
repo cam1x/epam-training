@@ -11,7 +11,6 @@ public class Decomposition12 {
 
     //находит числа сумма цифр, которых =num1 и числа<num2
     public static int[] getNumbersWithSumOfDigits(int num1,int num2){
-
         int[] arrOfNum=new int[num2];
         int index=0;
 
@@ -32,7 +31,6 @@ public class Decomposition12 {
     }
 
     public static int sumOfDigits(int num){
-
         int sum=0;
 
         while(num>0){
@@ -45,7 +43,6 @@ public class Decomposition12 {
 
     //Массив будет заполнен числами, сумма цифр которых равна первому числу и которые не больше второго числа
     public static void fillArray(int[] array, int num1,int num2){
-
         int[] arrOfNums=getNumbersWithSumOfDigits(num1,num2);
         int randomIndex;
 
@@ -60,7 +57,6 @@ public class Decomposition12 {
     }
 
     public static void printArray(int[] arr){
-
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -68,7 +64,6 @@ public class Decomposition12 {
     }
 
     public static void main(String[] args) {
-
         try {
             Scanner in = new Scanner(System.in);
 

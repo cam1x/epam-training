@@ -10,13 +10,11 @@ import java.util.Scanner;
 public class StringAsObject10 {
 
     public static int calcNumOfSentences(String string){
-
         return calcNumOfCharacter(string,'.')+calcNumOfCharacter(string,'!')+calcNumOfCharacter(string,'?');
     }
 
     //Регистр не учитывается
     public static int calcNumOfCharacter(String string,char symbolToCalc){
-
         int num=0;//сколько раз встретился символ
         int index=0;//номер проверяемого символа
         string=string.toLowerCase();
@@ -36,7 +34,6 @@ public class StringAsObject10 {
     }
 
     public static void main(String[] args){
-
         Scanner in=new Scanner(System.in);
 
         System.out.println("Введите строку: ");

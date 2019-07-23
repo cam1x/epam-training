@@ -22,63 +22,52 @@ public class BankAccount {
     }
 
     public BankAccount(double balance){
-
         setBalance(balance);
     }
 
     public BankAccount(String name,double balance){
-
         setName(name);
         setBalance(balance);
     }
 
     public void setBalance(double balance){
-
         this.balance=balance;
     }
 
     public void setName(String name){
-
         if(name!=null && !name.isEmpty()) {
             this.name = name;
         }
     }
 
     public String getName(){
-
         return name;
     }
 
     public double getBalance(){
-
         return balance;
     }
 
     public void block(){
-
         isBlocked=true;
     }
 
     public void unlock(){
-
         isBlocked=false;
     }
 
     //Проверяет положителен ли баланск
     public boolean hasPositiveBalance(){
-
         return balance>0;
     }
 
     //Проверяет отрицателен ли баланса
     public boolean hasNegativeBalance(){
-
         return balance<0;
     }
 
     //Положить деньги на счет
     public void depositMoney(double money){
-
         if(!isBlocked){
             balance+=money;
         }else{
@@ -88,7 +77,6 @@ public class BankAccount {
 
     //Снять деньги со счета
     public void withdrawMoney(double money){
-
         if(!isBlocked){
             balance-=money;
         }else{
@@ -97,19 +85,16 @@ public class BankAccount {
     }
 
     public void print(){
-
         System.out.println(toString());
     }
 
     @Override
     public String toString(){
-
         return String.format("%15s %10s %15s","'"+name+"'",balance, isBlocked?"заблокирован":"разблокирован");
     }
 
     @Override
     public boolean equals(Object obj){
-
         if(obj == this){
             return true;
         }
@@ -125,7 +110,6 @@ public class BankAccount {
 
     @Override
     public int hashCode(){
-
         final int prime=31;
         int result=1;
 
