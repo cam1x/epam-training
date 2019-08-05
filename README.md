@@ -10,4 +10,4 @@
 
 - Module 5 - [Basics of OOP](https://github.com/cam1x/epam-training/tree/master/src/by/epam/course/oopbasic) - [DONE]
 
-- Module 6 - [Tasks](https://github.com/cam1x/epam-training/tree/master/src/by/epam/course/application) - [PLANNED]
+- Module 6 - [Tasks](https://github.com/cam1x/epam-training/tree/master/src/by/epam/course/application) - [IN PROGRESS]
