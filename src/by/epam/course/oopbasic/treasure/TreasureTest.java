@@ -10,7 +10,7 @@ public class TreasureTest {
 
             TreasureSet treasure = new TreasureSet();
 
-            String inputPath = "Treasures";
+            String inputPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\oopbasic\\treasure\\Treasures";
 
             int choice = 1;
             int extraChoice;

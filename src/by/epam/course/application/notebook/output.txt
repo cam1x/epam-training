@@ -1,0 +1,123 @@
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Secret
+Email: milo@gmail.com
+Message: Hello! How are you?
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Man in black
+Email: pochta12@pochta.by
+Message: I do not like to speak with you.
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New user
+Email: i@mail.ru
+Message: Try to change smth
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New topik
+Email: topo@gmail.com
+Message: How are you?
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: aaNew topikaaa
+Email: admin@gmail.com
+Message: Smth to write here
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema1
+Email: p.admin@gmail.com
+Message: I donth liked it at all
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema2
+Email: app218@gmail.com
+Message: That was fun! Can we meet one more time?
+
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema3
+Email: lora231@gmail.com
+Message: Do it!
+
+
+
+	Результаты поиска по теме New topik
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New topik
+Email: topo@gmail.com
+Message: How are you?
+
+
+	Результаты поиска по почте admin@gmail.com
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: aaNew topikaaa
+Email: admin@gmail.com
+Message: Smth to write here
+
+
+	Результаты поиска по собщению How are you?
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New topik
+Email: topo@gmail.com
+Message: How are you?
+
+
+	Результаты поиска по подстроке How are you?
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Secret
+Email: milo@gmail.com
+Message: Hello! How are you?
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New topik
+Email: topo@gmail.com
+Message: How are you?
+
+
+	Отсортировано
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Man in black
+Email: pochta12@pochta.by
+Message: I do not like to speak with you.
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New topik
+Email: topo@gmail.com
+Message: How are you?
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: New user
+Email: i@mail.ru
+Message: Try to change smth
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Secret
+Email: milo@gmail.com
+Message: Hello! How are you?
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema1
+Email: p.admin@gmail.com
+Message: I donth liked it at all
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema2
+Email: app218@gmail.com
+Message: That was fun! Can we meet one more time?
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: Tema3
+Email: lora231@gmail.com
+Message: Do it!
+
+	Mon Aug 05 18:14:43 MSK 2019
+Topic: aaNew topikaaa
+Email: admin@gmail.com
+Message: Smth to write here
+

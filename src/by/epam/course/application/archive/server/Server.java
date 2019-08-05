@@ -16,9 +16,10 @@ public class Server {
     private List<User> users = new ArrayList<User>();
     private static UserFactory factory=new UserFactory();
     private File file;//выходной файл для логов пользователей
+    private final String deffoltPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\archive\\server\\Users.xml";
 
     public Server(){
-        file=new File("Users.xml");
+        file=new File(deffoltPath);
         createFile();
     }
 
@@ -26,7 +27,7 @@ public class Server {
         if(pathToFile!=null && !pathToFile.isEmpty()){
             file=new File(pathToFile);
         }else{
-            file=new File("Users.xml");
+            file=new File(deffoltPath);
         }
         createFile();
     }

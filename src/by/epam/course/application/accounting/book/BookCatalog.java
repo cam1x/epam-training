@@ -23,9 +23,10 @@ public class BookCatalog {
     private static int page=1;//общее число страниц
     private static int currPage=1;//текущая страница
     private File file;//выходной файл
+    private final String deffoltPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\accounting\\book\\Catalog.txt";
 
     public BookCatalog(){
-        file=new File("Catalog.txt");
+        file=new File(deffoltPath);
         createFile();
     }
 
@@ -33,7 +34,7 @@ public class BookCatalog {
         if(pathToFile!=null && !pathToFile.isEmpty()){
             file=new File(pathToFile);
         }else{
-            file=new File("Catalog.txt");
+            file=new File(deffoltPath);
         }
         createFile();
     }

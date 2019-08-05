@@ -9,9 +9,10 @@ public class AccountingBooks {
     private List<User> users = new ArrayList<User>();
     private static UserFactory factory=new UserFactory();
     private File file;//выходной файл для логов пользователей
+    private final String deffoltPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\accounting\\user\\Users.txt";
 
     public AccountingBooks(){
-        file=new File("Users.txt");
+        file=new File(deffoltPath);
         createFile();
     }
 
@@ -19,7 +20,7 @@ public class AccountingBooks {
         if(pathToFile!=null && !pathToFile.isEmpty()){
             file=new File(pathToFile);
         }else{
-            file=new File("Users.txt");
+            file=new File(deffoltPath);
         }
         createFile();
     }

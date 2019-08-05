@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<server>
+    <base>
+        <user>
+            <login>Maxim</login>
+        </user>
+        <user>
+            <login>John</login>
+        </user>
+        <user>
+            <login>William</login>
+        </user>
+        <user>
+            <login>Andrew</login>
+        </user>
+        <user>
+            <login>Pavel</login>
+        </user>
+    </base>
+</server>

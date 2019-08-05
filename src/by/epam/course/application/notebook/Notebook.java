@@ -19,9 +19,12 @@ import java.util.regex.*;
 
 public class Notebook {
 
+    private final String deffoltInputPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\notebook\\input.txt";
+    private final String deffoltOutputPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\notebook\\output.txt";
+
     private List<Note> notes=new ArrayList<Note>();
-    private File inputFile=new File("input.txt");
-    private File outputFile=new File("output.txt");
+    private File inputFile=new File(deffoltInputPath);
+    private File outputFile=new File(deffoltOutputPath);
     private String afterOperation=new String();/*Содержит рез-ты всех операций.
     Хранится для корректной перезаписи выхожного файла после удаления заметки*/
 
@@ -91,7 +94,7 @@ public class Notebook {
         topic=topic.trim();
         List<Note> founded=new ArrayList<>();
         if(topic!=null && !topic.isEmpty()){
-            Pattern pattern=Pattern.compile("^"+topic+"$");
+            Pattern pattern=Pattern.compile("^\\Q"+topic+"\\E$");
             Matcher matcher;
             for(Note note:notes){
                 matcher=pattern.matcher(note.getTopic());
@@ -111,7 +114,7 @@ public class Notebook {
         email=email.trim();
         List<Note> founded=new ArrayList<>();
         if(email!=null && !email.isEmpty()){
-            Pattern pattern=Pattern.compile("^"+email+"$");
+            Pattern pattern=Pattern.compile("^\\Q"+email+"\\E$");
             Matcher matcher;
             for(Note note:notes){
                 matcher=pattern.matcher(note.getEmail());
@@ -131,7 +134,7 @@ public class Notebook {
         message=message.trim();
         List<Note> founded=new ArrayList<>();
         if(message!=null && !message.isEmpty()){
-            Pattern pattern=Pattern.compile("^"+message+"$");
+            Pattern pattern=Pattern.compile("^\\Q"+message+"\\E$");
             Matcher matcher;
             for(Note note:notes){
                 matcher=pattern.matcher(note.getMessage());
@@ -152,7 +155,7 @@ public class Notebook {
         email=email.trim();
         List<Note> founded=new ArrayList<>();
         if(topic!=null && !topic.isEmpty()){
-            Pattern pattern=Pattern.compile("^"+topic+"\n"+email+"$");
+            Pattern pattern=Pattern.compile("^\\Q"+topic+"\n"+email+"\\E$");
             Matcher matcher;
             for(Note note:notes){
                 matcher=pattern.matcher(note.getTopic()+"\n"+note.getEmail());
@@ -171,7 +174,7 @@ public class Notebook {
     public List<Note> findBySubstring(String substring){
         List<Note> founded=new ArrayList<>();
         if(substring!=null && !substring.isEmpty()){
-            Pattern pattern=Pattern.compile(substring);
+            Pattern pattern=Pattern.compile("\\Q"+substring+"\\E");
             Matcher matcher;
             for(Note note:notes){
                 matcher=pattern.matcher(note.getMessage());

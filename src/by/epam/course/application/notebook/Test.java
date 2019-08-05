@@ -1,14 +1,12 @@
 package by.epam.course.application.notebook;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern;
-
 import java.util.*;
 
 public class Test {
 
     public static void main(String[] args) {
-        String inputPath = "input.txt";
-        String outputPath = "output.txt";
+        String inputPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\notebook\\input.txt";
+        String outputPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\notebook\\output.txt";
         Notebook notebook = new Notebook(outputPath);
         notebook.addFromFile(inputPath);
 

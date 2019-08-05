@@ -1,0 +1,4 @@
+               Maxim        ********           Аdmin
+               Артем             ***            User
+             Алексей               *            User
+                User               *            User
