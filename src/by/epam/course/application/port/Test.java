@@ -17,12 +17,12 @@ public class Test {
 
                 switch (choice) {
                     case 0: {
-                        System.out.println("Завершение программы");
+                        System.out.println("Завершение программы...");
                         break;
                     }
 
                     case 1: {
-                        System.out.println("Введите максимально доступное число контейнеров и текущее число контейнеров на корабле");
+                        System.out.println("Введите максимально допустимое число контейнеров и текущее число контейнеров на корабле");
                         port.addShip(new Ship(scanner.nextInt(), scanner.nextInt()));
                         break;
                     }

@@ -87,7 +87,7 @@ public class Port {
                         e.printStackTrace();
                     }
 
-                    if(numOfContainers.decrementAndGet()>0) {
+                    if(numOfContainers.decrementAndGet()>=0) {
                         loaded.incrementAndGet();
                         ship.incCongestion();
                     }else{
