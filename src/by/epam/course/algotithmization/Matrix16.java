@@ -14,28 +14,33 @@ public class Matrix16 {
         array[INDEX2]=time;
     }
 
+    //Генерация след. перестановки
     public static boolean nextPerm(int[] array){
         //Алгоритм Нарайаны
         int i=array.length-1;
-        while(--i>=0&&array[i]>array[i+1]){
 
+        while (--i>=0 && array[i]>array[i+1]){
+            //Пустое тело
         }
-        if(i==-1){
+
+        if (i==-1){
             return false;
         }
 
-        for(int j=i+1,k=array.length-1;j<k;j++,k--){
+        for (int j=i+1,k=array.length-1;j<k;j++,k--){
             swapTwoArrayElements(array,j,k);
         }
 
         int j=i+1;
-        while(array[j]<array[i]){
+        while (array[j]<array[i]){
             j++;
         }
+
         swapTwoArrayElements(array,i,j);
         return true;
     }
 
+    //Проверка на магический квадрат
     public static boolean isMagic(int[] array) {
         boolean isMagic=true;
         final int SIZE=(int)(Math.sqrt(array.length));
@@ -67,10 +72,10 @@ public class Matrix16 {
 
         //Главная диагональ
         if (isMagic) {
-
             for (int i = 0; i < SIZE; i++) {
                 currSum += array[i * (SIZE + 1)];
             }
+
             isMagic = (currSum == sum);
             currSum = 0;
         }
@@ -79,12 +84,14 @@ public class Matrix16 {
             for (int i = 0; i < SIZE; i++) {
                 currSum += array[(SIZE - 1)*(i+1)];
             }
+
             isMagic = (currSum == sum);
         }
 
         return isMagic;
     }
 
+    //Вывод одномерного массива как двумерного
     public static void outputArrayAsMatrix(int[]array){
         final int SIZE=(int)Math.sqrt(array.length);
         for(int i=0;i<array.length;i++){

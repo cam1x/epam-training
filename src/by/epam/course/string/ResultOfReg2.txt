@@ -1,0 +1,78 @@
+		Узел №1: 
+<PurchaseOrder PurchaseOrderNumber="99503" OrderDate="1999-10-20">
+
+  <Address Type="Shipping">
+    <Name>Ellen Adams</Name>
+    <Street>123 Maple Street</Street>
+    <City>Mill Valley</City>
+    <State>CA</State>
+    <Zip></Zip>
+    <Country>USA</Country>
+  </Address>
+
+</PurchaseOrder>
+Открывающий тег: <PurchaseOrder PurchaseOrderNumber="99503" OrderDate="1999-10-20">
+Содержимое тега:<Address Type="Shipping">
+    <Name>Ellen Adams</Name>
+    <Street>123 Maple Street</Street>
+    <City>Mill Valley</City>
+    <State>CA</State>
+    <Zip></Zip>
+    <Country>USA</Country>
+  </Address>
+Закрывающий тег: </PurchaseOrder>
+
+		Узел №2: 
+<Address Type="Shipping">
+    <Name>Ellen Adams</Name>
+    <Street>123 Maple Street</Street>
+    <City>Mill Valley</City>
+    <State>CA</State>
+    <Zip></Zip>
+    <Country>USA</Country>
+  </Address>
+Открывающий тег: <Address Type="Shipping">
+Содержимое тега:<Name>Ellen Adams</Name>
+    <Street>123 Maple Street</Street>
+    <City>Mill Valley</City>
+    <State>CA</State>
+    <Zip></Zip>
+    <Country>USA</Country>
+Закрывающий тег: </Address>
+
+		Узел №3: 
+<Name>Ellen Adams</Name>
+Открывающий тег: <Name>
+Содержимое тега:Ellen Adams
+Закрывающий тег: </Name>
+
+		Узел №4: 
+<Street>123 Maple Street</Street>
+Открывающий тег: <Street>
+Содержимое тега:123 Maple Street
+Закрывающий тег: </Street>
+
+		Узел №5: 
+<City>Mill Valley</City>
+Открывающий тег: <City>
+Содержимое тега:Mill Valley
+Закрывающий тег: </City>
+
+		Узел №6: 
+<State>CA</State>
+Открывающий тег: <State>
+Содержимое тега:CA
+Закрывающий тег: </State>
+
+		Узел №7: 
+<Zip></Zip>
+Открывающий тег: <Zip>
+Тег без тела.
+Закрывающий тег: </Zip>
+
+		Узел №8: 
+<Country>USA</Country>
+Открывающий тег: <Country>
+Содержимое тега:USA
+Закрывающий тег: </Country>
+

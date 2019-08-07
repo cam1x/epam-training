@@ -190,8 +190,8 @@ public class RegEx2 {
         String line=new String();
         Scanner scanner=new Scanner(System.in);
 
-        String inputPath= "reg2_text";
-        String outputPath="ResultOfReg2.txt";
+        String inputPath= "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\reg2_text";
+        String outputPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\ResultOfReg2.txt";
 
         try {
             cleanFile(outputPath);

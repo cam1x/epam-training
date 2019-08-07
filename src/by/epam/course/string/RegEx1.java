@@ -352,8 +352,8 @@ public class RegEx1 {
         String line=new String();
         Scanner scanner=new Scanner(System.in);
 
-        String inputPath= "reg1_text";
-        String outputPath="ResultOfReg1.txt";
+        String inputPath= "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\reg1_text";
+        String outputPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\ResultOfReg1.txt";
 
         int choice=1;
 
