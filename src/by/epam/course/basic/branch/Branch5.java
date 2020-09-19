@@ -1,6 +1,7 @@
 package by.epam.course.basic.branch;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
 Вычисляет значение функии:
@@ -9,14 +10,13 @@ import java.util.*;
  */
 
 public class Branch5 {
-
-    public static double calculate(double x){
+    public static double calculate(double x) {
         double res;
 
-        if(x<=3){
-            res=(x-3)*(x-3);
-        }else{
-            res=1/(Math.pow(x,3)+6);
+        if (x <= 3) {
+            res = (x - 3) * (x - 3);
+        } else {
+            res = 1 / (Math.pow(x, 3) + 6);
         }
 
         return res;
@@ -31,8 +31,8 @@ public class Branch5 {
 
             System.out.println("y = " + calculate(x));
 
-        }catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

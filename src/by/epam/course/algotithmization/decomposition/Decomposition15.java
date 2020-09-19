@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит все натуральные n-значные числа,
@@ -8,30 +9,29 @@ import java.util.*;
  */
 
 public class Decomposition15 {
-
     public static int getNthDigit(int number, int n) {
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
-    public static int getNumOfDigits(int num){
-        int size=0;
+    public static int getNumOfDigits(int num) {
+        int size = 0;
 
-        while(num>0){
+        while (num > 0) {
             size++;
-            num/=10;
+            num /= 10;
         }
 
         return size;
     }
 
     //Проверяет образуют ли цифры числа возр. последовательность
-    public static boolean isIncSequenceOfDigits(int num){
-        boolean isIncSequence=true;
-        int numOfDigits=getNumOfDigits(num);
+    public static boolean isIncSequenceOfDigits(int num) {
+        boolean isIncSequence = true;
+        int numOfDigits = getNumOfDigits(num);
 
-        while(numOfDigits>1){
-            if(getNthDigit(num,numOfDigits)>=getNthDigit(num,numOfDigits-1)){
-                isIncSequence=false;
+        while (numOfDigits > 1) {
+            if (getNthDigit(num, numOfDigits) >= getNthDigit(num, numOfDigits - 1)) {
+                isIncSequence = false;
                 break;
             }
             numOfDigits--;
@@ -40,20 +40,20 @@ public class Decomposition15 {
         return isIncSequence;
     }
 
-    public static void printNumbersWithIncSequence(int n){
-        int startNum=(int)Math.pow(10,n-1);
-        int endNum=(int)Math.pow(10,n)-1;
-        int numOfPrintedInLine=0;
+    public static void printNumbersWithIncSequence(int n) {
+        int startNum = (int) Math.pow(10, n - 1);
+        int endNum = (int) Math.pow(10, n) - 1;
+        int numOfPrintedInLine = 0;
 
-        System.out.println("\n"+n+"-значные числа, цифры которых образуют возрастающую последовательность: ");
-        for(int i=startNum;i<=endNum;i++){
-            if(isIncSequenceOfDigits(i)){
-                System.out.print(i+" ");
+        System.out.println("\n" + n + "-значные числа, цифры которых образуют возрастающую последовательность: ");
+        for (int i = startNum; i <= endNum; i++) {
+            if (isIncSequenceOfDigits(i)) {
+                System.out.print(i + " ");
                 numOfPrintedInLine++;
             }
-            if(numOfPrintedInLine>11){
+            if (numOfPrintedInLine > 11) {
                 System.out.println();
-                numOfPrintedInLine=0;
+                numOfPrintedInLine = 0;
             }
         }
     }
@@ -62,7 +62,8 @@ public class Decomposition15 {
         try {
             Scanner in = new Scanner(System.in);
 
-            System.out.println("Введите некоторое натуральное число (кол-во цифр в числе, определяющее n-значное число):");
+            System.out.println("Введите некоторое натуральное число " +
+                    "(кол-во цифр в числе, определяющее n-значное число):");
             int n = in.nextInt();
             while (n <= 0) {
                 System.out.println("Некорректный ввод! Введите натуральное число!");
@@ -71,8 +72,8 @@ public class Decomposition15 {
 
             printNumbersWithIncSequence(n);
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

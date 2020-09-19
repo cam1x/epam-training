@@ -1,6 +1,7 @@
 package by.epam.course.classprograming.time;
 
-import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
     Класс для представления времени.
@@ -11,7 +12,6 @@ import java.util.regex.*;
  */
 
 public class Time {
-
     private int hours;
     private int minutes;
     private int seconds;
@@ -21,7 +21,7 @@ public class Time {
     }
 
     public Time(String time) {
-         setTime(time);
+        setTime(time);
     }
 
     public Time(int hours, int minutes, int seconds) {
@@ -29,8 +29,8 @@ public class Time {
     }
 
     //Время установится, если формат и значения времени верны в переданном строковом представлении
-    public void setTime(String time){
-        if(time!=null && !time.isEmpty()) {
+    public void setTime(String time) {
+        if (time != null && !time.isEmpty()) {
             Pattern timePat = Pattern.compile("[0-9]{2}[.:-][0-9]{2}[.:-][0-9]{2}");
             Matcher timeMat = timePat.matcher(time);
 
@@ -53,73 +53,73 @@ public class Time {
     }
 
     //Время установится, если верны переданные значения часов, минут, секунд
-    public void setTime(int hours,int minutes,int seconds){
-        if(isRightTime(hours, minutes, seconds)) {
+    public void setTime(int hours, int minutes, int seconds) {
+        if (isRightTime(hours, minutes, seconds)) {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
 
-        }else{
+        } else {
             setZero();
         }
     }
 
-    public void setHours(int hours){
-        if(hours>=0 && hours <24){
-            this.hours=hours;
-        }else{
-            setZero();
-        }
-    }
-
-    public void setMinutes(int minutes){
-        if(minutes>=0 && minutes<60){
-            this.minutes=minutes;
-        }else{
-            setZero();
-        }
-    }
-
-    public void setSeconds(int seconds){
-        if(seconds>=0 && seconds<60){
-            this.seconds=seconds;
-        }else{
-            setZero();
-        }
-    }
-
-    public int getHours(){
+    public int getHours() {
         return hours;
     }
 
-    public int getSeconds(){
+    public void setHours(int hours) {
+        if (hours >= 0 && hours < 24) {
+            this.hours = hours;
+        } else {
+            setZero();
+        }
+    }
+
+    public int getSeconds() {
         return seconds;
     }
 
-    public int getMinutes(){
+    public void setSeconds(int seconds) {
+        if (seconds >= 0 && seconds < 60) {
+            this.seconds = seconds;
+        } else {
+            setZero();
+        }
+    }
+
+    public int getMinutes() {
         return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        if (minutes >= 0 && minutes < 60) {
+            this.minutes = minutes;
+        } else {
+            setZero();
+        }
     }
 
     /*
     При выполнениии любой из операция сложения время автоматически переводится в стандартный вид.
     (т.е 15:20 + 68 минут = 16:28)
      */
-    public void addHours(int hours){
-        if(hours>0) {
+    public void addHours(int hours) {
+        if (hours > 0) {
             this.hours = (this.hours + hours) % 24;
         }
     }
 
-    public void addMinutes(int minutes){
-        if(minutes>0) {
+    public void addMinutes(int minutes) {
+        if (minutes > 0) {
             this.minutes += minutes;
             this.hours = (this.hours + this.minutes / 60) % 24;
             this.minutes %= 60;
         }
     }
 
-    public void addSeconds(int seconds){
-        if(seconds>0) {
+    public void addSeconds(int seconds) {
+        if (seconds > 0) {
             this.seconds += seconds;
             this.minutes = (this.minutes + this.seconds / 60);
             this.hours = (this.hours + this.minutes / 60) % 24;
@@ -128,22 +128,23 @@ public class Time {
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        return ((hours<=9)?"0"+hours:hours)+":"+((minutes<=9)?"0"+minutes:minutes)+":"+((seconds<=9)?"0"+seconds:seconds);
+    public String toString() {
+        return ((hours <= 9) ? "0" + hours : hours) + ":" +
+                ((minutes <= 9) ? "0" + minutes : minutes) + ":" + ((seconds <= 9) ? "0" + seconds : seconds);
     }
 
     //Проверка переданных значений на корректность
-    private boolean isRightTime(int hours,int minutes,int seconds){
-        return hours>=0 && hours<24 && minutes>=0 && minutes<60 && seconds>=0 && seconds<60;
+    private boolean isRightTime(int hours, int minutes, int seconds) {
+        return hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 && seconds >= 0 && seconds < 60;
     }
 
-     //Установить время 00:00:00
-    private void setZero(){
-        hours=minutes=seconds=0;
+    //Установить время 00:00:00
+    private void setZero() {
+        hours = minutes = seconds = 0;
     }
 }

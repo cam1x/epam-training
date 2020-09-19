@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.student;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class StudentTest {
-
-    public static void input(StudentArray studentArray){
+    public static void input(StudentArray studentArray) {
         try {
             Student student;
             Scanner scanner = new Scanner(System.in);
@@ -22,12 +22,12 @@ public class StudentTest {
                 }
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
 
@@ -47,8 +47,8 @@ public class StudentTest {
                 System.out.println("\nЧисло студентов должно быть положительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

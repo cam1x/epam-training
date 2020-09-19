@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Даны натуральные числа K и N.
@@ -8,57 +9,55 @@ import java.util.*;
  */
 
 public class Decomposition12 {
-
     //находит числа сумма цифр, которых =num1 и числа<num2
-    public static int[] getNumbersWithSumOfDigits(int num1,int num2){
-        int[] arrOfNum=new int[num2];
-        int index=0;
+    public static int[] getNumbersWithSumOfDigits(int num1, int num2) {
+        int[] arrOfNum = new int[num2];
+        int index = 0;
 
-        while(num2-->0){
-            if(sumOfDigits(num2)==num1){
-                arrOfNum[index]=num2;
+        while (num2-- > 0) {
+            if (sumOfDigits(num2) == num1) {
+                arrOfNum[index] = num2;
                 index++;
             }
         }
 
-        int[]finalArray=new int[index];
+        int[] finalArray = new int[index];
 
-        for(int i=0;i<finalArray.length;i++){
-            finalArray[i]=arrOfNum[i];
-        }
+        if (finalArray.length >= 0)
+            System.arraycopy(arrOfNum, 0, finalArray, 0, finalArray.length);
 
         return finalArray;
     }
 
-    public static int sumOfDigits(int num){
-        int sum=0;
+    public static int sumOfDigits(int num) {
+        int sum = 0;
 
-        while(num>0){
-            sum+=num%10;
-            num/=10;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
         }
 
         return sum;
     }
 
     //Массив будет заполнен числами, сумма цифр которых равна первому числу и которые не больше второго числа
-    public static void fillArray(int[] array, int num1,int num2){
-        int[] arrOfNums=getNumbersWithSumOfDigits(num1,num2);
+    public static void fillArray(int[] array, int num1, int num2) {
+        int[] arrOfNums = getNumbersWithSumOfDigits(num1, num2);
         int randomIndex;
 
-        if(arrOfNums.length>0) {
+        if (arrOfNums.length > 0) {
             for (int i = 0; i < array.length; i++) {
                 randomIndex = (int) (Math.random() * arrOfNums.length);
                 array[i] = arrOfNums[randomIndex];
             }
-        }else{
+        } else {
             System.out.println("\nНе соществует таких цифр!");
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+    public static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
@@ -74,7 +73,8 @@ public class Decomposition12 {
                 size = in.nextInt();
             }
 
-            System.out.println("Введите два числа, массив будет заполнен числами сумма цифр, которых равна первому числу и которые не больше второго числа:");
+            System.out.println("Введите два числа, массив будет заполнен числами сумма цифр, " +
+                    "которых равна первому числу и которые не больше второго числа:");
             int num1 = in.nextInt();
             while (num1 <= 0) {
                 System.out.println("Некорректный ввод! Введите натуральное число!");
@@ -91,8 +91,8 @@ public class Decomposition12 {
             fillArray(array, num1, num2);
             printArray(array);
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

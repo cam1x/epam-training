@@ -1,22 +1,22 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Вычисляет сумы трех последовательно расположенных элементов массива с номерами от k до m
  */
 
 public class Decomposition8 {
-
     /*START-порядковый номер эл-та. Индекс этого эл-та START-1
       При передаче недопустимого индекс возвращает -1
     */
-    public static int sumOfThreeElements(int[] array,final int START){
-        int sum=-1;
+    public static int sumOfThreeElements(int[] array, final int START) {
+        int sum = -1;
 
-        try{
-            sum=array[START-1]+array[START]+array[START+1];
-        }catch (ArrayIndexOutOfBoundsException ex){
+        try {
+            sum = array[START - 1] + array[START] + array[START + 1];
+        } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("\nНедопустимый индекс!");
         }
 
@@ -28,34 +28,34 @@ public class Decomposition8 {
         START и END номера эл-тов, а не их индексы.
         В случае передаче таковых индексов, что тройки не существую, возвращает 0.
      */
-    public static int sumElements(int[] array,final int START, final int END){
-        if(START>END){
+    public static int sumElements(int[] array, final int START, final int END) {
+        if (START > END) {
             throw new IllegalArgumentException("Начальный индекс не может быть больше конечного!");
         }
 
-        if(END>array.length){
+        if (END > array.length) {
             throw new IllegalArgumentException("Номер последнего эл-та суммирования выходит за пределы массива!");
         }
 
-        int sum=0;
+        int sum = 0;
 
-        for(int i=START;i<=END-2;i++){
+        for (int i = START; i <= END - 2; i++) {
 
-            sum+=sumOfThreeElements(array,i);
+            sum += sumOfThreeElements(array, i);
         }
 
         return sum;
     }
 
-    public static void fillArray(int []array){
-        for(int i=0;i<array.length;i++){
-            array[i]=(int)(Math.random()*41-20);
+    public static void fillArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 41 - 20);
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+    public static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
@@ -74,13 +74,14 @@ public class Decomposition8 {
                 System.out.println("\nCгенерированный массив:");
                 printArray(array);
 
-                System.out.println("\nВведите номер, с которого начать суммирование в массиве, и номер на котором закончить:");
+                System.out.println("\nВведите номер, с которого начать " +
+                        "суммирование в массиве, и номер на котором закончить:");
                 int start = in.nextInt();
-                int end=in.nextInt();
+                int end = in.nextInt();
 
                 try {
                     System.out.println("\nСумма = " + sumElements(array, start, end));
-                } catch (IllegalArgumentException ex){
+                } catch (IllegalArgumentException ex) {
                     System.out.println(ex.getMessage());
                 }
 
@@ -88,8 +89,8 @@ public class Decomposition8 {
                 System.out.println("Размер массива должен быть положительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

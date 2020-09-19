@@ -8,20 +8,19 @@ package by.epam.course.application.archive.user;
  */
 
 public class UserFactory {
+    private static String password = "12344321";
 
-    private static String password="12344321";
-
-    public User getUser(String parole, String login){
-        if(password.equals(parole)){
-            return new Administrator(login,parole);
-        }else{
-            return new User(login,parole);
+    public static void changePassword(String oldPassword, String newPassword) {
+        if (oldPassword.equals(password) && newPassword != null && !newPassword.isEmpty()) {
+            password = newPassword;
         }
     }
 
-    public static void changePassword(String oldPassword,String newPassword){
-        if(oldPassword.equals(password) && newPassword!=null && !newPassword.isEmpty()){
-            password=newPassword;
+    public User getUser(String parole, String login) {
+        if (password.equals(parole)) {
+            return new Administrator(login, parole);
+        } else {
+            return new User(login, parole);
         }
     }
 }

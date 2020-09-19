@@ -1,11 +1,11 @@
 package by.epam.course.classprograming.time;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class TimeTest {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
             Time time = new Time();
@@ -27,63 +27,44 @@ public class TimeTest {
 
                 choice = scanner.nextInt();
                 switch (choice) {
-                    case 1: {
+                    case 1 -> {
                         System.out.println("\nВведите время (HH:MM::SS):");
                         time.setTime(scanner.next());
-                        break;
                     }
-
-                    case 2: {
+                    case 2 -> {
                         System.out.println("\nВведите часы, минуты, секунды в указанном порядке через пробел:");
                         time.setTime(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
-                        break;
                     }
-
-                    case 3: {
+                    case 3 -> {
                         System.out.println("\nВведите часы:");
                         time.setHours(scanner.nextInt());
-                        break;
                     }
-
-                    case 4: {
+                    case 4 -> {
                         System.out.println("\nВведите минуты:");
                         time.setMinutes(scanner.nextInt());
-                        break;
                     }
-
-                    case 5: {
+                    case 5 -> {
                         System.out.println("\nВведите секунды:");
                         time.setSeconds(scanner.nextInt());
-                        break;
                     }
-
-                    case 6: {
+                    case 6 -> {
                         System.out.println("\nВведите часы:");
                         time.addHours(scanner.nextInt());
-                        break;
                     }
-
-                    case 7: {
+                    case 7 -> {
                         System.out.println("\nВведите минуты:");
                         time.addMinutes(scanner.nextInt());
-                        break;
                     }
-
-                    case 8: {
+                    case 8 -> {
                         System.out.println("\nВведите секунды:");
                         time.addSeconds(scanner.nextInt());
-                        break;
                     }
-
-                    case 9: {
-                        System.out.println(time);
-                        break;
-                    }
+                    case 9 -> System.out.println(time);
                 }
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

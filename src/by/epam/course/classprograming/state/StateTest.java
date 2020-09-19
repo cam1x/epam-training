@@ -1,9 +1,9 @@
 package by.epam.course.classprograming.state;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class StateTest {
-
     public static void main(String[] args) {
         try {
             State state = new State("Беларусь", "Минск");
@@ -28,69 +28,49 @@ public class StateTest {
                 choice = scanner.nextInt();
 
                 switch (choice) {
-
-                    case 1: {
+                    case 1 -> {
                         System.out.println("\nВведите область и областной центр");
                         state.addRegion(scanner.next());
-                        state.setCenter(scanner.next(),state.getNumOfRegions()-1);
-                        break;
+                        state.setCenter(scanner.next(), state.getNumOfRegions() - 1);
                     }
-
-                    case 2: {
+                    case 2 -> {
                         System.out.println("\nВведите область");
                         state.deleteRegion(scanner.next());
-                        break;
                     }
-
-                    case 3: {
+                    case 3 -> {
                         System.out.println("\nВведите район и номер области, к которому его следует добавить");
                         state.addDistrict(scanner.next(), scanner.nextInt() - 1);
-                        break;
                     }
-
-                    case 4: {
+                    case 4 -> {
                         System.out.println("\nВведите район и номер области, из которого его следует удалить");
                         state.deleteDistrict(scanner.next(), scanner.nextInt() - 1);
-                        break;
                     }
-
-                    case 5: {
+                    case 5 -> {
                         System.out.println("\nВведите город, а также номер области и номер района внутри области, в которых нужно добавить город");
                         state.addCity(scanner.next(), scanner.nextInt() - 1, scanner.nextInt() - 1);
-                        break;
                     }
-
-                    case 6: {
+                    case 6 -> {
                         System.out.println("\nВведите город, а также номер области и номер района внутри области, из которого следует удалить город");
                         state.deleteCity(scanner.next(), (scanner.nextInt() - 1), (scanner.nextInt() - 1));
-                        break;
                     }
-
-                    case 7: {
+                    case 7 -> {
                         System.out.println("\nСписок областных центров:");
-                        System.out.println(state.getCenteres()+"\n");
-                        break;
+                        System.out.println(state.getCenters() + "\n");
                     }
-
-                    case 8: {
+                    case 8 -> {
                         System.out.println("\nПлощадь гос-ва = " + state.getArea());
-                        break;
                     }
-
-                    case 9: {
+                    case 9 -> {
                         System.out.println("\nВведите площадь гос-ва: ");
                         state.setArea(scanner.nextDouble());
-                        break;
                     }
-
-                    case 10: {
+                    case 10 -> {
                         state.print();
-                        break;
                     }
                 }
             }
 
-        }catch(InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             System.out.println("\nОшибка ввода!");
         }
     }

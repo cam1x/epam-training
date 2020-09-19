@@ -2,22 +2,22 @@ package by.epam.course.application.archive.client;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Client {
-
-    private static void write(BufferedWriter writer, String request){
+    private static void write(BufferedWriter writer, String request) {
         try {
             writer.write(request);
             writer.newLine();
             writer.flush();
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     //Меню запросов на сервер
-    public static void menu(BufferedReader reader, BufferedWriter writer){
+    public static void menu(BufferedReader reader, BufferedWriter writer) {
         Scanner scanner = new Scanner(System.in);
         String request;
 
@@ -31,7 +31,7 @@ public class Client {
 
                 do {
                     System.out.println(reader.readLine());
-                }while (reader.ready());
+                } while (reader.ready());
 
                 System.out.println("1-Авторизация");
                 System.out.println("2-Просмотр архива");
@@ -50,125 +50,95 @@ public class Client {
                 System.out.println("14-Изменить пароль админ панели");
                 choice = scanner.nextInt();
                 switch (choice) {
-                    case 1: {
+                    case 1 -> {
                         System.out.println("Введите логин и пароль для авторизации: ");
                         request = 1 + ";" + scanner.next() + ";" + scanner.next();
                         write(writer, request);
-                        break;
                     }
-
-                    case 2: {
+                    case 2 -> {
                         request = 2 + ";";
                         write(writer, request);
-                        break;
                     }
-
-                    case 3: {
+                    case 3 -> {
                         System.out.println("Введите название факультета");
                         request = 3 + ";" + scanner.next();
                         write(writer, request);
-                        break;
                     }
-
-                    case 4: {
+                    case 4 -> {
                         System.out.println("Введите курс для поиска");
                         request = 4 + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 5: {
+                    case 5 -> {
                         System.out.println("Введите год поступления");
                         request = 5 + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 6: {
+                    case 6 -> {
                         System.out.println("Введите имя студента, факультет, курс и год зачисдения");
                         request = 6 + ";" + scanner.next() + ";" + scanner.next() + ";" + scanner.nextInt() + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 7: {
+                    case 7 -> {
                         System.out.println("Введите номер дела для удаления");
                         request = 7 + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 8: {
+                    case 8 -> {
                         request = 8 + ";";
                         write(writer, request);
-                        break;
                     }
-
-                    case 9: {
+                    case 9 -> {
                         System.out.println("Введите номер дела для выбора");
                         request = 8 + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 10: {
+                    case 10 -> {
                         request = 10 + ";";
                         write(writer, request);
-                        break;
                     }
-
-                    case 11: {
+                    case 11 -> {
                         System.out.println("Введите новое название факультета");
                         request = 11 + ";" + scanner.next();
                         write(writer, request);
-                        break;
                     }
-
-                    case 12: {
+                    case 12 -> {
                         request = 12 + ";";
                         write(writer, request);
-                        break;
                     }
-
-                    case 13: {
+                    case 13 -> {
                         System.out.println("Введите номер курса");
                         request = 13 + ";" + scanner.nextInt();
                         write(writer, request);
-                        break;
                     }
-
-                    case 14:{
+                    case 14 -> {
                         System.out.println("Введите старый, а затем через пробел новый пароль");
-                        request=14+";"+scanner.next()+";"+scanner.next();
-                        write(writer,request);
-                        break;
+                        request = 14 + ";" + scanner.next() + ";" + scanner.next();
+                        write(writer, request);
                     }
                 }
             }
-        }catch (InputMismatchException e){
-            throw new RuntimeException(e);
-        }
-        catch (IOException e){
+        } catch (InputMismatchException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static void main(String[] args) {
-        try(
-                Socket socket=new Socket("127.0.0.1",8000);
-                BufferedWriter writer=
+        try (
+                Socket socket = new Socket("127.0.0.1", 8000);
+                BufferedWriter writer =
                         new BufferedWriter(
                                 new OutputStreamWriter(
                                         socket.getOutputStream()));
-                BufferedReader reader=
+                BufferedReader reader =
                         new BufferedReader(
                                 new InputStreamReader(
                                         socket.getInputStream()));
-             ){
-                while(socket.isConnected()) {
-                    menu(reader, writer);
-                }
-        }catch (IOException e){
+        ) {
+            while (socket.isConnected()) {
+                menu(reader, writer);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

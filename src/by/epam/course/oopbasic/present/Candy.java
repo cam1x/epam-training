@@ -5,13 +5,12 @@ package by.epam.course.oopbasic.present;
  */
 
 public class Candy extends MySweet implements Sweet {
-
-    public Candy(){
+    public Candy() {
         super();
         super.setName("конфета");
     }
 
-    public Candy(double weight,double price){
-        super("конфета",weight,price);
+    public Candy(double weight, double price) {
+        super("конфета", weight, price);
     }
 }

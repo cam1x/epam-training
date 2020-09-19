@@ -1,71 +1,78 @@
 package by.epam.course.application.accounting.user;
 
-import by.epam.course.application.accounting.book.*;
-import java.io.*;
-import java.util.*;
+import by.epam.course.application.accounting.book.Book;
+import by.epam.course.application.accounting.book.ElectronicBook;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class AccountingBooks {
 
-    private List<User> users = new ArrayList<User>();
-    private static UserFactory factory=new UserFactory();
-    private File file;//выходной файл для логов пользователей
-    private final String deffoltPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\accounting\\user\\Users.txt";
+    private static UserFactory factory = new UserFactory();
+    private final String defaultPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\application\\accounting\\user\\Users.txt";
+    private final List<User> users = new ArrayList<User>();
+    private final File file;//выходной файл для логов пользователей
 
-    public AccountingBooks(){
-        file=new File(deffoltPath);
+    public AccountingBooks() {
+        file = new File(defaultPath);
         createFile();
     }
 
-    public AccountingBooks(String pathToFile){
-        if(pathToFile!=null && !pathToFile.isEmpty()){
-            file=new File(pathToFile);
-        }else{
-            file=new File(deffoltPath);
+    public AccountingBooks(String pathToFile) {
+        if (pathToFile != null && !pathToFile.isEmpty()) {
+            file = new File(pathToFile);
+        } else {
+            file = new File(defaultPath);
         }
         createFile();
     }
 
     //Решгистрация пользователя
-    public void addUser(String login,String password){
-        if(isValidLogin(login)) {
-            User toAdd=factory.getUser(password, login);
+    public void addUser(String login, String password) {
+        if (isValidLogin(login)) {
+            User toAdd = factory.getUser(password, login);
             users.add(toAdd);
-            addToFile(toAdd.toString()+"\n");
+            addToFile(toAdd.toString() + "\n");
         }
     }
 
     //Авторизация уже зарегестрированного пользователя
-    public boolean login(String login,String password){
-        if(!isValidLogin(login)){
-            int index=0;
-            for(int i=0;i<users.size();i++){
-                if(users.get(i).getLogin().equals(login)){
-                    index=i;
+    public boolean login(String login, String password) {
+        if (!isValidLogin(login)) {
+            int index = 0;
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getLogin().equals(login)) {
+                    index = i;
                     break;
                 }
             }
-            if(password.equals(users.get(index).getPassword())) {
+            if (password.equals(users.get(index).getPassword())) {
                 users.add(users.size(), users.get(index));
                 users.remove(index);
                 return true;
-            }else{
+            } else {
                 System.out.println("Введен неверный пароль!");
                 return false;
             }
-        }else{
-            System.out.println("Пользователь "+login+" не найден!");
+        } else {
+            System.out.println("Пользователь " + login + " не найден!");
             return false;
         }
     }
 
-    public void removeUser(User user){
+    public void removeUser(User user) {
         users.remove(user);
         writeToFile();
     }
 
-    public void menu(){
-        int choice=1;
-        Scanner scanner=new Scanner(System.in);
+    public void menu() {
+        int choice = 1;
+        Scanner scanner = new Scanner(System.in);
         try {
             while (choice != 0) {
                 System.out.println("Введите 0, чтобы выйти из приложения");
@@ -73,22 +80,19 @@ public class AccountingBooks {
                 System.out.println("Введите 2, чтобы зарегистрироваться в каталоге");
                 choice = scanner.nextInt();
 
-                if(choice==1 || choice==2) {
+                if (choice == 1 || choice == 2) {
                     boolean isLogged = false;
 
                     while (!isLogged) {
                         switch (choice) {
-                            case 1: {
+                            case 1 -> {
                                 System.out.println("\nВведите логин и пароль:");
                                 isLogged = login(scanner.next(), scanner.next());
-                                break;
                             }
-
-                            case 2: {
+                            case 2 -> {
                                 System.out.println("\nВведите логин и пароль:");
                                 addUser(scanner.next(), scanner.next());
                                 isLogged = true;
-                                break;
                             }
                         }
 
@@ -101,16 +105,16 @@ public class AccountingBooks {
                     }
                 }
             }
-        }catch (InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             System.out.println("Ошибка ввода! Операция невозможна!");
             menu();
         }
     }
 
     //Панель обычного пользователя
-    private void deffoltUserMenu(){
-        int choice=1;
-        Scanner scanner=new Scanner(System.in);
+    private void deffoltUserMenu() {
+        int choice = 1;
+        Scanner scanner = new Scanner(System.in);
         try {
             while (choice != 0) {
                 System.out.println("Введите 0, чтобы выйти");
@@ -123,57 +127,42 @@ public class AccountingBooks {
                 System.out.println("Введите 9, чтобы получить описание книги");
                 choice = scanner.nextInt();
                 switch (choice) {
-                    case 3: {
-                        users.get(users.size() - 1).print();
-                        break;
-                    }
-
-                    case 4: {
+                    case 3 -> users.get(users.size() - 1).print();
+                    case 4 -> {
                         System.out.println("\nВведите номер страницы:");
                         users.get(users.size() - 1).print(scanner.nextInt());
-                        break;
                     }
-
-                    case 5: {
+                    case 5 -> {
                         System.out.println("\nВведите автора, название книги, число страниц (через пробел)");
                         users.get(users.size() - 1).findBook(new Book(scanner.next(), scanner.next(), scanner.nextInt()));
-                        break;
                     }
-
-                    case 6: {
+                    case 6 -> {
                         System.out.println("\nВведите автора");
                         users.get(users.size() - 1).findBook(scanner.next());
-                        break;
                     }
-
-                    case 7: {
+                    case 7 -> {
                         users.get(users.size() - 1).checkMail();
-                        break;
                     }
-
-                    case 8: {
+                    case 8 -> {
                         System.out.println("\nВведите автора, название книги, число страниц (через пробел)");
                         users.get(users.size() - 1).adviceAdmin(scanner.next() + " " + scanner.next() + " " + scanner.nextInt());
-                        break;
                     }
-
-                    case 9: {
+                    case 9 -> {
                         System.out.println("\nВведите порядковый номер книги на текущей странице");
                         users.get(users.size() - 1).getDescription(scanner.nextInt());
-                        break;
                     }
                 }
             }
-        } catch (InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             System.out.println("Ошибка ввода! Операция невозможна!");
             deffoltUserMenu();
         }
     }
 
     //Админ панель
-    private void adminMenu(){
-        int choice=1;
-        Scanner scanner=new Scanner(System.in);
+    private void adminMenu() {
+        int choice = 1;
+        Scanner scanner = new Scanner(System.in);
         try {
             while (choice != 0) {
                 System.out.println("Введите 0, чтобы выйти");
@@ -223,16 +212,16 @@ public class AccountingBooks {
                         System.out.println("\nВведите автора, название книги, число страниц (через пробел)");
                         Book book = new Book(scanner.next(), scanner.next(), scanner.nextInt());
                         ((Administrator) users.get(users.size() - 1)).addBook(book);
-                        messageAllUsers(book.toString()+"\t\tДобавлена в каталог\n");
+                        messageAllUsers(book.toString() + "\t\tДобавлена в каталог\n");
                         break;
                     }
 
                     case 9: {
                         System.out.println("\nВведите автора, название книги, число страниц, полный адрес сайта (через пробел)");
-                        ElectronicBook ebook=new ElectronicBook(scanner.next(), scanner.next(), scanner.nextInt());
+                        ElectronicBook ebook = new ElectronicBook(scanner.next(), scanner.next(), scanner.nextInt());
                         ebook.setResource(scanner.next());
                         ((Administrator) users.get(users.size() - 1)).addBook(ebook);
-                        messageAllUsers(ebook.toString()+"\t\tДобавлена в каталог\n");
+                        messageAllUsers(ebook.toString() + "\t\tДобавлена в каталог\n");
                         break;
                     }
 
@@ -255,24 +244,24 @@ public class AccountingBooks {
 
                     case 13: {
                         System.out.println("\nВведите порядковый номер книги на текущей странице и описание");
-                        int num=scanner.nextInt();
+                        int num = scanner.nextInt();
                         ((Administrator) users.get(users.size() - 1)).setDescription(num, scanner.next());
-                        Book book=users.get(users.size()-1).getNthBook(num);
+                        Book book = users.get(users.size() - 1).getNthBook(num);
                         if (book != null) {
-                            messageAllUsers(book.toString()+"\t\tИзменено описание\n");
+                            messageAllUsers(book.toString() + "\t\tИзменено описание\n");
                         }
                         break;
                     }
                 }
             }
-        } catch (InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             System.out.println("Ошибка ввода! Операция невозможна!");
             adminMenu();
         }
     }
 
     //Оповестить всех пользователей
-    private void messageAllUsers(String string){
+    private void messageAllUsers(String string) {
         for (User user : users) {
             if (!user.isAdmin()) {
                 user.addMessage(string);
@@ -281,11 +270,11 @@ public class AccountingBooks {
     }
 
     //Проверка на существования пользователя в системе
-    private boolean isValidLogin(String login){
-        boolean isInvalid=true;
-        for(User user:users){
-            if(user.getLogin().equals(login)){
-                isInvalid=false;
+    private boolean isValidLogin(String login) {
+        boolean isInvalid = true;
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
+                isInvalid = false;
                 break;
             }
         }
@@ -293,53 +282,53 @@ public class AccountingBooks {
     }
 
     //Дозапись в конец файла
-    private void addToFile(String content){
+    private void addToFile(String content) {
         try {
             FileWriter writer = new FileWriter(file, true);
             writer.write(content);
             writer.flush();
             writer.close();
 
-        } catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     //Перезапись всех пользователей
-    private void writeToFile(){
+    private void writeToFile() {
         try {
             FileWriter writer = new FileWriter(file);
-            for(User user:users){
-                writer.write(user.toString()+"\n");
+            for (User user : users) {
+                writer.write(user.toString() + "\n");
             }
             writer.flush();
             writer.close();
 
-        } catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     //Создание файла по пути, если он отсутствует
-    private boolean createFile(){
-        if(!file.exists()){
+    private boolean createFile() {
+        if (!file.exists()) {
             try {
                 return file.createNewFile();
-            }catch (IOException ex){
+            } catch (IOException ex) {
                 return false;
             }
-        }else{
+        } else {
             cleanFile();
             return false;
         }
     }
 
     //Очистка данных в файле по заданному пути
-    private void cleanFile(){
+    private void cleanFile() {
         try {
             FileWriter cleaner = new FileWriter(file);
             cleaner.close();
-        } catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex);
         }
     }

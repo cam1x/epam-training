@@ -1,6 +1,7 @@
 package by.epam.course.oopbasic.payment;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 /*
     Класс для представления платежа(коллекция продуктов)
@@ -12,118 +13,110 @@ import java.util.*;
  */
 
 public class Payment {
+    private final ArrayList<Product> products = new ArrayList<Product>();
 
-    private ArrayList<Product> products=new ArrayList<Product>();
-
-    public Payment(){
+    public Payment() {
 
     }
 
-    public Payment(int num){
-        for(int i=0;i<num;i++){
+    public Payment(int num) {
+        for (int i = 0; i < num; i++) {
             products.add(new Product());
         }
     }
 
-    public void addProduct(String name,double weight,double price){
-        products.add(new Product(name,weight,price));
+    public void addProduct(String name, double weight, double price) {
+        products.add(new Product(name, weight, price));
     }
 
-    public void setProduct(int index,String name,double weight,double price){
-        if(index>=0 && price <products.size()) {
+    public void setProduct(int index, String name, double weight, double price) {
+        if (index >= 0 && price < products.size()) {
             products.set(index, new Product(name, weight, price));
         }
     }
 
-    public void deleteProduct(int index){
-        if(index>=0 && index<products.size()){
+    public void deleteProduct(int index) {
+        if (index >= 0 && index < products.size()) {
             products.remove(index);
         }
     }
 
-    public void deleteProduct(String name,double weight,double price){
-        products.remove(new Product(name,weight,price));
+    public void deleteProduct(String name, double weight, double price) {
+        products.remove(new Product(name, weight, price));
     }
 
-    public void sortByPrice(){
-        Comparator<Product> comparator=Comparator.comparing(Product::getPrice);
-        comparator=comparator.thenComparing(Product::getName);
-        comparator=comparator.thenComparing(Product::getWeight);
+    public void sortByPrice() {
+        Comparator<Product> comparator = Comparator.comparing(Product::getPrice);
+        comparator = comparator.thenComparing(Product::getName);
+        comparator = comparator.thenComparing(Product::getWeight);
         products.sort(comparator);
     }
 
-    public void sortByWeight(){
-        Comparator<Product> comparator=Comparator.comparing(Product::getWeight);
-        comparator=comparator.thenComparing(Product::getPrice);
-        comparator=comparator.thenComparing(Product::getName);
+    public void sortByWeight() {
+        Comparator<Product> comparator = Comparator.comparing(Product::getWeight);
+        comparator = comparator.thenComparing(Product::getPrice);
+        comparator = comparator.thenComparing(Product::getName);
         products.sort(comparator);
     }
 
-    public void sortByName(){
-        products.sort(new Comparator<Product>(){
-
-            @Override
-            public int compare(Product p1,Product p2){
-
-                return p1.getName().compareTo(p2.getName());
-            }
-        });
+    public void sortByName() {
+        products.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
     }
 
-    public double getTotalPrice(){
-        double price=0;
+    public double getTotalPrice() {
+        double price = 0;
 
-        for(Product product:products){
-            price+=product.getPrice();
+        for (Product product : products) {
+            price += product.getPrice();
         }
 
-        return (double)Math.round(price*100d)/100d;
+        return (double) Math.round(price * 100d) / 100d;
     }
 
-    public double getTotalWeight(){
-        double weight=0;
+    public double getTotalWeight() {
+        double weight = 0;
 
-        for(Product product:products){
-            weight+=product.getWeight();
+        for (Product product : products) {
+            weight += product.getWeight();
         }
 
-        return (double)Math.round(weight*100d)/100d;
+        return (double) Math.round(weight * 100d) / 100d;
     }
 
-    public void print(){
-        System.out.println("\n Общая сумма = "+getTotalPrice());
-        System.out.println(" Общий вес = "+getTotalWeight()+"\n");
+    public void print() {
+        System.out.println("\n Общая сумма = " + getTotalPrice());
+        System.out.println(" Общий вес = " + getTotalWeight() + "\n");
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        String string=new String();
+    public String toString() {
+        StringBuilder string = new StringBuilder();
 
-        for(int i=0;i<products.size();i++){
-            string+=(i+1)+products.get(i).toString()+"\n";
+        for (int i = 0; i < products.size(); i++) {
+            string.append(i + 1).append(products.get(i).toString()).append("\n");
         }
 
-        return string;
+        return string.toString();
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        Payment other=(Payment) obj;
+        Payment other = (Payment) obj;
 
-        boolean isEqual=true;
+        boolean isEqual = true;
 
-        for(int i=0;i<products.size();i++){
-            if(!products.get(i).equals(other.products.get(i))){
-                isEqual=false;
+        for (int i = 0; i < products.size(); i++) {
+            if (!products.get(i).equals(other.products.get(i))) {
+                isEqual = false;
                 break;
             }
         }
@@ -132,12 +125,12 @@ public class Payment {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(Product product:products){
-            result=prime*result+product.hashCode();
+        for (Product product : products) {
+            result = prime * result + product.hashCode();
         }
 
         return result;

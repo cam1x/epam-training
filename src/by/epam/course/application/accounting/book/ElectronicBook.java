@@ -1,6 +1,7 @@
 package by.epam.course.application.accounting.book;
 
-import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
     Класс для представления эл. книги
@@ -10,28 +11,27 @@ import java.util.regex.*;
     2) получение адреса сайта
  */
 
-public class ElectronicBook extends Book{
+public class ElectronicBook extends Book {
+    private String resource = "http://elib.bsu.by/";
 
-    private String resource="http://elib.bsu.by/";
-
-    public ElectronicBook(String author,String name,int pages){
+    public ElectronicBook(String author, String name, int pages) {
         super(author, name, pages);
     }
 
-    public void setResource(String resource){
-        Pattern urlPattern=Pattern.compile("^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
-        Matcher urlMatcher=urlPattern.matcher(resource);
-        if(urlMatcher.find()){
-            this.resource=resource;
-        }
-    }
-
-    public String getResource(){
+    public String getResource() {
         return resource;
     }
 
+    public void setResource(String resource) {
+        Pattern urlPattern = Pattern.compile("^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
+        Matcher urlMatcher = urlPattern.matcher(resource);
+        if (urlMatcher.find()) {
+            this.resource = resource;
+        }
+    }
+
     @Override
-    public String toString(){
-        return super.toString()+"\t"+resource;
+    public String toString() {
+        return super.toString() + "\t" + resource;
     }
 }

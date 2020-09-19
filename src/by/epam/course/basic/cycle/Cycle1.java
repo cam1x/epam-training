@@ -1,23 +1,23 @@
 package by.epam.course.basic.cycle;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Суммирует все числа от 1 до введенного пользователем числа
  */
 
 public class Cycle1 {
+    public static int calculate(int num) {
+        if (num >= 1) {
 
-    public static int calculate(int num){
-        if(num>=1){
-
-            int sum=0;
-            for(int i=1;i<=num;i++) {
+            int sum = 0;
+            for (int i = 1; i <= num; i++) {
                 sum += i;
             }
             return sum;
 
-        }else{
+        } else {
             throw new IllegalArgumentException("Передано отрицательное число!");
         }
     }
@@ -35,8 +35,8 @@ public class Cycle1 {
                 System.out.println(exception.getMessage());
             }
 
-        }catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

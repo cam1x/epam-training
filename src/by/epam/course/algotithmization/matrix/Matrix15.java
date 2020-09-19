@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит наибольший элемент матрицы.
@@ -8,31 +9,30 @@ import java.util.*;
  */
 
 public class Matrix15 {
-
-    public static void printMatrix(int[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(int[][] matrix) {
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.print("\n");
         }
     }
 
-    public static void fillMatrixRandom(int[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[i].length;j++){
-                matrix[i][j]=(int)(Math.random()*101-51);
+    public static void fillMatrixRandom(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = (int) (Math.random() * 101 - 51);
             }
         }
     }
 
-    public static int getMax(int[][] matrix){
-        int max=matrix[0][0];
+    public static int getMax(int[][] matrix) {
+        int max = matrix[0][0];
 
-        for(int i=0;i<matrix.length;i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] > max) {
-                    max = matrix[i][j];
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                if (anInt > max) {
+                    max = anInt;
                 }
             }
         }
@@ -40,11 +40,11 @@ public class Matrix15 {
         return max;
     }
 
-    public static void changeAllOdd(int[][] matrix, int number){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                if(matrix[i][j]%2==1 || matrix[i][j]%2==-1){
-                    matrix[i][j]=number;
+    public static void changeAllOdd(int[][] matrix, int number) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] % 2 == 1 || matrix[i][j] % 2 == -1) {
+                    matrix[i][j] = number;
                 }
             }
         }
@@ -59,14 +59,14 @@ public class Matrix15 {
             int numOfColumn = in.nextInt();
 
             if (numOfColumn > 0 && numOfLines > 0) {
-                int arr[][] = new int[numOfLines][numOfColumn];
+                int[][] arr = new int[numOfLines][numOfColumn];
                 fillMatrixRandom(arr);
 
                 System.out.println("\nСгенерированная матрица: ");
                 printMatrix(arr);
 
                 System.out.println("\nЗамена всех нечетных на max:");
-                int max=getMax(arr);
+                int max = getMax(arr);
                 changeAllOdd(arr, max);
                 printMatrix(arr);
 
@@ -74,8 +74,8 @@ public class Matrix15 {
                 System.out.println("Размерность матрицы должна быть положительной!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

@@ -1,7 +1,6 @@
 package by.epam.course.classprograming.airline;
 
-public enum  Plane {
-
+public enum Plane {
     AMPHIBIAN,
     HELLICOPTER,
     BIPLANE,

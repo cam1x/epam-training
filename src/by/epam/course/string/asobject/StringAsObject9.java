@@ -7,19 +7,18 @@ import java.util.Scanner;
  */
 
 public class StringAsObject9 {
-
-    public static boolean isLowerCase(char ch){
-        return ch>='a'&&ch<='z';
+    public static boolean isLowerCase(char ch) {
+        return ch >= 'a' && ch <= 'z';
     }
 
-    public static boolean isUpperCase(char ch){
-        return ch>='A'&&ch<='Z';
+    public static boolean isUpperCase(char ch) {
+        return ch >= 'A' && ch <= 'Z';
     }
 
-    public static int calcNumOfLowerCase(String string){
-        int num=0;
-        for(int i=0;i<string.length();i++){
-            if(isLowerCase(string.charAt(i))){
+    public static int calcNumOfLowerCase(String string) {
+        int num = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (isLowerCase(string.charAt(i))) {
                 num++;
             }
         }
@@ -27,10 +26,10 @@ public class StringAsObject9 {
         return num;
     }
 
-    public static int calcNumOfUpperCase(String string){
-        int num=0;
-        for(int i=0;i<string.length();i++){
-            if(isUpperCase(string.charAt(i))){
+    public static int calcNumOfUpperCase(String string) {
+        int num = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (isUpperCase(string.charAt(i))) {
                 num++;
             }
         }
@@ -38,15 +37,15 @@ public class StringAsObject9 {
         return num;
     }
 
-    public static void main(String[] args){
-        Scanner in=new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Введите строку: ");
-        String line=in.nextLine();
+        String line = in.nextLine();
 
-        int numOfLower=calcNumOfLowerCase(line);
-        int numOfUpper=calcNumOfUpperCase(line);
+        int numOfLower = calcNumOfLowerCase(line);
+        int numOfUpper = calcNumOfUpperCase(line);
 
-        System.out.println("\nЧисло строчных букв: "+numOfLower);
-        System.out.println("\nЧисло прописных букв: "+numOfUpper);
+        System.out.println("\nЧисло строчных букв: " + numOfLower);
+        System.out.println("\nЧисло прописных букв: " + numOfUpper);
     }
 }

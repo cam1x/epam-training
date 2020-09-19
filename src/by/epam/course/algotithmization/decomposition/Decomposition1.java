@@ -1,24 +1,23 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Программа для нахождения НОК и НОД двух чисел
  */
 
 public class Decomposition1 {
-
     public static int greatestCommonDevision(int firstNum, int secondNum) {
-        if(secondNum==0) {
+        if (secondNum == 0) {
             return Math.abs(firstNum);
-        }
-        else {
-            return greatestCommonDevision(secondNum,firstNum%secondNum);
+        } else {
+            return greatestCommonDevision(secondNum, firstNum % secondNum);
         }
     }
 
-    public static int leastCommonMultiply(int firstNum,int secondNum){
-        return Math.abs(firstNum*secondNum)/greatestCommonDevision(firstNum,secondNum);
+    public static int leastCommonMultiply(int firstNum, int secondNum) {
+        return Math.abs(firstNum * secondNum) / greatestCommonDevision(firstNum, secondNum);
     }
 
     public static void main(String[] args) {
@@ -32,8 +31,8 @@ public class Decomposition1 {
             System.out.println("НОД(" + num1 + "," + num2 + ") = " + greatestCommonDevision(num1, num2));
             System.out.println("НОК(" + num1 + "," + num2 + ") = " + leastCommonMultiply(num1, num2));
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

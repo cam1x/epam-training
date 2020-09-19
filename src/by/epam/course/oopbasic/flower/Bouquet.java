@@ -1,6 +1,8 @@
 package by.epam.course.oopbasic.flower;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Random;
 
 /*
     Класс для представления букета(коллекции цветов)
@@ -15,61 +17,56 @@ import java.util.*;
  */
 
 public class Bouquet {
+    private final ArrayList<Flower> flowers = new ArrayList<Flower>();
+    private final FlowerFactory factory = new FlowerFactory();
+    private final Packaging packaging = new Packaging();
 
-    private ArrayList<Flower> flowers=new ArrayList<Flower>();
-    private FlowerFactory factory=new FlowerFactory();
-    private Packaging packaging=new Packaging();
-
-    public Bouquet(){
+    public Bouquet() {
 
     }
 
-    public Bouquet(String packagingColor){
+    public Bouquet(String packagingColor) {
         packaging.setColor(packagingColor);
     }
 
-    public void changePackaging(String color){
+    public void changePackaging(String color) {
         packaging.setColor(color);
     }
 
-    public void addRandomFlower(int num){
-        while(num-->0) {
+    public void addRandomFlower(int num) {
+        while (num-- > 0) {
             Random random = new Random();
             FlowerTypes type = FlowerTypes.values()[random.nextInt(FlowerTypes.values().length)];
             flowers.add(factory.getFlower(type));
         }
     }
 
-    public void addRose(int num,String color,double price){
-        while(num-->0){
-            flowers.add(factory.getFlower(FlowerTypes.ROSE,color,price));
+    public void addRose(int num, String color, double price) {
+        while (num-- > 0) {
+            flowers.add(factory.getFlower(FlowerTypes.ROSE, color, price));
         }
     }
 
-    public void addLily(int num,String color,double price){
-        while(num-->0){
-            flowers.add(factory.getFlower(FlowerTypes.LILY,color,price));
+    public void addLily(int num, String color, double price) {
+        while (num-- > 0) {
+            flowers.add(factory.getFlower(FlowerTypes.LILY, color, price));
         }
     }
 
-    public void addTulip(int num,String color,double price){
-        while(num-->0){
-            flowers.add(factory.getFlower(FlowerTypes.TULIP,color,price));
+    public void addTulip(int num, String color, double price) {
+        while (num-- > 0) {
+            flowers.add(factory.getFlower(FlowerTypes.TULIP, color, price));
         }
     }
 
-    public void removeAllRoses(){
-        for(Flower flower:flowers){
-            if(flower.getName().equals("роза")){
-                flowers.remove(flower);
-            }
-        }
+    public void removeAllRoses() {
+        flowers.removeIf(flower -> flower.getName().equals("роза"));
     }
 
-    public void removeRoses(int num){
-        if(num>0 && num <=getNumOfRoses()){
-            for(int i=0;num>0 && i<flowers.size();i++){
-                if(flowers.get(i).getName().equals("роза")){
+    public void removeRoses(int num) {
+        if (num > 0 && num <= getNumOfRoses()) {
+            for (int i = 0; num > 0 && i < flowers.size(); i++) {
+                if (flowers.get(i).getName().equals("роза")) {
                     flowers.remove(i);
                     num--;
                 }
@@ -77,12 +74,8 @@ public class Bouquet {
         }
     }
 
-    public void removeAllLily(){
-        for(Flower flower:flowers){
-            if(flower.getName().equals("лилия")){
-                flowers.remove(flower);
-            }
-        }
+    public void removeAllLily() {
+        flowers.removeIf(flower -> flower.getName().equals("лилия"));
     }
 
     public void removeLily(int num) {
@@ -96,12 +89,8 @@ public class Bouquet {
         }
     }
 
-    public void removeAllTulip(){
-        for(Flower flower: flowers){
-            if(flower.getName().equals("тюльпан")){
-                flowers.remove(flower);
-            }
-        }
+    public void removeAllTulip() {
+        flowers.removeIf(flower -> flower.getName().equals("тюльпан"));
     }
 
     public void removeTulip(int num) {
@@ -115,11 +104,11 @@ public class Bouquet {
         }
     }
 
-    public int getNumOfRoses(){
-        int num=0;
+    public int getNumOfRoses() {
+        int num = 0;
 
-        for(Flower flower:flowers){
-            if(flower.getName().equals("роза")){
+        for (Flower flower : flowers) {
+            if (flower.getName().equals("роза")) {
                 num++;
             }
         }
@@ -127,11 +116,11 @@ public class Bouquet {
         return num;
     }
 
-    public int getNumOfLily(){
-        int num=0;
+    public int getNumOfLily() {
+        int num = 0;
 
-        for(Flower flower:flowers){
-            if(flower.getName().equals("лилия")){
+        for (Flower flower : flowers) {
+            if (flower.getName().equals("лилия")) {
                 num++;
             }
         }
@@ -139,11 +128,11 @@ public class Bouquet {
         return num;
     }
 
-    public int getNumOfTulip(){
-        int num=0;
+    public int getNumOfTulip() {
+        int num = 0;
 
-        for(Flower flower:flowers){
-            if(flower.getName().equals("тюльпан")){
+        for (Flower flower : flowers) {
+            if (flower.getName().equals("тюльпан")) {
                 num++;
             }
         }
@@ -151,64 +140,65 @@ public class Bouquet {
         return num;
     }
 
-    public double getTotalPrice(){
-        double price=0;
+    public double getTotalPrice() {
+        double price = 0;
 
-        for(Flower flower:flowers){
-            price+=flower.getPrice();
+        for (Flower flower : flowers) {
+            price += flower.getPrice();
         }
 
-        return (double)Math.round(price*100d)/100d;
+        return (double) Math.round(price * 100d) / 100d;
     }
 
-    public int getNumOfFlowers(){
+    public int getNumOfFlowers() {
         return flowers.size();
     }
 
-    public void sort(){
-        Comparator<Flower> comparator=Comparator.comparing(Flower::getPrice);
+    public void sort() {
+        Comparator<Flower> comparator = Comparator.comparing(Flower::getPrice);
         comparator.thenComparing(Flower::getName);
         comparator.thenComparing(Flower::getColor);
 
         flowers.sort(comparator);
     }
 
-    public void show(){
-        System.out.println("Стоимость букета: "+getTotalPrice());
-        System.out.println(String.format("%15s %16s %10s","Тип","Цвет","Цена"));
+    public void show() {
+        System.out.println("Стоимость букета: " + getTotalPrice());
+        System.out.println(String.format("%15s %16s %10s", "Тип", "Цвет", "Цена"));
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        String string=new String();
+    public String toString() {
+        StringBuilder string = new StringBuilder();
 
-        for(int i=0;i<flowers.size();i++){
-            string+=(i+1)+flowers.get(i).toString()+"\n";
+        for (int i = 0; i < flowers.size(); i++) {
+            string.append(i + 1).append(flowers.get(i).toString()).append("\n");
         }
 
-        string+=packaging.toString();
+        string.append(packaging.toString());
 
-        return string;
+        return string.toString();
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        Bouquet other=(Bouquet) obj;
+        Bouquet other = (Bouquet) obj;
 
-        boolean isEqual=(flowers.size()==other.flowers.size()) && packaging.equals(other.packaging);
+        boolean isEqual = (flowers.size() == other.flowers.size()) && packaging.equals(other.packaging);
 
-        for(int i=0;isEqual && i<flowers.size();i++){
-            if(!flowers.get(i).equals(other.flowers.get(i))){
-                isEqual=false;
+        for (int i = 0; isEqual && i < flowers.size(); i++) {
+            if (!flowers.get(i).equals(other.flowers.get(i))) {
+                isEqual = false;
+                break;
             }
         }
 
@@ -216,12 +206,12 @@ public class Bouquet {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        result=prime*result+packaging.hashCode();
-        result=prime*result+flowers.hashCode();
+        result = prime * result + packaging.hashCode();
+        result = prime * result + flowers.hashCode();
 
         return result;
     }

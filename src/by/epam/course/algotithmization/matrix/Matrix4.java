@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Формирует матрицу по шаблону
@@ -13,7 +14,6 @@ import java.util.*;
  */
 
 public class Matrix4 {
-
     public static void main(String[] args) {
         try {
             Scanner in = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class Matrix4 {
                 }
 
                 System.out.println("\nМатрица, построенная по шаблону:");
-                int arr[][] = new int[numOfLines][numOfLines];
+                int[][] arr = new int[numOfLines][numOfLines];
                 for (int i = 0; i < numOfLines; i++) {
                     for (int j = 0; j < numOfLines; j++) {
                         if (i % 2 == 0) {
@@ -45,8 +45,8 @@ public class Matrix4 {
                 System.out.println("Порядок матрицы должен быть положительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

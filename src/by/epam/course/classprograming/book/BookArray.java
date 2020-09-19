@@ -12,11 +12,10 @@ package by.epam.course.classprograming.book;
  */
 
 public class BookArray {
-
     private Book[] arrayOfBooks;
 
-    public BookArray(int size){
-        if(size>0) {
+    public BookArray(int size) {
+        if (size > 0) {
             arrayOfBooks = new Book[size];
 
             for (int i = 0; i < size; i++) {
@@ -25,96 +24,92 @@ public class BookArray {
         }
     }
 
-    public BookArray(Book[] array){
+    public BookArray(Book[] array) {
         setArrayOfBooks(array);
     }
 
-    public void setArrayOfBooks(Book[] array){
-        if(array!=null) {
-            arrayOfBooks = new Book[array.length];
-
-            for (int i = 0; i < array.length; i++) {
-                arrayOfBooks[i] = array[i];
-            }
-        }
-    }
-
-    public Book[] getArrayOfBooks(){
+    public Book[] getArrayOfBooks() {
         return arrayOfBooks;
     }
 
-    public Book getBook(int index){
-        if(index>=0 && index<getSize()){
+    public void setArrayOfBooks(Book[] array) {
+        if (array != null) {
+            arrayOfBooks = new Book[array.length];
+
+            System.arraycopy(array, 0, arrayOfBooks, 0, array.length);
+        }
+    }
+
+    public Book getBook(int index) {
+        if (index >= 0 && index < getSize()) {
             return arrayOfBooks[index];
-        }else{
+        } else {
             throw new IllegalArgumentException("Выход за пределы массива!");
         }
     }
 
-    public int getSize(){
-        if(arrayOfBooks!=null) {
+    public int getSize() {
+        if (arrayOfBooks != null) {
             return arrayOfBooks.length;
-        } else{
+        } else {
             return 0;
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
-    public void addBook(Book book){
-        if(book!=null) {
+    public void addBook(Book book) {
+        if (book != null) {
             Book[] newBooks = new Book[getSize() + 1];
 
-            for (int i = 0; i < getSize(); i++) {
-                newBooks[i] = arrayOfBooks[i];
-            }
+            if (getSize() >= 0) System.arraycopy(arrayOfBooks, 0, newBooks, 0, getSize());
 
             newBooks[getSize()] = book;
             arrayOfBooks = newBooks;
         }
     }
 
-    public void deleteBook(Book book){
-        if(book==null){
+    public void deleteBook(Book book) {
+        if (book == null) {
             throw new IllegalArgumentException("Неверный аргумент (null)!");
         }
 
-        int numOfBooks=getSize();
+        int numOfBooks = getSize();
 
-        for(Book book1: arrayOfBooks){
-            if(book1.equals(book)){
+        for (Book book1 : arrayOfBooks) {
+            if (book1.equals(book)) {
                 numOfBooks--;
             }
         }
 
-        if(numOfBooks<getSize()){
-            Book[] newBooks=new Book[numOfBooks];
+        if (numOfBooks < getSize()) {
+            Book[] newBooks = new Book[numOfBooks];
 
-            for(int i=0,index=0;i<getSize();i++){
-                if(!arrayOfBooks[i].equals(book)){
-                    newBooks[index]=arrayOfBooks[i];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (!arrayOfBooks[i].equals(book)) {
+                    newBooks[index] = arrayOfBooks[i];
                     index++;
                 }
             }
 
-            arrayOfBooks=newBooks;
+            arrayOfBooks = newBooks;
         }
     }
 
-    public void deleteBook(int index){
-        if(index>=0 && index<getSize()){
-            Book[] newBooks=new Book[getSize()-1];
+    public void deleteBook(int index) {
+        if (index >= 0 && index < getSize()) {
+            Book[] newBooks = new Book[getSize() - 1];
 
-            for(int i=0,j=0;i<getSize();i++){
-                if(i!=index){
-                    newBooks[j]=arrayOfBooks[i];
+            for (int i = 0, j = 0; i < getSize(); i++) {
+                if (i != index) {
+                    newBooks[j] = arrayOfBooks[i];
                     j++;
                 }
             }
 
-            arrayOfBooks=newBooks;
+            arrayOfBooks = newBooks;
         }
     }
 
@@ -122,34 +117,34 @@ public class BookArray {
         Возвращает книги указанного автора.
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
-    public BookArray getBooksOfAuthor(String author){
-        if(arrayOfBooks==null){
+    public BookArray getBooksOfAuthor(String author) {
+        if (arrayOfBooks == null) {
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
 
-        int numOfBooks=0;
+        int numOfBooks = 0;
 
-        for(Book book:arrayOfBooks){
-            if(book.getAuthor().equals(author)){
+        for (Book book : arrayOfBooks) {
+            if (book.getAuthor().equals(author)) {
                 numOfBooks++;
             }
         }
 
-        if(numOfBooks>0){
+        if (numOfBooks > 0) {
 
-            Book[] books=new Book[numOfBooks];
+            Book[] books = new Book[numOfBooks];
 
-            for(int i=0,index=0;i<getSize();i++){
-                if(arrayOfBooks[i].getAuthor().equals(author)){
-                    books[index]=arrayOfBooks[i];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (arrayOfBooks[i].getAuthor().equals(author)) {
+                    books[index] = arrayOfBooks[i];
                     index++;
                 }
             }
             return new BookArray(books);
 
-        }else{
-            Book[] zeroBooks=new Book[1];
-            zeroBooks[0]=new Book();
+        } else {
+            Book[] zeroBooks = new Book[1];
+            zeroBooks[0] = new Book();
             return new BookArray(zeroBooks);
         }
     }
@@ -158,34 +153,34 @@ public class BookArray {
         Возвращает книги указанного издательства.
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
-    public BookArray getBooksOfPublishing(String publishingHouse){
-        if(arrayOfBooks==null){
+    public BookArray getBooksOfPublishing(String publishingHouse) {
+        if (arrayOfBooks == null) {
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
 
-        int numOfBooks=0;
+        int numOfBooks = 0;
 
-        for(Book book:arrayOfBooks){
-            if(book.getPublishingHouse().equals(publishingHouse)){
+        for (Book book : arrayOfBooks) {
+            if (book.getPublishingHouse().equals(publishingHouse)) {
                 numOfBooks++;
             }
         }
 
-        if(numOfBooks>0){
+        if (numOfBooks > 0) {
 
-            Book[] books=new Book[numOfBooks];
+            Book[] books = new Book[numOfBooks];
 
-            for(int i=0,index=0;i<getSize();i++){
-                if(arrayOfBooks[i].getPublishingHouse().equals(publishingHouse)){
-                    books[index]=arrayOfBooks[i];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (arrayOfBooks[i].getPublishingHouse().equals(publishingHouse)) {
+                    books[index] = arrayOfBooks[i];
                     index++;
                 }
             }
             return new BookArray(books);
 
-        }else{
-            Book[] zeroBooks=new Book[1];
-            zeroBooks[0]=new Book();
+        } else {
+            Book[] zeroBooks = new Book[1];
+            zeroBooks[0] = new Book();
             return new BookArray(zeroBooks);
         }
     }
@@ -194,71 +189,71 @@ public class BookArray {
         Возвращает книги, выпущенные позже заданного года.
         Если такие книги отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
-    public BookArray getBooksFromYear(int year){
-        if(arrayOfBooks==null){
+    public BookArray getBooksFromYear(int year) {
+        if (arrayOfBooks == null) {
             throw new IllegalArgumentException("Книги отсутствуют! (null)");
         }
 
-        int numOfBooks=0;
+        int numOfBooks = 0;
 
-        for(Book book:arrayOfBooks){
-            if(book.getYearOfPublishing()>year){
+        for (Book book : arrayOfBooks) {
+            if (book.getYearOfPublishing() > year) {
                 numOfBooks++;
             }
         }
 
-        if(numOfBooks>0){
+        if (numOfBooks > 0) {
 
-            Book[] books=new Book[numOfBooks];
+            Book[] books = new Book[numOfBooks];
 
-            for(int i=0,index=0;i<getSize();i++){
-                if(arrayOfBooks[i].getYearOfPublishing()>year){
-                    books[index]=arrayOfBooks[i];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (arrayOfBooks[i].getYearOfPublishing() > year) {
+                    books[index] = arrayOfBooks[i];
                     index++;
                 }
             }
             return new BookArray(books);
 
-        }else{
-            Book[] zeroBooks=new Book[1];
-            zeroBooks[0]=new Book();
+        } else {
+            Book[] zeroBooks = new Book[1];
+            zeroBooks[0] = new Book();
 
             return new BookArray(zeroBooks);
         }
     }
 
     @Override
-    public String toString(){
-        if(arrayOfBooks!=null) {
-            String string = new String();
+    public String toString() {
+        if (arrayOfBooks != null) {
+            StringBuilder string = new StringBuilder();
 
             for (Book book : arrayOfBooks) {
-                string += book.toString() + "\n";
+                string.append(book.toString()).append("\n");
             }
-            return string;
+            return string.toString();
 
-        } else{
+        } else {
             return "Книги отсутствуют!";
         }
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        BookArray other=(BookArray) obj;
+        BookArray other = (BookArray) obj;
 
-        boolean isEqual=other.getSize()==getSize();
+        boolean isEqual = other.getSize() == getSize();
 
-        for(int i=0; isEqual && i<getSize();i++){
-            if(!arrayOfBooks[i].equals(other.getArrayOfBooks()[i])){
-                isEqual=false;
+        for (int i = 0; isEqual && i < getSize(); i++) {
+            if (!arrayOfBooks[i].equals(other.getArrayOfBooks()[i])) {
+                isEqual = false;
             }
         }
 
@@ -266,12 +261,12 @@ public class BookArray {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(int i=0;i<getSize();i++){
-            result=prime*result+arrayOfBooks[i].hashCode();
+        for (int i = 0; i < getSize(); i++) {
+            result = prime * result + arrayOfBooks[i].hashCode();
         }
 
         return result;

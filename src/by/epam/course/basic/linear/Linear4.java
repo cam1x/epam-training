@@ -1,16 +1,16 @@
 package by.epam.course.basic.linear;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Меняет местами дробную и целую части числа вида nnn.ddd
  */
 
 public class Linear4 {
-
-    public static double reverse(double number){
-        double reversed=(int)number/1000.0 + (number-(int)number) * 1000;
-        return (double)Math.round(reversed*1000d)/1000d;
+    public static double reverse(double number) {
+        double reversed = (int) number / 1000.0 + (number - (int) number) * 1000;
+        return (double) Math.round(reversed * 1000d) / 1000d;
     }
 
     public static void main(String[] args) {
@@ -22,8 +22,8 @@ public class Linear4 {
 
             System.out.println("Reversed number = " + reverse(num));
 
-        }catch (InputMismatchException ex){
-            System.out.println("\nInput error!"+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("\nInput error!" + ex.getMessage());
         }
     }
 }

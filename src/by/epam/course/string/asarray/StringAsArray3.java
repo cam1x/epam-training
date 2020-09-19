@@ -7,16 +7,15 @@ import java.util.Scanner;
  */
 
 public class StringAsArray3 {
-
-    public static boolean isDigit(char ch){
-        return ch>='1'&&ch<='9';
+    public static boolean isDigit(char ch) {
+        return ch >= '1' && ch <= '9';
     }
 
-    public static int calcNumOfDigits(String string){
-        int numOfDigits=0;
+    public static int calcNumOfDigits(String string) {
+        int numOfDigits = 0;
 
-        for(int i=0;i<string.length();i++){
-            if(isDigit(string.charAt(i))){
+        for (int i = 0; i < string.length(); i++) {
+            if (isDigit(string.charAt(i))) {
                 numOfDigits++;
             }
         }
@@ -24,13 +23,13 @@ public class StringAsArray3 {
         return numOfDigits;
     }
 
-    public static void main(String[] args){
-        Scanner in=new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Введите строку: ");
-        String line=in.nextLine();
+        String line = in.nextLine();
 
-        int numOfDigits=calcNumOfDigits(line);
+        int numOfDigits = calcNumOfDigits(line);
 
-        System.out.println("\nЧисло цифр в строке "+line+" = "+numOfDigits);
+        System.out.println("\nЧисло цифр в строке " + line + " = " + numOfDigits);
     }
 }

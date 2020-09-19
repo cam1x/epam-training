@@ -1,8 +1,12 @@
 package by.epam.course.string.regex;
 
-import java.io.*;
-import java.util.regex.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
 Приложение позволяет:
@@ -14,32 +18,31 @@ P.S.S Путь к входному и выходному файлам можно
  */
 
 public class RegEx2 {
-
     //Запись текста из файла в одну строку
-    public static String readInString(String path)throws FileNotFoundException {
-        File file=new File(path);
-        Scanner scanner=new Scanner(file);
+    public static String readInString(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
 
-        String string=new String();
+        StringBuilder string = new StringBuilder();
 
-        while(scanner.hasNext()){
-            string+=scanner.nextLine()+"\r\n";
+        while (scanner.hasNext()) {
+            string.append(scanner.nextLine()).append("\r\n");
         }
         scanner.close();
 
-        return string;
+        return string.toString();
     }
 
-    public static void readInFile(String string,String path) throws IOException {
+    public static void readInFile(String string, String path) throws IOException {
         File file = new File(path);
 
-        if(!file.exists() || file.isDirectory()) {
+        if (!file.exists() || file.isDirectory()) {
             // Создание файла
             file.createNewFile();
         }
 
         // Создание объекта FileWriter
-        FileWriter writer = new FileWriter(file,true);
+        FileWriter writer = new FileWriter(file, true);
 
         // Запись содержимого в файл
         writer.write(string);
@@ -48,34 +51,34 @@ public class RegEx2 {
     }
 
     //Очистка данных в файле по заданному пути
-    public static void cleanFile(String path)throws IOException{
-        FileWriter cleaner=new FileWriter(path);
+    public static void cleanFile(String path) throws IOException {
+        FileWriter cleaner = new FileWriter(path);
         cleaner.close();
     }
 
     //Получить закрывающий тег по "названию" тега
-    public static String getClosingTag(String tag){
+    public static String getClosingTag(String tag) {
         if (tag == null || tag.isEmpty()) {
             return "";
         }
 
-        Pattern wordPat=Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
-        Matcher wordMatch=wordPat.matcher(tag);
+        Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
+        Matcher wordMatch = wordPat.matcher(tag);
 
-        if(wordMatch.find()){
-            return "</"+wordMatch.group()+">";
-        }else{
+        if (wordMatch.find()) {
+            return "</" + wordMatch.group() + ">";
+        } else {
             return " ";
         }
     }
 
     //Число открывающих тегов в строке
-    public static int getNumOfOpeningTags(String string){
-        int num=0;
-        Pattern openingTagPat= Pattern.compile("<[^/!].+?>");
-        Matcher openingTagMathcer=openingTagPat.matcher(string);
+    public static int getNumOfOpeningTags(String string) {
+        int num = 0;
+        Pattern openingTagPat = Pattern.compile("<[^/!].+?>");
+        Matcher openingTagMathcer = openingTagPat.matcher(string);
 
-        while(openingTagMathcer.find()){
+        while (openingTagMathcer.find()) {
             num++;
         }
 
@@ -83,12 +86,12 @@ public class RegEx2 {
     }
 
     //Число закрывающих тегов в строке
-    public static int getNumOfClosingTags(String string){
-        int num=0;
-        Pattern closingTagPat= Pattern.compile("</.+?>");
-        Matcher closingTagMathcer=closingTagPat.matcher(string);
+    public static int getNumOfClosingTags(String string) {
+        int num = 0;
+        Pattern closingTagPat = Pattern.compile("</.+?>");
+        Matcher closingTagMathcer = closingTagPat.matcher(string);
 
-        while(closingTagMathcer.find()){
+        while (closingTagMathcer.find()) {
             num++;
         }
 
@@ -96,8 +99,8 @@ public class RegEx2 {
     }
 
     //Проверяет равно ли число откр тегов числу закр тегов
-    public static boolean isRightNumberOfTags(String document){
-        return getNumOfOpeningTags(document)==getNumOfClosingTags(document);
+    public static boolean isRightNumberOfTags(String document) {
+        return getNumOfOpeningTags(document) == getNumOfClosingTags(document);
     }
 
     /*
@@ -109,7 +112,7 @@ public class RegEx2 {
     5) вывод полученных данных (узел, откр и закр теги, содержимое тега) в документ, путь которого передан в функцию
     6) если рассмотренный открывающи тег не был последним, то выполнить 2)-5), в противном случае анализ окончен.
      */
-    public static void analyzeXML(String document,String outputPath)throws IOException {
+    public static void analyzeXML(String document, String outputPath) throws IOException {
         Pattern openingTagPat = Pattern.compile("<[^/!].+?>");
         Matcher openingTagMatсher = openingTagPat.matcher(document);
 
@@ -124,7 +127,7 @@ public class RegEx2 {
         cleanFile(outputPath);
 
         //Проверка на равенство числа открывающихся и закрывающихся тегов во всем документе
-        if(getNumOfOpeningTags(document)==getNumOfClosingTags(document)) {
+        if (getNumOfOpeningTags(document) == getNumOfClosingTags(document)) {
 
             while (openingTagMatсher.find()) {
                 //Очередной найденный открывающий тег и соответствуюший ему закрывающий тег
@@ -143,20 +146,22 @@ public class RegEx2 {
 
                     //Получение индекса первого элмента содержимого тега
                     startOfOpening += openingTag.length();
-                    while (document.charAt(startOfOpening) == ' ' || document.charAt(startOfOpening) == '\r' || document.charAt(startOfOpening) == '\n') {
+                    while (document.charAt(startOfOpening) == ' ' || document.charAt(startOfOpening) == '\r' ||
+                            document.charAt(startOfOpening) == '\n') {
                         startOfOpening++;
                     }
 
                     //Получение индекса последнего элмента содержимого тега
                     endOfClosing -= closingTag.length() + 1;
-                    while (document.charAt(endOfClosing) == ' ' || document.charAt(endOfClosing) == '\r' || document.charAt(endOfClosing) == '\n') {
+                    while (document.charAt(endOfClosing) == ' ' || document.charAt(endOfClosing) == '\r' ||
+                            document.charAt(endOfClosing) == '\n') {
                         endOfClosing--;
                     }
 
                     bodyOfTag = document.substring(startOfOpening, endOfClosing + 1);
 
                     //Проверка на равенство числа открывающихся и закрывающихся тегов в содержимом тега
-                    if(isRightNumberOfTags(bodyOfTag)) {
+                    if (isRightNumberOfTags(bodyOfTag)) {
                         readInFile("\nОткрывающий тег: " + openingTag, outputPath);
 
                         if (bodyOfTag.isEmpty()) {
@@ -165,76 +170,71 @@ public class RegEx2 {
                             readInFile("\nСодержимое тега:" + bodyOfTag, outputPath);
                         }
 
-                        readInFile("\nЗакрывающий тег: " + closingTag+"\n\n", outputPath);
+                        readInFile("\nЗакрывающий тег: " + closingTag + "\n\n", outputPath);
                         numOfNode++;
 
-                    }else{
+                    } else {
                         cleanFile(outputPath);
-                        readInFile("Ошибка! Нарушена вложенность тегов!",outputPath);
+                        readInFile("Ошибка! Нарушена вложенность тегов!", outputPath);
                         break;
                     }
 
-                }else{
+                } else {
                     cleanFile(outputPath);
-                    readInFile("Ошибка! Не найден закрывающий тег "+closingTag+" !",outputPath);
+                    readInFile("Ошибка! Не найден закрывающий тег " + closingTag + " !", outputPath);
                     break;
                 }
             }
-        }else{
+        } else {
             cleanFile(outputPath);
-            readInFile("Ошибка! Количество открывающих тегов не равна количетсву закрывающих тегов!",outputPath);
+            readInFile("Ошибка! Количество открывающих тегов не равна количетсву закрывающих тегов!", outputPath);
         }
     }
 
-    public static void main(String[] args){
-        String line=new String();
-        Scanner scanner=new Scanner(System.in);
+    public static void main(String[] args) {
+        String line = "";
+        Scanner scanner = new Scanner(System.in);
 
-        String inputPath= "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\regex\\reg2_text";
-        String outputPath="F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\regex\\ResultOfReg2.txt";
+        String inputPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\regex\\reg2_text";
+        String outputPath = "F:\\Проекты\\Java\\java_online\\src\\by\\epam\\course\\string\\regex\\ResultOfReg2.txt";
 
         try {
             cleanFile(outputPath);
-        } catch (IOException ex){
-            System.out.println("Неверный путь выходного файла!"+ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println("Неверный путь выходного файла!" + ex.getMessage());
         }
 
-        int choice=1;
+        int choice = 1;
 
-        while (choice!=0){
+        while (choice != 0) {
             System.out.println("Введите 0 для выхода из меню.");
             System.out.println("Введите 1 для чтения XML-документа из текстового файла.");
             System.out.println("Введите 2 для анализа XML-документа и автоматической выгрузки результатов в текстовый файл.");
             System.out.println("Введите 3 для вывода результата анализа в консоль.");
             System.out.println();
 
-            choice=scanner.nextInt();
-            switch (choice){
-                case 1:{
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1 -> {
                     try {
                         line = readInString(inputPath);
-                    } catch (FileNotFoundException ex){
-                        System.out.println("Неверный путь входного файла!"+ex.getMessage());
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("Неверный путь входного файла!" + ex.getMessage());
                     }
-                    break;
                 }
-
-                case 2: {
+                case 2 -> {
                     try {
                         analyzeXML(line, outputPath);
-                    } catch (IOException ex){
-                        System.out.println("Неверный путь выходного файла!"+ex.getMessage());
+                    } catch (IOException ex) {
+                        System.out.println("Неверный путь выходного файла!" + ex.getMessage());
                     }
-                    break;
                 }
-
-                case 3:{
+                case 3 -> {
                     try {
                         System.out.println(readInString(outputPath));
-                    } catch (FileNotFoundException ex){
-                        System.out.println("Неверный путь выходного файла!"+ex.getMessage());
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("Неверный путь выходного файла!" + ex.getMessage());
                     }
-                    break;
                 }
             }
         }

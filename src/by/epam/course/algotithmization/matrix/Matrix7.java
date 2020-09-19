@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Формирует матрицу порядка N по правилу:
@@ -9,7 +10,6 @@ import java.util.*;
  */
 
 public class Matrix7 {
-
     public static void main(String[] args) {
         try {
             Scanner in = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Matrix7 {
                 int numOfPositive = 0;
 
                 System.out.println("\nМатрица, построенная по шаблону:");
-                double arr[][] = new double[numOfLines][numOfLines];
+                double[][] arr = new double[numOfLines][numOfLines];
 
                 for (int i = 0; i < numOfLines; i++) {
                     for (int j = 0; j < numOfLines; j++) {
@@ -40,8 +40,8 @@ public class Matrix7 {
                 System.out.println("Порядок матрицы должен быть положительным");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

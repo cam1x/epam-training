@@ -1,6 +1,8 @@
 package by.epam.course.classprograming.state;
 
-import java.util.regex.*;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
 Класс для представления гос-ва
@@ -18,119 +20,120 @@ import java.util.regex.*;
  */
 
 public class State {
-
     private String state;
     private City capital;
     private Region[] regions;
-    private double area=1000;
+    private double area = 1000;
 
-    public State(){
-        state="state";
-        capital=new City("capital");
+    public State() {
+        state = "state";
+        capital = new City("capital");
     }
 
-    public State(String state,String city){
+    public State(String state, String city) {
         setState(state, city);
     }
 
-    public void setState(String state,String city){
-        if(state!=null && !state.isEmpty()) {
+    public void setState(String state, String city) {
+        if (state != null && !state.isEmpty()) {
             this.state = state;
         }
         this.capital.setCity(city);
     }
 
-    public void setState(String state,String city,double area){
+    public void setState(String state, String city, double area) {
         setState(state, city);
         setArea(area);
     }
 
-    public void setArea(double area){
-        if(area>0){
-            this.area=area;
-        }
-    }
-
-    public void setCenter(String center,int index){
-        if(index>=0 && index<getNumOfRegions()){
+    public void setCenter(String center, int index) {
+        if (index >= 0 && index < getNumOfRegions()) {
             regions[index].setCenter(center);
         }
     }
 
-    public String getCenteres(){
-        String string=new String();
+    public String getCenters() {
+        StringBuilder string = new StringBuilder();
 
-        if(regions!=null){
-            for(Region region:regions){
-                string+=region.getCenter()+" ("+region.getRegion()+")  ";
+        if (regions != null) {
+            for (Region region : regions) {
+                string.append(region.getCenter()).append(" (").append(region.getRegion()).append(")  ");
             }
-        }else{
-            string="Следует добавить области!";
+        } else {
+            string = new StringBuilder("Следует добавить области!");
         }
 
-        return string;
+        return string.toString();
     }
 
-    public double getArea(){
+    public double getArea() {
         return area;
     }
 
+    public void setArea(double area) {
+        if (area > 0) {
+            this.area = area;
+        }
+    }
+
     //Добавить район к области с индексом index в данном государстве
-    public void addDistrict(String region,int index){
-        if(index>=0 && index<getNumOfRegions()){
-            getNthRegion(index).addDistrict(region);
+    public void addDistrict(String region, int index) {
+        if (index >= 0 && index < getNumOfRegions()) {
+            Objects.requireNonNull(getNthRegion(index)).addDistrict(region);
         }
     }
 
     //Добавить город к последнему району в области с индексом indexOfRegion в гос-ве
-    public void addCity(String city,int indexOfRegion){
-        if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
-            Region region=getNthRegion(indexOfRegion);
-            if(region.getNumOfDistricts()>=1) {
+    public void addCity(String city, int indexOfRegion) {
+        if (indexOfRegion >= 0 && indexOfRegion < getNumOfRegions()) {
+            Region region = getNthRegion(indexOfRegion);
+            assert region != null;
+            if (region.getNumOfDistricts() >= 1) {
                 region.addCity(city, region.getNumOfDistricts() - 1);
             }
         }
     }
 
     //Удалить город из последнего района в области с индексом indexOfRegion в гос-ве
-    public void deleteCity(String city,int indexOfRegion){
-        if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
-            Region region=getNthRegion(indexOfRegion);
-            if(region.getNumOfDistricts()>=1) {
+    public void deleteCity(String city, int indexOfRegion) {
+        if (indexOfRegion >= 0 && indexOfRegion < getNumOfRegions()) {
+            Region region = getNthRegion(indexOfRegion);
+            assert region != null;
+            if (region.getNumOfDistricts() >= 1) {
                 region.deleteCity(city, region.getNumOfDistricts() - 1);
             }
         }
     }
 
     //Добавить город к району c индексом indexOfDistrict  в области с индексом indexOfRegion в гос-ве
-    public void addCity(String city,int indexOfRegion,int indexOfDistrict){
-        if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
-            Region region=getNthRegion(indexOfRegion);
-            if(indexOfDistrict>=0 && indexOfDistrict<region.getNumOfDistricts()) {
+    public void addCity(String city, int indexOfRegion, int indexOfDistrict) {
+        if (indexOfRegion >= 0 && indexOfRegion < getNumOfRegions()) {
+            Region region = getNthRegion(indexOfRegion);
+            if (indexOfDistrict >= 0 && indexOfDistrict < region.getNumOfDistricts()) {
                 region.addCity(city, indexOfDistrict);
             }
         }
     }
 
     //Удалить город из района c индексом indexOfDistrict  в области с индексом indexOfRegion в гос-ве
-    public void deleteCity(String city,int indexOfRegion,int indexOfDistrict){
-        if(indexOfRegion>=0 && indexOfRegion<getNumOfRegions()){
-            Region region=getNthRegion(indexOfRegion);
-            if(indexOfDistrict>=0 && indexOfDistrict<region.getNumOfDistricts()) {
+    public void deleteCity(String city, int indexOfRegion, int indexOfDistrict) {
+        if (indexOfRegion >= 0 && indexOfRegion < getNumOfRegions()) {
+            Region region = getNthRegion(indexOfRegion);
+            if (indexOfDistrict >= 0 && indexOfDistrict < region.getNumOfDistricts()) {
                 region.deleteCity(city, indexOfDistrict);
             }
         }
     }
 
     //Удалить район из области с индексом index
-    public void deleteDistrict(String region,int index){
-        if(index>=0 && index<getNumOfRegions()){
-            getNthRegion(index).deleteDistrict(region);
+    public void deleteDistrict(String region, int index) {
+        if (index >= 0 && index < getNumOfRegions()) {
+            Objects.requireNonNull(getNthRegion(index)).deleteDistrict(region);
         }
     }
 
     //Добавить область
-    public void addRegion(String region){
+    public void addRegion(String region) {
         if (region != null && !region.isEmpty()) {
             Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
             Matcher wordMatch = wordPat.matcher(region);
@@ -141,7 +144,7 @@ public class State {
     }
 
     //Удалить область
-    public void deleteRegion(String region){
+    public void deleteRegion(String region) {
         if (region != null && !region.isEmpty()) {
             Pattern wordPat = Pattern.compile("\\b[a-zA-ZА-Яа-я]+?\\b");
             Matcher wordMatch = wordPat.matcher(region);
@@ -152,50 +155,50 @@ public class State {
         }
     }
 
-    public int getNumOfRegions(){
-        if(regions!=null){
+    public int getNumOfRegions() {
+        if (regions != null) {
             return regions.length;
-        }else{
+        } else {
             return 0;
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        String string=new String();
-        string+=state+" (столица "+capital+")\n";
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append(state).append(" (столица ").append(capital).append(")\n");
 
-        if(regions!=null){
-            string+="Области:\n";
-            for(Region region:regions){
-                string+=region.toString()+"\n";
+        if (regions != null) {
+            string.append("Области:\n");
+            for (Region region : regions) {
+                string.append(region.toString()).append("\n");
             }
         }
 
-        return string;
+        return string.toString();
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        State other=(State) obj;
+        State other = (State) obj;
 
-        boolean isEqual=true;
+        boolean isEqual = true;
 
-        for(int i=0;i<getNumOfRegions();i++){
-            if(!regions[i].equals(other.regions[i])){
-                isEqual=false;
+        for (int i = 0; i < getNumOfRegions(); i++) {
+            if (!regions[i].equals(other.regions[i])) {
+                isEqual = false;
                 break;
             }
         }
@@ -204,51 +207,49 @@ public class State {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(int i=0;i<getNumOfRegions();i++){
-            result=prime*result+regions[i].hashCode();
+        for (int i = 0; i < getNumOfRegions(); i++) {
+            result = prime * result + regions[i].hashCode();
         }
 
         return result;
     }
 
-    private void addOneRegion(String region){
-        if(regions!=null){
-            Region[] newRegion=new Region[getNumOfRegions()+1];
-            for(int i=0;i<getNumOfRegions();i++){
-                newRegion[i]=regions[i];
-            }
+    private void addOneRegion(String region) {
+        if (regions != null) {
+            Region[] newRegion = new Region[getNumOfRegions() + 1];
+            if (getNumOfRegions() >= 0) System.arraycopy(regions, 0, newRegion, 0, getNumOfRegions());
 
-            newRegion[getNumOfRegions()]=new Region(region);
-            area+=newRegion[getNumOfRegions()].getArea();
-            regions=newRegion;
+            newRegion[getNumOfRegions()] = new Region(region);
+            area += newRegion[getNumOfRegions()].getArea();
+            regions = newRegion;
 
-        }else{
-            regions=new Region[1];
-            regions[0]=new Region(region);
-            area+=regions[0].getArea();
+        } else {
+            regions = new Region[1];
+            regions[0] = new Region(region);
+            area += regions[0].getArea();
         }
     }
 
-    private void deleteOneRegion(String region){
-        region=region.trim();
-        if(region.contains(" ")){
-            region=region.substring(0,region.indexOf(" ")).trim();
+    private void deleteOneRegion(String region) {
+        region = region.trim();
+        if (region.contains(" ")) {
+            region = region.substring(0, region.indexOf(" ")).trim();
         }
 
-        int numOfRegions=getNumOfRegions();
+        int numOfRegions = getNumOfRegions();
 
-        for(Region region1:regions){
-            if(region1.getRegion().equals(region)){
+        for (Region region1 : regions) {
+            if (region1.getRegion().equals(region)) {
                 numOfRegions--;
-                area-=region1.getArea();
+                area -= region1.getArea();
             }
         }
 
-        if(numOfRegions<getNumOfRegions()) {
+        if (numOfRegions < getNumOfRegions()) {
             Region[] newRegions = new Region[numOfRegions];
             for (int i = 0, index = 0; i < getNumOfRegions(); i++) {
                 if (!regions[i].getRegion().equals(region)) {
@@ -261,10 +262,10 @@ public class State {
         }
     }
 
-    private Region getNthRegion(int index){
-        if(index>=0 && index<getNumOfRegions()){
+    private Region getNthRegion(int index) {
+        if (index >= 0 && index < getNumOfRegions()) {
             return regions[index];
-        }else{
+        } else {
             return null;
         }
     }

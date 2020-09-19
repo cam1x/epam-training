@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Формирует матрицу по шаблону
@@ -13,8 +14,6 @@ import java.util.*;
  */
 
 public class Matrix6 {
-
-
     public static void main(String[] args) {
         try {
             Scanner in = new Scanner(System.in);
@@ -22,7 +21,7 @@ public class Matrix6 {
             System.out.println("Введите порядок матрицы(четный):");
             int numOfLines = in.nextInt();
 
-            if(numOfLines>0) {
+            if (numOfLines > 0) {
 
                 if (numOfLines % 2 == 1) {
                     System.out.println("\nВведено нечетное число, размер будет увеличен до четного!");
@@ -30,7 +29,7 @@ public class Matrix6 {
                 }
 
                 System.out.println("\nМатрица, построенная по шаблону:");
-                int arr[][] = new int[numOfLines][numOfLines];
+                int[][] arr = new int[numOfLines][numOfLines];
                 for (int i = 0; i < numOfLines; i++) {
 
                     for (int j = 0; j < numOfLines; j++) {
@@ -38,8 +37,7 @@ public class Matrix6 {
                         if (i < numOfLines / 2) {
                             if (j < i || j > numOfLines - i - 1) {
                                 arr[i][j] = 0;
-                            }
-                            else {
+                            } else {
                                 arr[i][j] = 1;
                             }
                         } else {
@@ -49,12 +47,12 @@ public class Matrix6 {
                     }
                     System.out.print("\n");
                 }
-            }else{
+            } else {
                 System.out.println("Порядок матрицы должен быть положительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

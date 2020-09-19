@@ -7,52 +7,50 @@ import java.util.Scanner;
  */
 
 public class StringAsObject8 {
-
-    public static String findTheLargestWord(String string){
+    public static String findTheLargestWord(String string) {
         //Удаление лищних пробелов из строки и формирование массива слов
-        String [] word = removeExtraSpaces(string).split(" ");
+        String[] word = removeExtraSpaces(string).split(" ");
         String maxlethWord = "";
-        for(int i = 0; i < word.length; i++){
-            if(word[i].length() >= maxlethWord.length()){
-                maxlethWord = word[i];
+        for (String s : word) {
+            if (s.length() >= maxlethWord.length()) {
+                maxlethWord = s;
             }
         }
 
         return maxlethWord;
     }
 
-    public static String removeExtraSpaces(String string){
-        String buff=new String();
-        boolean prevSpace=true;
+    public static String removeExtraSpaces(String string) {
+        StringBuilder buff = new StringBuilder();
+        boolean prevSpace = true;
 
-        int lastIndex=string.length()-1;
-        while(string.charAt(lastIndex)==' '){
+        int lastIndex = string.length() - 1;
+        while (string.charAt(lastIndex) == ' ') {
             lastIndex--;
         }
 
-        for(int i=0;i<=lastIndex;i++){
-            if(string.charAt(i)==' '){
-                if(!prevSpace){
-                    buff+=string.charAt(i);
+        for (int i = 0; i <= lastIndex; i++) {
+            if (string.charAt(i) == ' ') {
+                if (!prevSpace) {
+                    buff.append(string.charAt(i));
                 }
-                prevSpace=true;
-            }
-            else{
-                buff+=string.charAt(i);
-                prevSpace=false;
+                prevSpace = true;
+            } else {
+                buff.append(string.charAt(i));
+                prevSpace = false;
             }
         }
 
-        return buff;
+        return buff.toString();
     }
 
-    public static void main(String[] args){
-        Scanner in=new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Введите строку: ");
-        String line=in.nextLine();
+        String line = in.nextLine();
 
-        String largestWord=findTheLargestWord(line);
+        String largestWord = findTheLargestWord(line);
 
-        System.out.println("\nСамое длинное слово строки: "+largestWord);
+        System.out.println("\nСамое длинное слово строки: " + largestWord);
     }
 }

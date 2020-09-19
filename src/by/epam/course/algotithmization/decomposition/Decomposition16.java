@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Определяет сумму n-значных чисел,
@@ -9,29 +10,28 @@ import java.util.*;
  */
 
 public class Decomposition16 {
-
     public static int getNthDigit(long number, int n) {
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
-    public static int getNumOfDigits(long num){
-        int size=0;
+    public static int getNumOfDigits(long num) {
+        int size = 0;
 
-        while(num>0){
+        while (num > 0) {
             size++;
-            num/=10;
+            num /= 10;
         }
 
         return size;
     }
 
-    public static boolean hasOnlyOddDigits(int num){
-        int numOfDigits=getNumOfDigits(num);
-        boolean onlyOdd=true;
+    public static boolean hasOnlyOddDigits(int num) {
+        int numOfDigits = getNumOfDigits(num);
+        boolean onlyOdd = true;
 
-        while(numOfDigits>0){
-            if(getNthDigit(num,numOfDigits)%2==0){
-                onlyOdd=false;
+        while (numOfDigits > 0) {
+            if (getNthDigit(num, numOfDigits) % 2 == 0) {
+                onlyOdd = false;
                 break;
             }
             numOfDigits--;
@@ -40,26 +40,26 @@ public class Decomposition16 {
         return onlyOdd;
     }
 
-    public static long sumOfNumWithOddDigits(int n){
-        int startNum=(int)Math.pow(10,n-1);
-        int endNum=(int)Math.pow(10,n)-1;
-        long sum=0;
+    public static long sumOfNumWithOddDigits(int n) {
+        int startNum = (int) Math.pow(10, n - 1);
+        int endNum = (int) Math.pow(10, n) - 1;
+        long sum = 0;
 
-        for(int i=startNum;i<=endNum;i++){
-            if(hasOnlyOddDigits(i)){
-                sum+=i;
+        for (int i = startNum; i <= endNum; i++) {
+            if (hasOnlyOddDigits(i)) {
+                sum += i;
             }
         }
 
         return sum;
     }
 
-    public static int calcNumOfEven(long num){
-        int numOfDigits=getNumOfDigits(num);
-        int numOfEven=0;
+    public static int calcNumOfEven(long num) {
+        int numOfDigits = getNumOfDigits(num);
+        int numOfEven = 0;
 
-        while(numOfDigits>0){
-            if(getNthDigit(num,numOfDigits)%2==0){
+        while (numOfDigits > 0) {
+            if (getNthDigit(num, numOfDigits) % 2 == 0) {
                 numOfEven++;
             }
             numOfDigits--;
@@ -72,7 +72,8 @@ public class Decomposition16 {
         try {
             Scanner in = new Scanner(System.in);
 
-            System.out.println("Введите некоторое натуральное число (кол-во цифр в числе, определяющее n-значное число):");
+            System.out.println("Введите некоторое натуральное число " +
+                    "(кол-во цифр в числе, определяющее n-значное число):");
             int n = in.nextInt();
 
             while (n <= 0) {
@@ -84,8 +85,8 @@ public class Decomposition16 {
 
             System.out.println("\nCумма = " + sum + " . Число четных чисел в сумме = " + calcNumOfEven(sum));
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

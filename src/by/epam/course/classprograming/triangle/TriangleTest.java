@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.triangle;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class TriangleTest {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Triangle triangle = new Triangle();
 
@@ -27,8 +27,8 @@ public class TriangleTest {
             System.out.println("Периметр = " + triangle.getPerimeter());
             System.out.println("Точка пересечения медиан = " + triangle.getCenter());
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

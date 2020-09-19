@@ -1,7 +1,9 @@
 package by.epam.course.application.accounting.user;
 
 import by.epam.course.application.accounting.book.Book;
-import java.util.*;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Класс для представления администратора
@@ -13,55 +15,54 @@ import java.util.*;
  */
 
 public class Administrator extends User {
-
-    protected Administrator(String login,String password){
-        super(login,password);
+    protected Administrator(String login, String password) {
+        super(login, password);
     }
 
-    public void changePassword(String oldPassword,String newPassword){
+    public void changePassword(String oldPassword, String newPassword) {
         UserFactory.changePassword(oldPassword, newPassword);
     }
 
-    public void addBook(Book book){
+    public void addBook(Book book) {
         catalog.addBook(book);
     }
 
-    public void addBook(String author,String name,int pages){
+    public void addBook(String author, String name, int pages) {
         catalog.addBook(author, name, pages);
     }
 
-    public void addElectronicBook(String author,String name,int pages,String resourse){
+    public void addElectronicBook(String author, String name, int pages, String resourse) {
         catalog.addElectronicBook(author, name, pages, resourse);
     }
 
-    public void removeBook(Book book){
+    public void removeBook(Book book) {
         catalog.removeBook(book);
     }
 
-    public void removeAll(Book book){
+    public void removeAll(Book book) {
         catalog.removeAll(book);
     }
 
-    public void setDescription(int bookNum,String description){
+    public void setDescription(int bookNum, String description) {
         catalog.setDescription(bookNum, description);
     }
 
     @Override
-    public void checkMail(){
-        if(adminEmail!=null && !adminEmail.isEmpty() && !adminEmail.equals(" ")){
-            Scanner scanner=new Scanner(adminEmail);
-            try{
-                addBook(scanner.next(),scanner.next(),scanner.nextInt());
+    public void checkMail() {
+        if (adminEmail != null && !adminEmail.isEmpty() && !adminEmail.equals(" ")) {
+            Scanner scanner = new Scanner(adminEmail);
+            try {
+                addBook(scanner.next(), scanner.next(), scanner.nextInt());
                 System.out.println("Предложенные пользователями книги добавлены в каталог");
-                adminEmail=" ";
-            }catch (InputMismatchException ex){
+                adminEmail = " ";
+            } catch (InputMismatchException ex) {
                 System.out.println("На почте содержался спам!");
             }
         }
     }
 
     @Override
-    public boolean isAdmin(){
+    public boolean isAdmin() {
         return true;
     }
 }

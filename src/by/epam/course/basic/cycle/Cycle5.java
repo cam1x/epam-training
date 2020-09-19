@@ -1,6 +1,7 @@
 package by.epam.course.basic.cycle;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит сумму тех членов ряда, модуль которых больше или равен заданного е.
@@ -9,15 +10,13 @@ import java.util.*;
  */
 
 public class Cycle5 {
+    public static double calculate(double eps) {
+        double sum = 0.83;//Первый член ряда (1/2+1/3)
 
-    public static double calculate(double eps){
-        double sum=0.83;//Первый член ряда (1/2+1/3)
-
-        if(sum<eps) {
+        if (sum < eps) {
             //В ряде не существует членов, модуль котoрых >=eps
-            sum=0;
-        }
-        else {
+            sum = 0;
+        } else {
 
             int n = 2;//Номер члена ряда
             double part;//Очередной член ряда, который еще не учтен в сумме
@@ -49,8 +48,8 @@ public class Cycle5 {
                 System.out.println("There are no members greater or equal than e.");
             }
 
-        } catch(InputMismatchException ex){
-            System.out.println("Input error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Input error! " + ex.getMessage());
         }
     }
 }

@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит в массиве целых чисел наиболее часто встречаемое число.
@@ -8,30 +9,29 @@ import java.util.*;
  */
 
 public class Array9 {
-
-    public static int[] createArray(int size){
-        if(size>0){
+    public static int[] createArray(int size) {
+        if (size > 0) {
             return new int[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int el:arr){
-            System.out.print(el+" ");
+    public static void printArray(int[] arr) {
+        for (int el : arr) {
+            System.out.print(el + " ");
         }
     }
 
-    public static void sort(int[] arr){
+    public static void sort(int[] arr) {
         int temp;
 
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=0;j<arr.length-i-1;j++){
-                if(arr[j]>arr[j+1]){
-                    temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
@@ -46,20 +46,20 @@ public class Array9 {
         3) в массиве находим первую платформу максимальной длины и возвращаем число,
         входящее в эту платформу. (т.к. массив отсортирован это число будет min среди наиболее часто встречаемых)
      */
-    public static int getMostCommon(int[] arr){
+    public static int getMostCommon(int[] arr) {
         sort(arr);
 
-        int lenOfPlatform=1;
-        int res=arr[0];
+        int lenOfPlatform = 1;
+        int res = arr[0];
 
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]==arr[i-lenOfPlatform]){
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == arr[i - lenOfPlatform]) {
                 lenOfPlatform++;
             }
         }
 
-        for(int i=lenOfPlatform-1;i<arr.length;i++){
-            if(arr[i]==arr[i-lenOfPlatform+1]) {
+        for (int i = lenOfPlatform - 1; i < arr.length; i++) {
+            if (arr[i] == arr[i - lenOfPlatform + 1]) {
                 res = arr[i];
                 break;
             }
@@ -76,7 +76,7 @@ public class Array9 {
             int size = in.nextInt();
 
             try {
-                int arr[] = createArray(size);
+                int[] arr = createArray(size);
                 System.out.println("Введите элементы массива:");
                 for (int i = 0; i < size; i++) {
                     arr[i] = in.nextInt();
@@ -91,8 +91,8 @@ public class Array9 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

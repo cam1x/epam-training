@@ -1,25 +1,25 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Вычисляет площадь правильного шестиугольника, используя метод для вычисления площади правильного треуг
  */
 
 public class Decomposition3 {
-
-    private static double calculateSquareOfRegularTriangle(double sideLength){
-        if (sideLength>0) {
+    private static double calculateSquareOfRegularTriangle(double sideLength) {
+        if (sideLength > 0) {
             return (sideLength * sideLength * Math.sqrt(3)) / 4;
-        }else{
+        } else {
             throw new IllegalArgumentException("Длина стороны должна быть положительной!");
         }
     }
 
-    private static double calculateSquareOfRightHexagon(double sideLength){
-        if(sideLength>0) {
+    private static double calculateSquareOfRightHexagon(double sideLength) {
+        if (sideLength > 0) {
             return 6 * calculateSquareOfRegularTriangle(sideLength);
-        }else{
+        } else {
             throw new IllegalArgumentException("Длина стороны должна быть положительной!");
         }
     }
@@ -34,12 +34,12 @@ public class Decomposition3 {
             try {
                 double squareOfHexagon = calculateSquareOfRightHexagon(sideLength);
                 System.out.println("Площадь правильного шестиугольника = " + squareOfHexagon);
-            } catch (IllegalArgumentException ex){
+            } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

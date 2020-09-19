@@ -1,28 +1,28 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит в массиве второе по величине число
  */
 
 public class Decomposition5 {
-
-    public static int findSecondLargest(int[] arr){
-        if(arr.length<2){
+    public static int findSecondLargest(int[] arr) {
+        if (arr.length < 2) {
             throw new IllegalArgumentException("Массив должен состоять, как минимум, из двух элементов!");
         }
 
         int largest = arr[0];
         int secondLargest = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > largest) {
+        for (int value : arr) {
+            if (value > largest) {
                 secondLargest = largest;
-                largest = arr[i];
+                largest = value;
             } else {
-                if ((arr[i] < largest && arr[i] > secondLargest) || largest == secondLargest) {
-                    secondLargest = arr[i];
+                if ((value < largest && value > secondLargest) || largest == secondLargest) {
+                    secondLargest = value;
                 }
             }
         }
@@ -30,15 +30,15 @@ public class Decomposition5 {
         return secondLargest;
     }
 
-    public static void fillArray(int []array){
-        for(int i=0;i<array.length;i++){
-            array[i]=(int)(Math.random()*41-20);
+    public static void fillArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 41 - 20);
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+    public static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
@@ -59,7 +59,7 @@ public class Decomposition5 {
 
                 try {
                     System.out.println("\nВторое по величине число = " + findSecondLargest(array));
-                } catch (IllegalArgumentException ex){
+                } catch (IllegalArgumentException ex) {
                     System.out.println(ex.getMessage());
                 }
 
@@ -67,8 +67,8 @@ public class Decomposition5 {
                 System.out.println("Размер массива должен быть положителен!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

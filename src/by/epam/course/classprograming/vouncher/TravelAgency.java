@@ -11,11 +11,10 @@ package by.epam.course.classprograming.vouncher;
  */
 
 public class TravelAgency {
-
     private TravelVouncher[] offers;
 
-    public TravelAgency(int number){
-        if(number>0) {
+    public TravelAgency(int number) {
+        if (number > 0) {
             offers = new TravelVouncher[number];
             for (int i = 0; i < number; i++) {
                 offers[i] = new TravelVouncher();
@@ -23,105 +22,101 @@ public class TravelAgency {
         }
     }
 
-    public TravelAgency(TravelVouncher[] array){
+    public TravelAgency(TravelVouncher[] array) {
         setOffers(array);
     }
 
-    public void setOffers(TravelVouncher[] array){
-        if(array!=null) {
-            offers = new TravelVouncher[array.length];
-            for (int i = 0; i < array.length; i++) {
-                offers[i] = array[i];
-            }
-        }
-    }
-
-    public int getNumOfVounchers(){
+    public int getNumOfVounchers() {
         return offers.length;
     }
 
-    public TravelVouncher[] getOffers(){
+    public TravelVouncher[] getOffers() {
         return offers;
     }
 
-    public TravelVouncher getVouncher(int index){
-        if(index>=0 && index<getNumOfVounchers()){
+    public void setOffers(TravelVouncher[] array) {
+        if (array != null) {
+            offers = new TravelVouncher[array.length];
+            System.arraycopy(array, 0, offers, 0, array.length);
+        }
+    }
+
+    public TravelVouncher getVouncher(int index) {
+        if (index >= 0 && index < getNumOfVounchers()) {
             return offers[index];
-        }else{
+        } else {
             throw new IllegalArgumentException("Выход за пределы массива!");
         }
     }
 
 
-    public void addVouncher(int typeChoise,int foodChoice,int transportChoice,int numOfDays,double cost){
-        TravelVouncher[] newVounchers=new TravelVouncher[getNumOfVounchers()+1];
-        for(int i=0;i<getNumOfVounchers();i++){
-            newVounchers[i]=offers[i];
-        }
+    public void addVouncher(int typeChoise, int foodChoice, int transportChoice, int numOfDays, double cost) {
+        TravelVouncher[] newVounchers = new TravelVouncher[getNumOfVounchers() + 1];
+        if (getNumOfVounchers() >= 0) System.arraycopy(offers, 0, newVounchers, 0, getNumOfVounchers());
 
-        newVounchers[getNumOfVounchers()]=new TravelVouncher(typeChoise,foodChoice,transportChoice,numOfDays,cost);
-        offers=newVounchers;
+        newVounchers[getNumOfVounchers()] = new TravelVouncher(typeChoise, foodChoice, transportChoice, numOfDays, cost);
+        offers = newVounchers;
     }
 
-    public void deleteVouncher(double cost){
-        int numOfVounchers=getNumOfVounchers();
+    public void deleteVouncher(double cost) {
+        int numOfVounchers = getNumOfVounchers();
 
-        for(TravelVouncher vouncher: offers){
-            if(vouncher.getCost()>cost){
+        for (TravelVouncher vouncher : offers) {
+            if (vouncher.getCost() > cost) {
                 numOfVounchers--;
             }
         }
 
-        if(numOfVounchers<getNumOfVounchers()){
-            TravelVouncher[] newVounchers=new TravelVouncher[numOfVounchers];
-            for(int i=0,index=0;i<getNumOfVounchers();i++){
-                if(offers[i].getCost()<=cost){
-                    newVounchers[index]=offers[i];
+        if (numOfVounchers < getNumOfVounchers()) {
+            TravelVouncher[] newVounchers = new TravelVouncher[numOfVounchers];
+            for (int i = 0, index = 0; i < getNumOfVounchers(); i++) {
+                if (offers[i].getCost() <= cost) {
+                    newVounchers[index] = offers[i];
                     index++;
                 }
             }
 
-            offers=newVounchers;
+            offers = newVounchers;
         }
     }
 
-    public void deleteVouncher(int index){
-        if(index>=0 && index<getNumOfVounchers()){
-            int numOfVounchers=getNumOfVounchers()-1;
-                TravelVouncher[] vounchers = new TravelVouncher[numOfVounchers];
-                for(int i=0,j=0;i<getNumOfVounchers();i++){
-                    if(i!=index){
-                        vounchers[j]=offers[i];
-                        j++;
-                    }
+    public void deleteVouncher(int index) {
+        if (index >= 0 && index < getNumOfVounchers()) {
+            int numOfVounchers = getNumOfVounchers() - 1;
+            TravelVouncher[] vounchers = new TravelVouncher[numOfVounchers];
+            for (int i = 0, j = 0; i < getNumOfVounchers(); i++) {
+                if (i != index) {
+                    vounchers[j] = offers[i];
+                    j++;
                 }
+            }
 
-            offers=vounchers;
+            offers = vounchers;
         }
     }
 
-    public void selectVouncher(int index){
-        if(index>=0 && index<getNumOfVounchers()){
+    public void selectVouncher(int index) {
+        if (index >= 0 && index < getNumOfVounchers()) {
             offers[index].select();
         }
     }
 
-    public void deselectVouncher(int index){
-        if(index>=0 && index<getNumOfVounchers()){
+    public void deselectVouncher(int index) {
+        if (index >= 0 && index < getNumOfVounchers()) {
             offers[index].deselect();
         }
     }
 
     //Сортирует путевки по цене. Если цены одинаковы, то сортирует по кол-ву дней
-    public void sortByPrice(){
-        for(int i=0;i<getNumOfVounchers()-1;i++){
-            for(int j=0;j<getNumOfVounchers()-i-1;j++){
-                if(offers[j].getCost()>offers[j+1].getCost()){
-                    swap(j,j+1);
-                }else{
-                    if(offers[j+1].getCost()==offers[j].getCost()){
-                        if(offers[j].getNumOfDays()>offers[j+1].getNumOfDays()){
-                            swap(j,j+1);
+    public void sortByPrice() {
+        for (int i = 0; i < getNumOfVounchers() - 1; i++) {
+            for (int j = 0; j < getNumOfVounchers() - i - 1; j++) {
+                if (offers[j].getCost() > offers[j + 1].getCost()) {
+                    swap(j, j + 1);
+                } else {
+                    if (offers[j + 1].getCost() == offers[j].getCost()) {
+                        if (offers[j].getNumOfDays() > offers[j + 1].getNumOfDays()) {
+                            swap(j, j + 1);
                         }
                     }
                 }
@@ -130,18 +125,18 @@ public class TravelAgency {
     }
 
     //Сортирует по типу путевки. Если тип одинаковый, то сортирует по цене
-    public void sortByType(){
+    public void sortByType() {
         int time;
 
-        for(int i=0;i<getNumOfVounchers()-1;i++){
-            for(int j=0;j<getNumOfVounchers()-i-1;j++){
-                time=offers[j].getType().compareTo(offers[j+1].getType());
-                if(time>0){
-                    swap(j,j+1);
-                }else{
-                    if(time==0){
-                        if(offers[j].getCost()>offers[j+1].getCost()){
-                            swap(j,j+1);
+        for (int i = 0; i < getNumOfVounchers() - 1; i++) {
+            for (int j = 0; j < getNumOfVounchers() - i - 1; j++) {
+                time = offers[j].getType().compareTo(offers[j + 1].getType());
+                if (time > 0) {
+                    swap(j, j + 1);
+                } else {
+                    if (time == 0) {
+                        if (offers[j].getCost() > offers[j + 1].getCost()) {
+                            swap(j, j + 1);
                         }
                     }
                 }
@@ -149,55 +144,55 @@ public class TravelAgency {
         }
     }
 
-    public void printSelected(){
-        int num=0;
+    public void printSelected() {
+        int num = 0;
 
-        for(int i=0;i<getNumOfVounchers();i++){
-            if(offers[i].isSelected()){
-                System.out.println((i+1)+offers[i].toString());
+        for (int i = 0; i < getNumOfVounchers(); i++) {
+            if (offers[i].isSelected()) {
+                System.out.println((i + 1) + offers[i].toString());
                 num++;
             }
         }
 
-        if(num>0) {
+        if (num > 0) {
             System.out.println("Итого выбрано " + num + " путевок");
-        }else{
+        } else {
             System.out.println("\nНи одна путевка не выбрана!");
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        String string= new String();
+    public String toString() {
+        StringBuilder string = new StringBuilder();
 
-        for(int i=0;i<getNumOfVounchers();i++){
-            string+=(i+1)+offers[i].toString()+"\n";
+        for (int i = 0; i < getNumOfVounchers(); i++) {
+            string.append(i + 1).append(offers[i].toString()).append("\n");
         }
 
-        return string;
+        return string.toString();
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        TravelAgency other=(TravelAgency) obj;
+        TravelAgency other = (TravelAgency) obj;
 
-        boolean isEqual=getNumOfVounchers()==other.getNumOfVounchers();
+        boolean isEqual = getNumOfVounchers() == other.getNumOfVounchers();
 
-        for(int i=0;isEqual && i<getNumOfVounchers();i++){
-            if(!offers[i].equals(other.getOffers()[i])){
-                isEqual=false;
+        for (int i = 0; isEqual && i < getNumOfVounchers(); i++) {
+            if (!offers[i].equals(other.getOffers()[i])) {
+                isEqual = false;
             }
         }
 
@@ -205,23 +200,23 @@ public class TravelAgency {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(TravelVouncher vouncher:offers){
-            result=prime*result+vouncher.hashCode();
+        for (TravelVouncher vouncher : offers) {
+            result = prime * result + vouncher.hashCode();
         }
 
         return result;
     }
 
-    private void swap(int index1,int index2){
+    private void swap(int index1, int index2) {
 
-        if(index1>=0 && index1<getNumOfVounchers() && index2>=0 && index2<getNumOfVounchers()){
-            TravelVouncher time=offers[index1];
-            offers[index1]=offers[index2];
-            offers[index2]=time;
+        if (index1 >= 0 && index1 < getNumOfVounchers() && index2 >= 0 && index2 < getNumOfVounchers()) {
+            TravelVouncher time = offers[index1];
+            offers[index1] = offers[index2];
+            offers[index2] = time;
         }
     }
 }

@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
       Считает сумму элементов в каждом столбце.
@@ -8,21 +9,20 @@ import java.util.*;
  */
 
 public class Matrix9 {
-
-    public static void printMatrix(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(double[][] matrix) {
+        for (double[] doubles : matrix) {
+            for (double aDouble : doubles) {
+                System.out.print(aDouble + " ");
             }
             System.out.print("\n");
         }
     }
 
-    public static void fillMatrixRandom(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[i].length;j++){
-                matrix[i][j]=Math.random()*101;
-                matrix[i][j]=(double)Math.round(matrix[i][j]*100d)/100d;
+    public static void fillMatrixRandom(double[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = Math.random() * 101;
+                matrix[i][j] = (double) Math.round(matrix[i][j] * 100d) / 100d;
             }
         }
     }
@@ -35,8 +35,8 @@ public class Matrix9 {
             int numOfLines = in.nextInt();
             int numOfColumn = in.nextInt();
 
-            if(numOfColumn>0 && numOfLines>0) {
-                double arr[][] = new double[numOfLines][numOfColumn];
+            if (numOfColumn > 0 && numOfLines > 0) {
+                double[][] arr = new double[numOfLines][numOfColumn];
                 fillMatrixRandom(arr);
 
                 System.out.println("\nСгенерированная матрица: ");
@@ -44,7 +44,7 @@ public class Matrix9 {
 
                 double maxSum = 0;
                 double currSum = 0;
-                double sumOfColumn[] = new double[numOfColumn];
+                double[] sumOfColumn = new double[numOfColumn];
 
                 for (int i = 0; i < numOfColumn; i++) {
                     for (int j = 0; j < numOfLines; j++) {
@@ -62,15 +62,15 @@ public class Matrix9 {
                 System.out.println("\nМаксимальную сумму = " + maxSum + " имеют столбцы:");
                 for (int i = 0; i < numOfColumn; i++) {
                     if (sumOfColumn[i] == maxSum) {
-                        System.out.print((i+1) + " ");
+                        System.out.print((i + 1) + " ");
                     }
                 }
-            }else{
+            } else {
                 System.out.println("Размерность матрицы должна быть положительна");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

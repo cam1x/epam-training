@@ -13,7 +13,6 @@ package by.epam.course.classprograming.account;
  */
 
 public class BankAccountArray {
-
     private BankAccount[] arrOfAccounts;
 
     public BankAccountArray(int size) {
@@ -30,21 +29,19 @@ public class BankAccountArray {
         setArrOfAccounts(array);
     }
 
-    public void setArrOfAccounts(BankAccount[] array) {
-        if (array != null) {
-            arrOfAccounts = new BankAccount[array.length];
-            for (int i = 0; i < array.length; i++) {
-                arrOfAccounts[i] = array[i];
-            }
-        }
-    }
-
     public int getSize() {
         return arrOfAccounts.length;
     }
 
     public BankAccount[] getArrOfAccounts() {
         return arrOfAccounts;
+    }
+
+    public void setArrOfAccounts(BankAccount[] array) {
+        if (array != null) {
+            arrOfAccounts = new BankAccount[array.length];
+            System.arraycopy(array, 0, arrOfAccounts, 0, array.length);
+        }
     }
 
     public BankAccount getBankAccount(int index) {
@@ -232,9 +229,7 @@ public class BankAccountArray {
     public void addBankAccount(String name, double deposit) {
         BankAccount[] newAccounts = new BankAccount[getSize() + 1];
 
-        for (int i = 0; i < getSize(); i++) {
-            newAccounts[i] = arrOfAccounts[i];
-        }
+        if (getSize() >= 0) System.arraycopy(arrOfAccounts, 0, newAccounts, 0, getSize());
 
         newAccounts[getSize()] = new BankAccount(name, deposit);
         arrOfAccounts = newAccounts;
@@ -284,11 +279,11 @@ public class BankAccountArray {
 
     @Override
     public String toString() {
-        String string = new String();
+        StringBuilder string = new StringBuilder();
         for (BankAccount account : arrOfAccounts) {
-            string += account.toString() + "\n";
+            string.append(account.toString()).append("\n");
         }
-        return string;
+        return string.toString();
     }
 
     @Override

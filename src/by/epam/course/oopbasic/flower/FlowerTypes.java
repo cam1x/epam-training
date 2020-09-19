@@ -4,8 +4,7 @@ package by.epam.course.oopbasic.flower;
     Поддерживаемые типы цветов
  */
 
-public enum FlowerTypes{
-
+public enum FlowerTypes {
     ROSE,
     TULIP,
     LILY

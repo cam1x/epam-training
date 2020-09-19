@@ -1,50 +1,50 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Меняет местами наибольший и наименьший элементы последовательности
  */
 
 public class Array4 {
-
-    public static void fillArrayRandom(double [] arr){
-        for(int i=0;i<arr.length;i++){
-            arr[i]=Math.random()*101-51;
-            arr[i]=(double)Math.round(arr[i]*100d)/100d;
+    public static void fillArrayRandom(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Math.random() * 101 - 51;
+            arr[i] = (double) Math.round(arr[i] * 100d) / 100d;
         }
     }
 
-    public static double[] createArray(int size){
-        if(size>0){
+    public static double[] createArray(int size) {
+        if (size > 0) {
             return new double[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(double[] arr){
-        for(double el:arr){
-            System.out.print(el+" ");
+    public static void printArray(double[] arr) {
+        for (double el : arr) {
+            System.out.print(el + " ");
         }
     }
 
-    public static void swapMaxMin(double[] arr){
-        int indexOfMax=0;
-        int indexOfMin=0;
+    public static void swapMaxMin(double[] arr) {
+        int indexOfMax = 0;
+        int indexOfMin = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i]>arr[indexOfMax]){
-                indexOfMax=i;
+            if (arr[i] > arr[indexOfMax]) {
+                indexOfMax = i;
             }
-            if(arr[i]<arr[indexOfMin]) {
-                indexOfMin=i;
+            if (arr[i] < arr[indexOfMin]) {
+                indexOfMin = i;
             }
         }
 
-        double buff=arr[indexOfMax];
-        arr[indexOfMax]=arr[indexOfMin];
-        arr[indexOfMin]=buff;
+        double buff = arr[indexOfMax];
+        arr[indexOfMax] = arr[indexOfMin];
+        arr[indexOfMin] = buff;
     }
 
     public static void main(String[] args) {
@@ -55,7 +55,7 @@ public class Array4 {
             int size = in.nextInt();
 
             try {
-                double arr[] = createArray(size);
+                double[] arr = createArray(size);
                 System.out.println("Введите элементы последовательности");
                 fillArrayRandom(arr);
 
@@ -70,8 +70,8 @@ public class Array4 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("\nОшибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("\nОшибка ввода! " + ex.getMessage());
         }
     }
 }

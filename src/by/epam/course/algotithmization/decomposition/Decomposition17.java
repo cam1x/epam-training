@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
         Из заданного числа вычли сумму его цифр.
@@ -9,23 +10,22 @@ import java.util.*;
  */
 
 public class Decomposition17 {
-
-    public static int sumOfDigits(int num){
-        int sum=0;
-        while(num>0){
-            sum+=num%10;
-            num/=10;
+    public static int sumOfDigits(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
         }
 
         return sum;
     }
 
     //Вычисляет сколько раз из числа надо вычесть сумму его цифр, чтобы число стало равным 0
-    public static int calcTimesToBecomeZero(int num){
-        int times=0;
+    public static int calcTimesToBecomeZero(int num) {
+        int times = 0;
 
-        while(num>0){
-            num-=sumOfDigits(num);
+        while (num > 0) {
+            num -= sumOfDigits(num);
             times++;
         }
 
@@ -43,10 +43,11 @@ public class Decomposition17 {
                 num = in.nextInt();
             }
 
-            System.out.println("\nДля того, чтобы число обратилось в 0, из него необходимо вычесть сумму его цифр " + calcTimesToBecomeZero(num) + " раз.");
+            System.out.println("\nДля того, чтобы число обратилось в 0, " +
+                    "из него необходимо вычесть сумму его цифр " + calcTimesToBecomeZero(num) + " раз.");
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

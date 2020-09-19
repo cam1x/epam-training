@@ -1,6 +1,7 @@
 package by.epam.course.basic.branch;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Заданы размеры A,B прямоугольного отверствия и размеры x,y,z кирпича.
@@ -8,13 +9,13 @@ import java.util.*;
  */
 
 public class Branch4 {
-
-    public static boolean isFit(double a,double b,double x,double y,double z){
-        if(a<=0 || b<=0 || x<=0 || y<=0 || z<=0){
+    public static boolean isFit(double a, double b, double x, double y, double z) {
+        if (a <= 0 || b <= 0 || x <= 0 || y <= 0 || z <= 0) {
             throw new IllegalArgumentException("Рамзеры не могут отрицательными!");
         }
 
-        return (x<=a&&y<=b) || (x<=b&&y<=a) || (x<=a&&z<=b) || (z<=a&&x<=b) || (y<=a&&z<=b) || (z<=b&&y<=a);
+        return (x <= a && y <= b) || (x <= b && y <= a) || (x <= a && z <= b) || (z <= a && x <= b) ||
+                (y <= a && z <= b) || (z <= b && y <= a);
     }
 
     public static void main(String[] args) {
@@ -41,8 +42,8 @@ public class Branch4 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

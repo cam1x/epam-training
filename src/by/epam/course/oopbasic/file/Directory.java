@@ -1,7 +1,8 @@
 package by.epam.course.oopbasic.file;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
     Класс для представления директории
@@ -16,21 +17,66 @@ import java.util.*;
  */
 
 public class Directory {
-
-    private String diskName="C";
-    private ArrayList<String> folders=new ArrayList<String>();
+    private String diskName = "C";
+    private final ArrayList<String> folders = new ArrayList<String>();
     private File directory;
 
-    public Directory(){
+    public Directory() {
         folders.add("Program files");
     }
 
-    public Directory(String path){
+    public Directory(String path) {
         setDirectory(path);
     }
 
-    public void setDirectory(String path){
-        if(path!=null && !path.isEmpty()) {
+    public void setDiskName(String disk) {
+        if (disk != null && !disk.isEmpty()) {
+            this.diskName = disk;
+        }
+    }
+
+    public void addFolder(String folder) {
+        if (folder != null && !folder.isEmpty()) {
+            folders.add(folder);
+        }
+    }
+
+    /*
+    Заменить в пути папку oldFolder на newFolder
+     */
+    public void changeFolder(String oldFolder, String newFolder) {
+        if (oldFolder != null && newFolder != null && !oldFolder.isEmpty() && !newFolder.isEmpty()) {
+            int index = folders.indexOf(oldFolder);
+            if (index != -1) {
+                folders.set(index, newFolder);
+            }
+        }
+    }
+
+    /*
+    Очистить путь
+     */
+    public void deleteAllFolders() {
+        folders.clear();
+    }
+
+    /*
+    Удалить из пути папку name
+     */
+    public void deleteFolder(String name) {
+        folders.remove(name);
+    }
+
+    /*
+    Получить File директории, созданный по указанному пути
+     */
+    public File getDirectory() {
+        directory = new File(toString());
+        return directory;
+    }
+
+    public void setDirectory(String path) {
+        if (path != null && !path.isEmpty()) {
             int index = path.indexOf(":\\");
 
             if (index != -1) {
@@ -48,57 +94,11 @@ public class Directory {
         }
     }
 
-    public void setDiskName(String disk){
-        if(disk!=null && !disk.isEmpty()) {
-            this.diskName = disk;
-        }
-    }
-
-    public void addFolder(String folder){
-        if(folder!=null && !folder.isEmpty()) {
-            folders.add(folder);
-        }
-    }
-
-    /*
-    Заменить в пути папку oldFolder на newFolder
-     */
-    public void changeFolder(String oldFolder, String newFolder){
-        if(oldFolder!=null && newFolder!=null && !oldFolder.isEmpty() && !newFolder.isEmpty()) {
-            int index = folders.indexOf(oldFolder);
-            if (index != -1) {
-                folders.set(index, newFolder);
-            }
-        }
-    }
-
-    /*
-    Очистить путь
-     */
-    public void deleteAllFolders(){
-        folders.clear();
-    }
-
-    /*
-    Удалить из пути папку name
-     */
-    public void deleteFolder(String name){
-        folders.remove(name);
-    }
-
-    /*
-    Получить File директории, созданный по указанному пути
-     */
-    public File getDirectory(){
-        directory=new File(toString());
-        return directory;
-    }
-
     /*
     Существует ли директория
      */
-    public boolean isExists(){
-        directory=new File(toString());
+    public boolean isExists() {
+        directory = new File(toString());
         return directory.isDirectory();
     }
 
@@ -106,10 +106,10 @@ public class Directory {
     Если директория не сущетсвует, то она создается
     Возвращает true, если была создана директория
      */
-    public boolean create(){
-        if(!isExists()){
-           return directory.mkdirs();
-        }else{
+    public boolean create() {
+        if (!isExists()) {
+            return directory.mkdirs();
+        } else {
             return false;
         }
     }
@@ -117,45 +117,45 @@ public class Directory {
     /*
     Вывести путь
      */
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        String string=new String();
+    public String toString() {
+        StringBuilder string = new StringBuilder();
 
-        string+=diskName+":";
+        string.append(diskName).append(":");
 
-        for(int i=0;i<folders.size();i++){
-            string+="//"+folders.get(i);
+        for (String folder : folders) {
+            string.append("//").append(folder);
         }
 
-        return string;
+        return string.toString();
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        Directory other=(Directory)obj;
+        Directory other = (Directory) obj;
 
         return diskName.equals(other.diskName) && folders.equals(other.folders);
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        result=prime*result+((diskName==null)?0:diskName.hashCode());
-        result=prime*result+folders.hashCode();
+        result = prime * result + ((diskName == null) ? 0 : diskName.hashCode());
+        result = prime * result + folders.hashCode();
 
         return result;
     }

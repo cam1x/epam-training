@@ -7,25 +7,24 @@ import java.util.Scanner;
  */
 
 public class StringAsObject3 {
+    public static boolean isPalindrom(String string) {
+        StringBuilder copyOfString = new StringBuilder(string);
 
-    public static boolean isPalindrom(String string){
-        StringBuilder copyOfString=new StringBuilder(string);
-
-        StringBuilder reversedString=new StringBuilder(copyOfString);
+        StringBuilder reversedString = new StringBuilder(copyOfString);
         reversedString.reverse();
 
         return copyOfString.toString().equals(reversedString.toString());
     }
 
-    public static void main(String[] args){
-        Scanner in=new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Введите строку: ");
 
-        String line=in.nextLine();
+        String line = in.nextLine();
 
-        if(isPalindrom(line)){
+        if (isPalindrom(line)) {
             System.out.println("Палиндром!");
-        }else {
+        } else {
             System.out.println("НЕ палиндром!");
         }
     }

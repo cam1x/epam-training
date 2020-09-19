@@ -9,29 +9,28 @@ package by.epam.course.oopbasic.fileabstract;
  */
 
 public class TextFile extends MyFile {
+    private String content = "";
 
-    private String content=new String();
-
-    public TextFile(){
+    public TextFile() {
         super();
         super.setExpansion("txt");
     }
 
-    public TextFile(String path,String fileName){
-        super(path, fileName,"txt");
+    public TextFile(String path, String fileName) {
+        super(path, fileName, "txt");
         //super.setExpansion("txt");
     }
 
     @Override
-    public void setExpansion(String expansion){
+    public void setExpansion(String expansion) {
         //Метод ничего не делает
     }
 
     /*
     Добавляет line к файлу, не переписовая его
      */
-    public void addToFile(String line){
-        if(isExists()) {
+    public void addToFile(String line) {
+        if (isExists()) {
             content += line + "\n";
         }
     }
@@ -43,7 +42,7 @@ public class TextFile extends MyFile {
         return content;
     }
 
-    public void printContent(){
+    public void printContent() {
         System.out.println(getContent());
     }
 }

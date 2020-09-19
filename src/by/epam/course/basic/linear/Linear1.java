@@ -1,14 +1,14 @@
 package by.epam.course.basic.linear;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
   Вычисляет значение функции z=((a-3)*b/2)+c
  */
 
 public class Linear1 {
-
-    public static double calculate(double a,double b,double c){
+    public static double calculate(double a, double b, double c) {
         return (a - 3) * b / 2 + c;
     }
 
@@ -23,11 +23,11 @@ public class Linear1 {
             System.out.println("Input c:");
             double c = in.nextDouble();
 
-            System.out.println("The result of opearation is: z = " + calculate(a,b,c));
+            System.out.println("The result of opearation is: z = " + calculate(a, b, c));
 
-        } catch(InputMismatchException ex){
+        } catch (InputMismatchException ex) {
 
-            System.out.println("\nInput error! "+ex.getMessage());
+            System.out.println("\nInput error! " + ex.getMessage());
         }
     }
 }

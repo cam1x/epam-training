@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Дано натуральной число N.
@@ -8,13 +9,12 @@ import java.util.*;
  */
 
 public class Decomposition10 {
+    public static int getNumOfDigits(int num) {
+        int size = 0;
 
-    public static int getNumOfDigits(int num){
-        int size=0;
-
-        while(num>0){
+        while (num > 0) {
             size++;
-            num/=10;
+            num /= 10;
         }
 
         return size;
@@ -24,20 +24,20 @@ public class Decomposition10 {
         return (int) ((number / Math.pow(10, n - 1)) % 10);
     }
 
-    public static void fillArray(int []array,int num){
-        int numOfDigits=getNumOfDigits(num);
+    public static void fillArray(int[] array, int num) {
+        int numOfDigits = getNumOfDigits(num);
 
         int indexOfDigit;
 
-        for(int i=0;i<array.length;i++){
-            indexOfDigit=1+(int)(Math.random()*numOfDigits);
-            array[i]=getNthDigit(num,indexOfDigit);
+        for (int i = 0; i < array.length; i++) {
+            indexOfDigit = 1 + (int) (Math.random() * numOfDigits);
+            array[i] = getNthDigit(num, indexOfDigit);
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+    public static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
@@ -66,8 +66,8 @@ public class Decomposition10 {
             fillArray(array, num);
             printArray(array);
 
-        }catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

@@ -7,38 +7,37 @@ import java.util.Scanner;
  */
 
 public class StringAsArray4 {
-
-    public static boolean isDigit(char ch){
-        return ch>='1'&&ch<='9';
+    public static boolean isDigit(char ch) {
+        return ch >= '1' && ch <= '9';
     }
 
-    public static int calcNumOfNumbers(String string){
-        int numOfDigits=0;
-        boolean prevNumber=false;
+    public static int calcNumOfNumbers(String string) {
+        int numOfDigits = 0;
+        boolean prevNumber = false;
 
-        for(int i=0;i<string.length();i++){
-            if(isDigit(string.charAt(i))){
-                if(prevNumber==false){
+        for (int i = 0; i < string.length(); i++) {
+            if (isDigit(string.charAt(i))) {
+                if (!prevNumber) {
                     numOfDigits++;
                 }
 
-                prevNumber=true;
+                prevNumber = true;
 
-            }else{
-                prevNumber=false;
+            } else {
+                prevNumber = false;
             }
         }
 
         return numOfDigits;
     }
 
-    public static void main(String[] args){
-        Scanner in=new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Введите строку: ");
-        String line=in.nextLine();
+        String line = in.nextLine();
 
-        int numOfNumbers=calcNumOfNumbers(line);
+        int numOfNumbers = calcNumOfNumbers(line);
 
-        System.out.println("\nЧисло чисел в строке "+line+" = "+numOfNumbers);
+        System.out.println("\nЧисло чисел в строке " + line + " = " + numOfNumbers);
     }
 }

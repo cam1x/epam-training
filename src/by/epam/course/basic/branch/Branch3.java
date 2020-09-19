@@ -1,14 +1,14 @@
 package by.epam.course.basic.branch;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Для данных трех точек определяет лежат ли они на одной прямой
  */
 
 public class Branch3 {
-
-    public static boolean isOnOneLine(double xA,double yA, double xB,double yB,double xC,double yC) {
+    public static boolean isOnOneLine(double xA, double yA, double xB, double yB, double xC, double yC) {
         return (xC - xA) * (yB - yA) == (yC - yA) * (xB - xA);
     }
 
@@ -34,8 +34,8 @@ public class Branch3 {
                 System.out.println("Points do not lie on one straight line.");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Input error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Input error! " + ex.getMessage());
         }
     }
 }

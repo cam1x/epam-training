@@ -1,30 +1,30 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Определяет, в каком из данных двух чисел больше цифр.
  */
 
 public class Decomposition11 {
+    public static int getNumOfDigits(int num) {
+        int size = 0;
 
-    public static int getNumOfDigits(int num){
-        int size=0;
-
-        while(num>0){
+        while (num > 0) {
             size++;
-            num/=10;
+            num /= 10;
         }
         return size;
     }
 
     //Возвращает число, в котором больше цифр.
     //Если в числах одинаковое число цифр, то возвращает первое число.
-    public static int hasMoreDigits(int num1,int num2){
+    public static int hasMoreDigits(int num1, int num2) {
         int hasMoreDigits;
-        if(getNumOfDigits(num1)>=getNumOfDigits(num2)){
+        if (getNumOfDigits(num1) >= getNumOfDigits(num2)) {
             hasMoreDigits = num1;
-        }else{
+        } else {
             hasMoreDigits = num2;
         }
 
@@ -41,8 +41,8 @@ public class Decomposition11 {
 
             System.out.println("Больше цифр (" + num1 + "," + num2 + ") в " + hasMoreDigits(num1, num2));
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

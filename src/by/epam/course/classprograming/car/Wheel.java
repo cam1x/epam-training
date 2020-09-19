@@ -9,46 +9,45 @@ package by.epam.course.classprograming.car;
  */
 
 class Wheel {
-
     private double diameter;
     private String mark;
 
-    Wheel(){
-        diameter=25;
-        mark="Michelin";
+    Wheel() {
+        diameter = 25;
+        mark = "Michelin";
     }
 
-    Wheel(double diam){
+    Wheel(double diam) {
         setDiameter(diam);
-        mark="Michelin";
+        mark = "Michelin";
     }
 
-    Wheel(double diameter,String mark){
+    Wheel(double diameter, String mark) {
         setDiameter(diameter);
         setMark(mark);
     }
 
-    void setDiameter(double diam){
-        if(diam>0){
-            diameter=diam;
+    double getDiameter() {
+        return diameter;
+    }
+
+    void setDiameter(double diam) {
+        if (diam > 0) {
+            diameter = diam;
         }
     }
 
-    void setMark(String mark){
-        if(mark!=null && !mark.isEmpty()) {
+    String getMark() {
+        return mark;
+    }
+
+    void setMark(String mark) {
+        if (mark != null && !mark.isEmpty()) {
             this.mark = mark;
         }
     }
 
-    double getDiameter(){
-        return diameter;
-    }
-
-    String getMark(){
-        return mark;
-    }
-
-    boolean equals(Wheel other){
-        return diameter==other.getDiameter() && mark.equals(other.mark);
+    boolean equals(Wheel other) {
+        return diameter == other.getDiameter() && mark.equals(other.mark);
     }
 }

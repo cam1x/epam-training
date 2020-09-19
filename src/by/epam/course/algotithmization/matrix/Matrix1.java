@@ -1,34 +1,34 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Выводит на экран нечетные столбцы матрицы, у которых первый элемент больше последнего
  */
 
 public class Matrix1 {
-
-    public static void printMatrix(int[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(int[][] matrix) {
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.print("\n");
         }
     }
 
-    public static void printColumns(int[][] matrix){
-        boolean arrColumnControl[]=new boolean[matrix[0].length];
+    public static void printColumns(int[][] matrix) {
+        boolean[] arrColumnControl = new boolean[matrix[0].length];
 
-        for(int i=0;i<matrix[0].length;i+=2){
-            if(matrix[0][i]>matrix[matrix.length-1][i]) {
-                arrColumnControl[i]=true;
+        for (int i = 0; i < matrix[0].length; i += 2) {
+            if (matrix[0][i] > matrix[matrix.length - 1][i]) {
+                arrColumnControl[i] = true;
             }
         }
 
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                if(arrColumnControl[j])System.out.print(matrix[i][j]+" ");
+        for (int[] ints : matrix) {
+            for (int j = 0; j < ints.length; j++) {
+                if (arrColumnControl[j]) System.out.print(ints[j] + " ");
             }
             System.out.print("\n");
         }
@@ -45,7 +45,7 @@ public class Matrix1 {
             int numOfColumn = in.nextInt();
 
             if (numOfLines > 0 && numOfColumn > 0) {
-                int arr[][] = new int[numOfLines][numOfColumn];
+                int[][] arr = new int[numOfLines][numOfColumn];
 
                 System.out.println("Введите элементы матрицы:");
                 for (int i = 0; i < numOfLines; i++) {
@@ -63,8 +63,8 @@ public class Matrix1 {
                 System.out.println("Размерность матрицы не может быть <=0");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

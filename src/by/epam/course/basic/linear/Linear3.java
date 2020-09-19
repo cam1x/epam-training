@@ -1,6 +1,7 @@
 package by.epam.course.basic.linear;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Вычисляет значения выражения по формуле:
@@ -8,13 +9,12 @@ import java.util.*;
  */
 
 public class Linear3 {
-
-    public static double calculate(double x,double y){
-        if((x*y) != Math.PI){
-            double result=(Math.sin(x) + Math.cos(y)) / (Math.cos(x) - Math.sin(y));
-            result*= Math.tan(x * y);
+    public static double calculate(double x, double y) {
+        if ((x * y) != Math.PI) {
+            double result = (Math.sin(x) + Math.cos(y)) / (Math.cos(x) - Math.sin(y));
+            result *= Math.tan(x * y);
             return result;
-        }else{
+        } else {
             throw new IllegalArgumentException("Result is undifined (x*y=pi/2)!");
         }
     }
@@ -34,8 +34,8 @@ public class Linear3 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Input error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Input error! " + ex.getMessage());
         }
     }
 }

@@ -1,27 +1,27 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит положительные элементы главной диагонали
  */
 
 public class Matrix10 {
-
-    public static void printMatrix(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(double[][] matrix) {
+        for (double[] doubles : matrix) {
+            for (double aDouble : doubles) {
+                System.out.print(aDouble + " ");
             }
             System.out.print("\n");
         }
     }
 
-    public static void fillMatrixRandom(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[i].length;j++){
-                matrix[i][j]=Math.random()*101-51;
-                matrix[i][j]=(double)Math.round(matrix[i][j]*100d)/100d;
+    public static void fillMatrixRandom(double[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = Math.random() * 101 - 51;
+                matrix[i][j] = (double) Math.round(matrix[i][j] * 100d) / 100d;
             }
         }
     }
@@ -35,7 +35,7 @@ public class Matrix10 {
 
             if (numOfLines > 0) {
 
-                double arr[][] = new double[numOfLines][numOfLines];
+                double[][] arr = new double[numOfLines][numOfLines];
                 fillMatrixRandom(arr);
 
                 System.out.println("\nСгенерированная матрица: ");
@@ -52,8 +52,8 @@ public class Matrix10 {
                 System.out.println("Порядок матрицы должен быть полодительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

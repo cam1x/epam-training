@@ -1,6 +1,7 @@
 package by.epam.course.basic.linear;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Представляет длительность времени, указанного в секундах, в часах, минутах и секундах.
@@ -8,13 +9,12 @@ import java.util.*;
  */
 
 public class Linear5 {
+    public static String normalizeTime(int seconds) {
+        int hours = seconds / 3600;
+        int minutes = (seconds - hours * 3600) / 60;
+        int sec = seconds - hours * 3600 - minutes * 60;
 
-    public static String normalizeTime(int seconds){
-        int hours=seconds/3600;
-        int minutes=(seconds-hours*3600)/60;
-        int sec=seconds-hours*3600-minutes*60;
-
-        return hours+"ч "+minutes+"мин "+sec+"с";
+        return hours + "ч " + minutes + "мин " + sec + "с";
     }
 
     public static void main(String[] args) {
@@ -26,8 +26,8 @@ public class Linear5 {
 
             System.out.println(normalizeTime(sec));
 
-        } catch(InputMismatchException ex){
-            System.out.println("Input error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Input error! " + ex.getMessage());
         }
     }
 }

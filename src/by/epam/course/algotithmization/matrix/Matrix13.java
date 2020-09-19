@@ -1,57 +1,57 @@
 package by.epam.course.algotithmization.matrix;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Сортирует столбцы матрицы по возрастанию и убыванию значение элементов
  */
 
 public class Matrix13 {
-
-    public static void printMatrix(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[i].length;j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(double[][] matrix) {
+        for (double[] doubles : matrix) {
+            for (double aDouble : doubles) {
+                System.out.print(aDouble + " ");
             }
             System.out.print("\n");
         }
     }
 
-    public static void fillMatrixRandom(double[][] matrix){
-        for(int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[i].length;j++){
-                matrix[i][j]=Math.random()*101-51;
-                matrix[i][j]=(double)Math.round(matrix[i][j]*100d)/100d;
+    public static void fillMatrixRandom(double[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = Math.random() * 101 - 51;
+                matrix[i][j] = (double) Math.round(matrix[i][j] * 100d) / 100d;
             }
         }
     }
 
-    public static void sortAscending(double[][] matrix){
+    public static void sortAscending(double[][] matrix) {
         double temp;
 
-        for(int i=0;i<matrix[0].length;i++){
-            for(int j=0;j<matrix.length-1;j++){
-                for(int k=0;k<matrix.length-j-1;k++){
-                    if(matrix[k][i]>matrix[k+1][i]){
-                        temp=matrix[k][i];
-                        matrix[k][i]=matrix[k+1][i];
-                        matrix[k+1][i]=temp;
+        for (int i = 0; i < matrix[0].length; i++) {
+            for (int j = 0; j < matrix.length - 1; j++) {
+                for (int k = 0; k < matrix.length - j - 1; k++) {
+                    if (matrix[k][i] > matrix[k + 1][i]) {
+                        temp = matrix[k][i];
+                        matrix[k][i] = matrix[k + 1][i];
+                        matrix[k + 1][i] = temp;
                     }
                 }
             }
         }
     }
 
-    public static void sortDescending(double[][] matrix){
+    public static void sortDescending(double[][] matrix) {
         double temp;
 
-        for(int i=0;i<matrix[0].length;i++){
-            for(int j=0;j<matrix.length-1;j++){
-                for(int k=0;k<matrix.length-j-1;k++){
-                    if(matrix[k][i]>matrix[k+1][i]){
-                        temp=matrix[k][i];
-                        matrix[k][i]=matrix[k+1][i];
-                        matrix[k+1][i]=temp;
+        for (int i = 0; i < matrix[0].length; i++) {
+            for (int j = 0; j < matrix.length - 1; j++) {
+                for (int k = 0; k < matrix.length - j - 1; k++) {
+                    if (matrix[k][i] > matrix[k + 1][i]) {
+                        temp = matrix[k][i];
+                        matrix[k][i] = matrix[k + 1][i];
+                        matrix[k + 1][i] = temp;
                     }
                 }
             }
@@ -66,8 +66,8 @@ public class Matrix13 {
             int numOfLines = in.nextInt();
             int numOfColumn = in.nextInt();
 
-            if(numOfColumn>0 && numOfLines>0) {
-                double arr[][] = new double[numOfLines][numOfColumn];
+            if (numOfColumn > 0 && numOfLines > 0) {
+                double[][] arr = new double[numOfLines][numOfColumn];
 
                 fillMatrixRandom(arr);
                 System.out.println("\nCгенерированная матрица: ");
@@ -81,12 +81,12 @@ public class Matrix13 {
                 System.out.println("\nСтолбцы отсортированы по убыванию: ");
                 printMatrix(arr);
 
-            }else{
+            } else {
                 System.out.println("Размерность матрицы должна быть полоджительна!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

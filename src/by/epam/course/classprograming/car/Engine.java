@@ -9,33 +9,32 @@ package by.epam.course.classprograming.car;
  */
 
 class Engine {
-
-    private double power;
     public boolean isWorking;
+    private double power;
 
-    Engine(){
-        power=50;
+    Engine() {
+        power = 50;
     }
 
-    Engine(double power){
+    Engine(double power) {
         setPower(power);
     }
 
-    void setPower(double power){
-        if(power>0){
-            this.power=power;
-        }
-    }
-
-    double getPower(){
+    double getPower() {
         return power;
     }
 
-    void turnOn(){
-        isWorking=true;
+    void setPower(double power) {
+        if (power > 0) {
+            this.power = power;
+        }
     }
 
-    void turnOff(){
-        isWorking=false;
+    void turnOn() {
+        isWorking = true;
+    }
+
+    void turnOff() {
+        isWorking = false;
     }
 }

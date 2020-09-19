@@ -1,20 +1,20 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Находит все пары близнецов из отрезка [n,2n], где n-натур число >2
  */
 
 public class Decomposition13 {
-
     public static boolean isPrime(final int NUM) {
         boolean prime;
-        if(NUM<=1) prime=false;
+        if (NUM <= 1) prime = false;
         else {
             prime = true;
             int i = 2;
-            while (i*i<=NUM) {
+            while (i * i <= NUM) {
                 if (NUM % i != 0) {
                     i++;
                 } else {
@@ -27,12 +27,12 @@ public class Decomposition13 {
         return prime;
     }
 
-    public static boolean isTwinNumbers(int num1,int num2){
-        return isPrime(num1)&&isPrime(num2)&&Math.abs(num1-num2)==2;
+    public static boolean isTwinNumbers(int num1, int num2) {
+        return isPrime(num1) && isPrime(num2) && Math.abs(num1 - num2) == 2;
     }
 
-    public static void printTwinNumbers(int startNumber,int endNumber){
-        if(startNumber<endNumber) {
+    public static void printTwinNumbers(int startNumber, int endNumber) {
+        if (startNumber < endNumber) {
             for (int i = startNumber; i <= endNumber - 2; i++) {
                 if (isTwinNumbers(i, i + 2)) {
                     System.out.print("{" + i + "," + (i + 2) + "} ");
@@ -54,8 +54,8 @@ public class Decomposition13 {
 
             printTwinNumbers(n, 2 * n);
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

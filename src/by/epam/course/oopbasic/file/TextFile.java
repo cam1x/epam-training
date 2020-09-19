@@ -1,6 +1,7 @@
 package by.epam.course.oopbasic.file;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /*
     Класс для представления текстового файла
@@ -10,33 +11,31 @@ import java.io.*;
  */
 
 public class TextFile extends MyFile {
-
-    public TextFile(){
+    public TextFile() {
         super();
         super.setExpansion("txt");
     }
 
-    public TextFile(String path,String fileName){
-        super(path, fileName,"txt");
-        //super.setExpansion("txt");
+    public TextFile(String path, String fileName) {
+        super(path, fileName, "txt");
     }
 
     @Override
-    public void setExpansion(String expansion){
+    public void setExpansion(String expansion) {
         //Метод ничего не делает
     }
 
     /*
     Добавляет line к файлу, не переписовая его
      */
-    public void addToFile(String line){
+    public void addToFile(String line) {
         try {
             FileWriter writer = new FileWriter(getFile(), true);
-            writer.write("\n"+line);
+            writer.write("\n" + line);
             writer.flush();
             writer.close();
 
-        } catch (IOException ex){
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
@@ -45,25 +44,26 @@ public class TextFile extends MyFile {
     Возвращает содержимое файла
      */
     public String getContent() {
-      StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-      try(BufferedReader br =new BufferedReader(new InputStreamReader(new FileInputStream(toString()),"UTF-8"))) {
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(new FileInputStream(toString()), StandardCharsets.UTF_8))) {
 
-          String currentLine;
+            String currentLine;
 
-          while((currentLine=br.readLine())!=null){
+            while ((currentLine = br.readLine()) != null) {
 
-              sb.append(currentLine);
-              sb.append("\n");
-          }
-      }catch (IOException ex){
-          System.out.println(ex.getMessage());
-      }
+                sb.append(currentLine);
+                sb.append("\n");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
-      return sb.toString();
+        return sb.toString();
     }
 
-    public void printContent(){
+    public void printContent() {
         System.out.println(getContent());
     }
 }

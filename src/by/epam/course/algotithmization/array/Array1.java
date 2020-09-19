@@ -1,42 +1,42 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
    Находит сумму элементов массива, которые кратны введенному числу K
  */
 
 public class Array1 {
-
-    public static int sumOfArr(int[] arr,final int NUM){
+    public static int sumOfArr(int[] arr, final int NUM) {
         int sum = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % NUM == 0) {
-                sum += arr[i];
+        for (int value : arr) {
+            if (value % NUM == 0) {
+                sum += value;
             }
         }
 
         return sum;
     }
 
-    public static void fillArrayRandom(int [] arr){
+    public static void fillArrayRandom(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 101);
         }
     }
 
-    public static int[] createArray(int size){
-        if(size>0){
+    public static int[] createArray(int size) {
+        if (size > 0) {
             return new int[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(int[] arr){
-        for(int el:arr){
-            System.out.print(el+" ");
+    public static void printArray(int[] arr) {
+        for (int el : arr) {
+            System.out.print(el + " ");
         }
     }
 
@@ -62,8 +62,8 @@ public class Array1 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("\nОшибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("\nОшибка ввода! " + ex.getMessage());
         }
     }
 }

@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.counter;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class CounterTest {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
 
@@ -25,59 +25,40 @@ public class CounterTest {
                     choice = scanner.nextInt();
                 }
                 switch (choice) {
-                    case 1: {
-
+                    case 1 -> {
                         System.out.println("Введите значение:");
                         if (scanner.hasNextInt()) {
                             counter.setCounter(scanner.nextInt());
                         }
-                        break;
                     }
-
-                    case 2: {
-
+                    case 2 -> {
                         for (int i = 0; i < 10; i++, counter.increase()) {
                             System.out.print(counter.getCounter() + " ");
                         }
-                        break;
                     }
-
-                    case 3: {
-
+                    case 3 -> {
                         for (int i = 0; i < 10; i++, counter.decrease()) {
                             System.out.print(counter.getCounter() + " ");
                         }
-                        break;
                     }
-
-                    case 4: {
-
+                    case 4 -> {
                         System.out.println("Введите значение:");
                         if (scanner.hasNextInt()) {
                             counter.increase(scanner.nextInt());
                         }
-                        break;
                     }
-
-                    case 5: {
-
+                    case 5 -> {
                         System.out.println("Введите значение:");
                         if (scanner.hasNextInt()) {
                             counter.decrease(scanner.nextInt());
                         }
-                        break;
                     }
-
-                    case 6: {
-
-                        System.out.println(counter.getCounter());
-                        break;
-                    }
+                    case 6 -> System.out.println(counter.getCounter());
                 }
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("\nОшибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("\nОшибка ввода! " + ex.getMessage());
         }
     }
 }

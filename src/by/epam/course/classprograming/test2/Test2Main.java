@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.test2;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Test2Main {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Test2 object = new Test2();
             Scanner scanner = new Scanner(System.in);
@@ -18,8 +18,8 @@ public class Test2Main {
 
             System.out.println("Var1 = " + object.getVar1() + ", var2 = " + object.getVar2());
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

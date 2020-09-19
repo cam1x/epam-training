@@ -1,31 +1,31 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Считает число отрицательных, положительных и нулевых элментов в массиве
  */
 
 public class Array3 {
-
-    public static void fillArrayRandom(double [] arr){
-        for(int i=0;i<arr.length;i++){
-            arr[i]=Math.random()*101-51;
-            arr[i]=(double)Math.round(arr[i]*100d)/100d;
+    public static void fillArrayRandom(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Math.random() * 101 - 51;
+            arr[i] = (double) Math.round(arr[i] * 100d) / 100d;
         }
     }
 
-    public static double[] createArray(int size){
-        if(size>0){
+    public static double[] createArray(int size) {
+        if (size > 0) {
             return new double[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(double[] arr){
-        for(double el:arr){
-            System.out.print(el+" ");
+    public static void printArray(double[] arr) {
+        for (double el : arr) {
+            System.out.print(el + " ");
         }
     }
 
@@ -40,7 +40,7 @@ public class Array3 {
                 int positive = 0;
                 int negative = 0;
                 int zero = 0;
-                double arr[] = createArray(size);
+                double[] arr = createArray(size);
                 fillArrayRandom(arr);
                 System.out.println("\nСгенерированный массив: ");
                 printArray(arr);
@@ -65,8 +65,8 @@ public class Array3 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch(InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

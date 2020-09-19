@@ -10,11 +10,10 @@ package by.epam.course.classprograming.customer;
  */
 
 public class CustomerArray {
-
     private Customer[] arrOfCustomers;
 
-    public CustomerArray(int size){
-        if(size>0) {
+    public CustomerArray(int size) {
+        if (size > 0) {
             arrOfCustomers = new Customer[size];
             for (int i = 0; i < size; i++) {
                 arrOfCustomers[i] = new Customer();
@@ -22,114 +21,111 @@ public class CustomerArray {
         }
     }
 
-    public CustomerArray(Customer[] array){
+    public CustomerArray(Customer[] array) {
         setArrOfCustomers(array);
     }
 
-    public void setArrOfCustomers(Customer[] array){
-        if(array!=null) {
-            arrOfCustomers = new Customer[array.length];
-            for (int i = 0; i < array.length; i++) {
-                arrOfCustomers[i] = array[i];
-            }
-        }
-    }
-
-    public Customer[] getArrOfCustomers(){
+    public Customer[] getArrOfCustomers() {
         return arrOfCustomers;
     }
 
-    public Customer getCustomer(int index){
-        if(index>=0 && index<getSize()){
+    public void setArrOfCustomers(Customer[] array) {
+        if (array != null) {
+            arrOfCustomers = new Customer[array.length];
+            System.arraycopy(array, 0, arrOfCustomers, 0, array.length);
+        }
+    }
+
+    public Customer getCustomer(int index) {
+        if (index >= 0 && index < getSize()) {
             return arrOfCustomers[index];
-        }else{
+        } else {
             throw new IllegalArgumentException("Индекс выходит за пределы массива!");
         }
     }
 
-    public int getSize(){
-        if(arrOfCustomers!=null) {
+    public int getSize() {
+        if (arrOfCustomers != null) {
             return arrOfCustomers.length;
-        } else{
+        } else {
             return 0;
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
-    public void addCustomer(Customer customer){
-        if(customer!=null) {
+    public void addCustomer(Customer customer) {
+        if (customer != null) {
             Customer[] newCustomers = new Customer[getSize() + 1];
-            for (int i = 0; i < getSize(); i++) {
-                newCustomers[i] = arrOfCustomers[i];
-            }
+            if (getSize() >= 0) System.arraycopy(arrOfCustomers, 0, newCustomers, 0, getSize());
 
             newCustomers[getSize()] = customer;
             arrOfCustomers = newCustomers;
         }
     }
 
-    public void deleteCustomer(Customer customer){
-        if(customer==null){
+    public void deleteCustomer(Customer customer) {
+        if (customer == null) {
             throw new IllegalArgumentException("Неверный аргумент (null)!");
         }
 
-        int numOfCustomers=getSize();
+        int numOfCustomers = getSize();
 
-        for(Customer customer1: arrOfCustomers){
-            if(customer1.equals(customer)){
+        for (Customer customer1 : arrOfCustomers) {
+            if (customer1.equals(customer)) {
                 numOfCustomers--;
             }
         }
 
-        if(numOfCustomers<getSize()){
-            Customer[] newCustomers=new Customer[numOfCustomers];
+        if (numOfCustomers < getSize()) {
+            Customer[] newCustomers = new Customer[numOfCustomers];
 
-            for(int i=0,index=0;i<getSize();i++){
-                if(!arrOfCustomers[i].equals(customer)){
-                    newCustomers[index]=arrOfCustomers[i];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (!arrOfCustomers[i].equals(customer)) {
+                    newCustomers[index] = arrOfCustomers[i];
                     index++;
                 }
             }
 
-            arrOfCustomers=newCustomers;
+            arrOfCustomers = newCustomers;
         }
     }
 
-    public void deleteCustomer(int index){
-        if(index>=0 && index<getSize()){
-            Customer[] newCustomers=new Customer[getSize()-1];
-            for(int i=0,j=0;i<getSize();i++){
-                if(i!=index){
-                    newCustomers[j]=arrOfCustomers[i];
+    public void deleteCustomer(int index) {
+        if (index >= 0 && index < getSize()) {
+            Customer[] newCustomers = new Customer[getSize() - 1];
+            for (int i = 0, j = 0; i < getSize(); i++) {
+                if (i != index) {
+                    newCustomers[j] = arrOfCustomers[i];
                     j++;
                 }
             }
 
-            arrOfCustomers=newCustomers;
+            arrOfCustomers = newCustomers;
         }
     }
 
     /*
     Отсортировать покупателей в алфавитном порядке.
      */
-    public void sortAlphabet(){
-        if(arrOfCustomers==null){
+    public void sortAlphabet() {
+        if (arrOfCustomers == null) {
             throw new IllegalArgumentException("Покупатели отсутствуют! (null)");
         }
 
-        String customer1="";
-        String customer2="";
+        StringBuilder customer1 = new StringBuilder();
+        String customer2 = "";
 
-        for(int i=0;i<arrOfCustomers.length-1;i++){
-            for(int j=0;j<arrOfCustomers.length-i-1;j++){
-                customer1+=arrOfCustomers[j].getSurname()+arrOfCustomers[j].getName()+arrOfCustomers[j].getPatronymic();
-                customer2+=arrOfCustomers[j+1].getSurname()+arrOfCustomers[j+1].getName()+arrOfCustomers[j+1].getPatronymic();
-                if(customer1.compareTo(customer2)>0){
+        for (int i = 0; i < arrOfCustomers.length - 1; i++) {
+            for (int j = 0; j < arrOfCustomers.length - i - 1; j++) {
+                customer1.append(arrOfCustomers[j].getSurname()).append(arrOfCustomers[j].getName())
+                        .append(arrOfCustomers[j].getPatronymic());
+                customer2 += arrOfCustomers[j + 1].getSurname() + arrOfCustomers[j + 1].getName() + arrOfCustomers[j + 1].getPatronymic();
+                if (customer1.toString().compareTo(customer2) > 0) {
 
-                    swap(j,j+1);
+                    swap(j, j + 1);
                 }
             }
         }
@@ -139,73 +135,72 @@ public class CustomerArray {
     Получить покупателей по номеру кредитной карты.
     Если таковые отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
-    public CustomerArray getCustombersByCredit(int startOfMerge,int endOfMerge) {
-        if(arrOfCustomers==null){
+    public CustomerArray getCustombersByCredit(int startOfMerge, int endOfMerge) {
+        if (arrOfCustomers == null) {
             throw new IllegalArgumentException("Покупатели отсутствуют! (null)");
         }
 
-        int numOfCustomers=0;
+        int numOfCustomers = 0;
 
-        for(Customer customer: arrOfCustomers){
+        for (Customer customer : arrOfCustomers) {
 
-            if(customer.getCreditCard()>=startOfMerge && customer.getCreditCard()<=endOfMerge){
+            if (customer.getCreditCard() >= startOfMerge && customer.getCreditCard() <= endOfMerge) {
                 numOfCustomers++;
             }
         }
 
-        if(numOfCustomers>0){
+        if (numOfCustomers > 0) {
 
-            Customer[] customers=new Customer[numOfCustomers];
+            Customer[] customers = new Customer[numOfCustomers];
 
-            int index=0;
-            for(Customer customer: arrOfCustomers){
-                if(customer.getCreditCard()>=startOfMerge && customer.getCreditCard()<=endOfMerge){
-                    customers[index]=customer;
+            int index = 0;
+            for (Customer customer : arrOfCustomers) {
+                if (customer.getCreditCard() >= startOfMerge && customer.getCreditCard() <= endOfMerge) {
+                    customers[index] = customer;
                     index++;
                 }
             }
 
             return new CustomerArray(customers);
-        }else{
-            Customer[] zeroCustomers=new Customer[1];
-            zeroCustomers[0]=new Customer();
+        } else {
+            Customer[] zeroCustomers = new Customer[1];
+            zeroCustomers[0] = new Customer();
 
             return new CustomerArray(zeroCustomers);
         }
     }
 
     @Override
-    public String toString(){
-        if(arrOfCustomers!=null) {
-            String res = new String();
+    public String toString() {
+        if (arrOfCustomers != null) {
+            StringBuilder res = new StringBuilder();
             for (Customer customer : arrOfCustomers) {
-                res += customer.toString() + "\n";
+                res.append(customer.toString()).append("\n");
             }
 
-            return res;
-
-        } else{
+            return res.toString();
+        } else {
             return "Покупатели отсутствуют!";
         }
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        CustomerArray other=(CustomerArray) obj;
+        CustomerArray other = (CustomerArray) obj;
 
-        boolean isEqual=other.getSize()==getSize();
+        boolean isEqual = other.getSize() == getSize();
 
-        for(int i=0;isEqual && i<getSize();i++){
-            if(!arrOfCustomers[i].equals(other.getArrOfCustomers()[i])){
-                isEqual=false;
+        for (int i = 0; isEqual && i < getSize(); i++) {
+            if (!arrOfCustomers[i].equals(other.getArrOfCustomers()[i])) {
+                isEqual = false;
             }
         }
 
@@ -213,20 +208,20 @@ public class CustomerArray {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(int i=0;i<getSize();i++){
-            result=result*prime +arrOfCustomers[i].hashCode();
+        for (int i = 0; i < getSize(); i++) {
+            result = result * prime + arrOfCustomers[i].hashCode();
         }
 
         return result;
     }
 
     //Меняет местами два элемента массива покупателей
-    private void swap(int index1,int index2){
-        if(index1>=0 && index1<arrOfCustomers.length && index2>=0 && index2< arrOfCustomers.length) {
+    private void swap(int index1, int index2) {
+        if (index1 >= 0 && index1 < arrOfCustomers.length && index2 >= 0 && index2 < arrOfCustomers.length) {
             Customer time = arrOfCustomers[index1];
             arrOfCustomers[index1] = arrOfCustomers[index2];
             arrOfCustomers[index2] = time;

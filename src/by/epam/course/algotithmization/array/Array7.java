@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Для последовательности находит:
@@ -8,35 +9,34 @@ import java.util.*;
  */
 
 public class Array7 {
-
-    public static void fillArrayRandom(double [] arr){
-        for(int i=0;i<arr.length;i++){
-            arr[i]=Math.random()*101-51;
-            arr[i]=(double)Math.round(arr[i]*100d)/100d;
+    public static void fillArrayRandom(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Math.random() * 101 - 51;
+            arr[i] = (double) Math.round(arr[i] * 100d) / 100d;
         }
     }
 
-    public static double[] createArray(int size){
-        if(size>0){
+    public static double[] createArray(int size) {
+        if (size > 0) {
             return new double[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(double[] arr){
-        for(double el:arr){
-            System.out.print(el+" ");
+    public static void printArray(double[] arr) {
+        for (double el : arr) {
+            System.out.print(el + " ");
         }
     }
 
-    public static double getSpecialMax(double[] arr){
-        double max=arr[0]+arr[arr.length-1];
+    public static double getSpecialMax(double[] arr) {
+        double max = arr[0] + arr[arr.length - 1];
         double temp;
 
-        for(int i=0;i<arr.length/2;i++) {
-            temp=arr[i]+arr[arr.length-1-i];
-            if(temp>max) {
+        for (int i = 0; i < arr.length / 2; i++) {
+            temp = arr[i] + arr[arr.length - 1 - i];
+            if (temp > max) {
                 max = temp;
             }
         }
@@ -52,7 +52,7 @@ public class Array7 {
             int size = in.nextInt();
 
             try {
-                double arr[] = createArray(size);
+                double[] arr = createArray(size);
 
                 fillArrayRandom(arr);
 
@@ -66,8 +66,8 @@ public class Array7 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

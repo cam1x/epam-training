@@ -1,19 +1,17 @@
 package by.epam.course.basic.branch;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Для чисел a,b,c,d находит max( min(a,b), min(c,d) )
  */
 
 public class Branch2 {
-
-    public static double getMaxOfMins(double a,double b,double c,double d){
-        double minAB=(a<b)?a:b;
-
-        double minCD=(c<d)?c:d;
-
-        return (minAB>minCD)?minAB:minCD;
+    public static double getMaxOfMins(double a, double b, double c, double d) {
+        double minAB = Math.min(a, b);
+        double minCD = Math.min(c, d);
+        return Math.max(minAB, minCD);
     }
 
     public static void main(String[] args) {
@@ -34,8 +32,8 @@ public class Branch2 {
 
             System.out.println("max(min(a,b),min(c,d))=" + getMaxOfMins(a, b, c, d));
 
-        } catch(InputMismatchException ex){
-            System.out.println("Input error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Input error! " + ex.getMessage());
         }
     }
 }

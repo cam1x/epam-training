@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.test1;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Test1Main {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Test1 object = new Test1();
             Scanner scanner = new Scanner(System.in);
@@ -20,8 +20,8 @@ public class Test1Main {
             System.out.println("\nCумма = " + object.sumVars());
             System.out.println("\nMax = " + object.returnMax());
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
 
     }

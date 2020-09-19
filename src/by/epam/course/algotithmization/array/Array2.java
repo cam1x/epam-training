@@ -1,6 +1,7 @@
 package by.epam.course.algotithmization.array;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Заменяет все члены последовательности, которые больше данного Z, этим числом.
@@ -8,11 +9,10 @@ import java.util.*;
  */
 
 public class Array2 {
-
-    public static int changeArr(double[] arr,final double NUM){
-        int changes=0;
+    public static int changeArr(double[] arr, final double NUM) {
+        int changes = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >NUM) {
+            if (arr[i] > NUM) {
                 arr[i] = NUM;
                 changes++;
             }
@@ -21,24 +21,24 @@ public class Array2 {
         return changes;
     }
 
-    public static void fillArrayRandom(double [] arr){
-        for(int i=0;i<arr.length;i++){
-            arr[i]=Math.random()*101-51;
-            arr[i]=(double)Math.round(arr[i]*100d)/100d;
+    public static void fillArrayRandom(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Math.random() * 101 - 51;
+            arr[i] = (double) Math.round(arr[i] * 100d) / 100d;
         }
     }
 
-    public static double[] createArray(int size){
-        if(size>0){
+    public static double[] createArray(int size) {
+        if (size > 0) {
             return new double[size];
-        }else{
+        } else {
             throw new IllegalArgumentException("Размер массива не может быть отрицательным!");
         }
     }
 
-    public static void printArray(double[] arr){
-        for(double el:arr){
-            System.out.print(el+" ");
+    public static void printArray(double[] arr) {
+        for (double el : arr) {
+            System.out.print(el + " ");
         }
     }
 
@@ -52,7 +52,7 @@ public class Array2 {
             double num = in.nextDouble();
 
             try {
-                double arr[] = createArray(size);
+                double[] arr = createArray(size);
 
                 fillArrayRandom(arr);
                 System.out.println("\nСгенирированная последовательность:");
@@ -69,8 +69,8 @@ public class Array2 {
                 System.out.println(exception.getMessage());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

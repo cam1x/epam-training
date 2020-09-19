@@ -9,11 +9,10 @@ package by.epam.course.classprograming.student;
  */
 
 public class StudentArray {
-
     private Student[] arrayOfStudents;
 
-    public StudentArray(int size){
-        if(size>0) {
+    public StudentArray(int size) {
+        if (size > 0) {
             arrayOfStudents = new Student[size];
             for (int i = 0; i < size; i++) {
                 arrayOfStudents[i] = new Student();
@@ -21,49 +20,47 @@ public class StudentArray {
         }
     }
 
-    public StudentArray(Student[] arr){
+    public StudentArray(Student[] arr) {
         setArrayOfStudents(arr);
     }
 
-    public void setArrayOfStudents(Student[] arr){
-        if(arr!=null) {
-            arrayOfStudents = new Student[arr.length];
-            for (int i = 0; i < arr.length; i++) {
-                arrayOfStudents[i] = arr[i];
-            }
-        }
-    }
-
-    public Student getStudent(int index){
-        if(index>=0 && index<getSize()){
+    public Student getStudent(int index) {
+        if (index >= 0 && index < getSize()) {
             return arrayOfStudents[index];
-        }else{
+        } else {
             throw new IllegalArgumentException("Переданный индекс выходит за пределы массива!");
         }
     }
 
-    public Student[] getArrayOfStudents(){
+    public Student[] getArrayOfStudents() {
         return arrayOfStudents;
     }
 
-    public int getSize(){
-        if(arrayOfStudents!=null) {
+    public void setArrayOfStudents(Student[] arr) {
+        if (arr != null) {
+            arrayOfStudents = new Student[arr.length];
+            System.arraycopy(arr, 0, arrayOfStudents, 0, arr.length);
+        }
+    }
+
+    public int getSize() {
+        if (arrayOfStudents != null) {
             return arrayOfStudents.length;
-        }else{
+        } else {
             return 0;
         }
     }
 
     //Возвращает число отличников в массиве студентов
-    public int getNumOfHonorPupils(){
-        if(arrayOfStudents==null){
+    public int getNumOfHonorPupils() {
+        if (arrayOfStudents == null) {
             throw new IllegalArgumentException("Студенты отсутствуют! (null)");
         }
 
-        int numOfHonor=0;
+        int numOfHonor = 0;
 
-        for(Student student:arrayOfStudents){
-            if(student.isHonorPupil()){
+        for (Student student : arrayOfStudents) {
+            if (student.isHonorPupil()) {
                 numOfHonor++;
             }
         }
@@ -75,114 +72,112 @@ public class StudentArray {
     Возвращает отличников.
     Если таковые отсутствуют, то возвращается массив, состоящий из одного элемента, в котором значения всех полей установлены по умолчанию.
      */
-    public StudentArray getHonorPupil(){
-        int numOfHonor=getNumOfHonorPupils();
+    public StudentArray getHonorPupil() {
+        int numOfHonor = getNumOfHonorPupils();
 
-        if(numOfHonor>0){
-            Student[] arrayOfHonor=new Student[numOfHonor];
+        if (numOfHonor > 0) {
+            Student[] arrayOfHonor = new Student[numOfHonor];
 
-            for(int i=0,index=0;i<arrayOfStudents.length;i++){
-                if(arrayOfStudents[i].isHonorPupil()){
-                    arrayOfHonor[index]=arrayOfStudents[i];
+            for (int i = 0, index = 0; i < arrayOfStudents.length; i++) {
+                if (arrayOfStudents[i].isHonorPupil()) {
+                    arrayOfHonor[index] = arrayOfStudents[i];
                     index++;
                 }
             }
             return new StudentArray(arrayOfHonor);
 
-        }else{
-            Student[] zeroHonor=new Student[1];
-            zeroHonor[0]=new Student();
+        } else {
+            Student[] zeroHonor = new Student[1];
+            zeroHonor[0] = new Student();
 
             return new StudentArray(zeroHonor);
         }
     }
 
-    public void addStudent(Student student){
-        if(student!=null) {
+    public void addStudent(Student student) {
+        if (student != null) {
             Student[] newStudents = new Student[getSize() + 1];
 
-            for (int i = 0; i < getSize(); i++) {
-                newStudents[i] = arrayOfStudents[i];
-            }
+            if (getSize() >= 0) System.arraycopy(arrayOfStudents, 0, newStudents, 0, getSize());
 
             newStudents[getSize()] = student;
             arrayOfStudents = newStudents;
         }
     }
 
-    public void deleteStudent(Student student){
-        if(student==null){
+    public void deleteStudent(Student student) {
+        if (student == null) {
             throw new IllegalArgumentException("Неверный аргумента (null)!");
         }
 
-        int numOfStudents=getSize();
+        int numOfStudents = getSize();
 
-        for(Student student1: arrayOfStudents){
-            if(student1.equals(student)){
+        for (Student student1 : arrayOfStudents) {
+            if (student1.equals(student)) {
                 numOfStudents--;
             }
         }
 
-        if(numOfStudents<getSize()){
-            Student[] newStudents=new Student[numOfStudents];
-            for(int i=0,index=0;i<getSize();i++){
-                if(!arrayOfStudents[i].equals(student)){
-                    newStudents[index]=arrayOfStudents[i];
+        if (numOfStudents < getSize()) {
+            Student[] newStudents = new Student[numOfStudents];
+            for (int i = 0, index = 0; i < getSize(); i++) {
+                if (!arrayOfStudents[i].equals(student)) {
+                    newStudents[index] = arrayOfStudents[i];
                     index++;
                 }
             }
-            arrayOfStudents=newStudents;
+            arrayOfStudents = newStudents;
         }
     }
 
-    public void deleteStudent(int index){
-        if(index>=0 && index<getSize()){
-            Student[] newStudents=new Student[getSize()-1];
-            for(int i=0,j=0;i<getSize();i++){
-                if(i!=index){
-                    newStudents[j]=arrayOfStudents[i];
+    public void deleteStudent(int index) {
+        if (index >= 0 && index < getSize()) {
+            Student[] newStudents = new Student[getSize() - 1];
+            for (int i = 0, j = 0; i < getSize(); i++) {
+                if (i != index) {
+                    newStudents[j] = arrayOfStudents[i];
                     j++;
                 }
             }
-            arrayOfStudents=newStudents;
+            arrayOfStudents = newStudents;
         }
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 
     @Override
-    public String toString(){
-        if(arrayOfStudents!=null) {
-            String string = new String();
+    public String toString() {
+        if (arrayOfStudents != null) {
+            StringBuilder string = new StringBuilder();
             for (Student student : arrayOfStudents) {
-                string += student.toString() + "\n";
+                string.append(student.toString()).append("\n");
             }
-            return string;
+            return string.toString();
 
-        }else{
+        } else {
             return "Студенты отсутствуют!";
         }
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj == this){
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
 
-        if(obj==null || obj.getClass() != this.getClass()){
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
-        StudentArray other=(StudentArray) obj;
+        StudentArray other = (StudentArray) obj;
 
-        boolean isEqual=other.getSize()==getSize();
+        boolean isEqual = other.getSize() == getSize();
 
-        for(int i=0;isEqual && i<getSize();i++){
-            if(!arrayOfStudents[i].equals(other.arrayOfStudents[i])){
-                isEqual=false;
+        for (int i = 0; isEqual && i < getSize(); i++) {
+            if (!arrayOfStudents[i].equals(other.arrayOfStudents[i])) {
+                isEqual = false;
             }
         }
 
@@ -190,12 +185,12 @@ public class StudentArray {
     }
 
     @Override
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
 
-        for(int i=0;i<getSize();i++){
-            result=result*prime +arrayOfStudents[i].hashCode();
+        for (int i = 0; i < getSize(); i++) {
+            result = result * prime + arrayOfStudents[i].hashCode();
         }
 
         return result;

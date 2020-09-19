@@ -1,9 +1,8 @@
 package by.epam.course.oopbasic.file;
 
 public class FileTest {
-
-    public static void main(String[] args){
-        TextFile file=new TextFile();
+    public static void main(String[] args) {
+        TextFile file = new TextFile();
 
         file.setDirectory("F:\\Проекты");
         file.setFileName("new file");
@@ -14,12 +13,12 @@ public class FileTest {
 
         file.printContent();
 
-        System.out.println("File directory + file name  "+ file);
+        System.out.println("File directory + file name  " + file);
 
         file.rename("renamed");
 
         System.out.println("\nAfter renaming:");
-        System.out.println("File directory + file name  "+ file);
+        System.out.println("File directory + file name  " + file);
 
         file.delete();
     }

@@ -1,6 +1,7 @@
 package by.epam.course.basic.linear;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
 Вычисляет выражения по формуле:
@@ -8,16 +9,15 @@ import java.util.*;
  */
 
 public class Linear2 {
+    public static double calculate(double a, double b, double c) {
+        double time = b * b + 4 * a * c;
 
-    public static double calculate(double a,double b,double c){
-        double time=b*b+4*a*c;
-
-        if(time>=0 && a!=0 && b!=0){
-            return (b + Math.sqrt(time)) / (2 * a) - Math.pow(a, 3) * c + Math.pow(b,-2);
-        }else{
-            if(time<0){
+        if (time >= 0 && a != 0 && b != 0) {
+            return (b + Math.sqrt(time)) / (2 * a) - Math.pow(a, 3) * c + Math.pow(b, -2);
+        } else {
+            if (time < 0) {
                 throw new IllegalArgumentException("Discriminant less than zero");
-            }else{
+            } else {
                 throw new IllegalArgumentException("Division by zero!");
             }
         }
@@ -37,12 +37,12 @@ public class Linear2 {
 
             try {
                 System.out.println("Result is: " + calculate(a, b, c));
-            } catch(IllegalArgumentException exception){
+            } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
             }
 
-        } catch(InputMismatchException ex){
-            System.out.println("\nInput error! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("\nInput error! " + ex.getMessage());
         }
     }
 }

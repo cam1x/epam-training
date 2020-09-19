@@ -1,15 +1,16 @@
 package by.epam.course.classprograming.vouncher;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class AgencyTest {
-
-    public static void input(TravelAgency offers){
+    public static void input(TravelAgency offers) {
         try {
             Scanner scanner = new Scanner(System.in);
             TravelVouncher vouncher;
 
-            System.out.println("\nВведите коды из информационное бюллютени для типа, еды и транспорта в указанном порядке, а также кол-во дней и цену");
+            System.out.println("\nВведите коды из информационное бюллютени для типа, " +
+                    "еды и транспорта в указанном порядке, а также кол-во дней и цену");
             for (int i = 0; i < offers.getNumOfVounchers(); i++) {
                 vouncher = offers.getVouncher(i);
 
@@ -20,8 +21,8 @@ public class AgencyTest {
                 vouncher.setCost(scanner.nextDouble());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 
@@ -51,68 +52,43 @@ public class AgencyTest {
                 choice = scanner.nextInt();
 
                 switch (choice) {
-                    case 1: {
-                        System.out.println("\nВведите коды из информационное бюллютени для типа, еды и транспорта в указанном порядке, а также кол-во дней и цену");
+                    case 1 -> {
+                        System.out.println("\nВведите коды из информационное бюллютени для типа, " +
+                                "еды и транспорта в указанном порядке, а также кол-во дней и цену");
                         agency.addVouncher(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextDouble());
-                        break;
                     }
-
-                    case 2: {
+                    case 2 -> {
                         System.out.println("\nВведите 1 для удаления путевок дороже указанной цены");
                         System.out.println("Введиет 2 для удаления путевки по ее порядковому номеру");
                         extraChoice = scanner.nextInt();
 
                         switch (extraChoice) {
-                            case 1: {
+                            case 1 -> {
                                 System.out.println("\nВведите цену");
                                 agency.deleteVouncher(scanner.nextDouble());
-                                break;
                             }
-
-                            case 2: {
+                            case 2 -> {
                                 System.out.println("\nВведите номер путевки");
                                 agency.deleteVouncher(scanner.nextInt() - 1);
-                                break;
                             }
                         }
-                        break;
                     }
-
-                    case 3: {
+                    case 3 -> {
                         System.out.println("\nВведите номер путевки для выбора");
                         agency.selectVouncher(scanner.nextInt() - 1);
-                        break;
                     }
-
-                    case 4: {
+                    case 4 -> {
                         System.out.println("\nВведите номер путевки");
                         agency.getVouncher(scanner.nextInt() - 1).print();
-                        break;
                     }
-
-                    case 5: {
-                        agency.sortByPrice();
-                        break;
-                    }
-
-                    case 6: {
-                        agency.sortByType();
-                        break;
-                    }
-
-                    case 7:{
-                        agency.printSelected();
-                        break;
-                    }
-
-                    case 8: {
-                        agency.print();
-                        break;
-                    }
+                    case 5 -> agency.sortByPrice();
+                    case 6 -> agency.sortByType();
+                    case 7 -> agency.printSelected();
+                    case 8 -> agency.print();
                 }
             }
 
-        }catch (InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             System.out.println(ex.getMessage());
         }
     }

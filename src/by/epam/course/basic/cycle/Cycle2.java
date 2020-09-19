@@ -1,6 +1,7 @@
 package by.epam.course.basic.cycle;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
 Вычисляет значение функции на отрезке [a,b] c шагом h:
@@ -9,22 +10,20 @@ import java.util.*;
  */
 
 public class Cycle2 {
-
-    public static void calculate(double a,double b,double h){
-        double x=a;
+    public static void calculate(double a, double b, double h) {
+        double x = a;
         double y;
 
-        System.out.println(String.format("%7s %7s","x","y"));
-        while(x<=b) {
-            if(x>2) {
+        System.out.println(String.format("%7s %7s", "x", "y"));
+        while (x <= b) {
+            if (x > 2) {
                 y = x;
-            }
-            else {
+            } else {
                 y = -x;
             }
 
-            System.out.println(String.format("%7s %7s",Double.toString(x),Double.toString(y)));
-            x+=h;
+            System.out.println(String.format("%7s %7s", Double.toString(x), Double.toString(y)));
+            x += h;
         }
     }
 
@@ -41,8 +40,8 @@ public class Cycle2 {
 
             calculate(a, b, h);
 
-        }catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

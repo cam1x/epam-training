@@ -1,10 +1,10 @@
 package by.epam.course.classprograming.train;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class TrainTest {
-
-    public static void input(TrainArray trainArray){
+    public static void input(TrainArray trainArray) {
         try {
             Scanner scanner = new Scanner(System.in);
             Train train;
@@ -19,12 +19,12 @@ public class TrainTest {
                 train.setTimeOfAppointment(scanner.next().trim());
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите число поездов");
@@ -52,8 +52,8 @@ public class TrainTest {
                 System.out.println("Число поездов должно быть положительным!");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }

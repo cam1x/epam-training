@@ -1,29 +1,28 @@
 package by.epam.course.algotithmization.decomposition;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /*
     Проверяет являются ли три числа взимно простыми в совокупности
  */
 
 public class Decomposition6 {
-
-    public static boolean isMutuallySimple(int num1,int num2,int num3){
-        return greatestCommonDevision(num1,num2,num3)==1;
+    public static boolean isMutuallySimple(int num1, int num2, int num3) {
+        return greatestCommonDevision(num1, num2, num3) == 1;
     }
 
     public static int greatestCommonDevision(int firstNum, int secondNum) {
-        if(secondNum==0) {
+        if (secondNum == 0) {
             return Math.abs(firstNum);
-        }
-        else {
-            return greatestCommonDevision(secondNum,firstNum%secondNum);
+        } else {
+            return greatestCommonDevision(secondNum, firstNum % secondNum);
         }
     }
 
-    public static int greatestCommonDevision(int firstNum, int secondNum,int thirdNum) {
-        int gcd=greatestCommonDevision(firstNum, secondNum);
-        gcd=greatestCommonDevision(gcd,thirdNum);
+    public static int greatestCommonDevision(int firstNum, int secondNum, int thirdNum) {
+        int gcd = greatestCommonDevision(firstNum, secondNum);
+        gcd = greatestCommonDevision(gcd, thirdNum);
         return gcd;
     }
 
@@ -41,8 +40,8 @@ public class Decomposition6 {
                 System.out.println("Числа " + num1 + "," + num2 + "," + num3 + " НЕ являются взаимно простыми.");
             }
 
-        } catch (InputMismatchException ex){
-            System.out.println("Ошибка ввода! "+ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("Ошибка ввода! " + ex.getMessage());
         }
     }
 }
